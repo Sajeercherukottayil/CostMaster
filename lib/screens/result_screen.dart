@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../models/question.dart';
+import '../utils/time_format.dart';
 
 class ResultScreen extends StatelessWidget {
   final String title;
   final List<Question> questions;
   final Map<int, int> answers;
   final Duration timeTaken;
+  final List<int> secondsSpent;
 
   const ResultScreen({
     super.key,
@@ -14,6 +16,7 @@ class ResultScreen extends StatelessWidget {
     required this.questions,
     required this.answers,
     required this.timeTaken,
+    required this.secondsSpent,
   });
 
   @override
@@ -29,6 +32,7 @@ class ResultScreen extends StatelessWidget {
     final skipped = total - answers.length;
     final percent = total == 0 ? 0 : (correct * 100 / total).round();
     final passed = percent >= 50;
+    final avgSeconds = total == 0 ? 0 : (timeTaken.inSeconds / total).round();
 
     return Scaffold(
       appBar: AppBar(title: const Text('Result')),
@@ -49,7 +53,8 @@ class ResultScreen extends StatelessWidget {
                   Text('$percent%  •  ${passed ? 'Well done!' : 'Keep practising'}'),
                   const SizedBox(height: 4),
                   Text(
-                    'Time taken: ${timeTaken.inMinutes}m ${timeTaken.inSeconds % 60}s',
+                    'Time taken: ${timeTaken.inMinutes}m ${timeTaken.inSeconds % 60}s'
+                    '  •  Avg ${formatSeconds(avgSeconds)} per question',
                     style: theme.textTheme.bodySmall,
                   ),
                 ],
@@ -68,7 +73,12 @@ class ResultScreen extends StatelessWidget {
           Text('Answer Review', style: theme.textTheme.titleMedium),
           const SizedBox(height: 8),
           for (var i = 0; i < total; i++)
-            _ReviewCard(index: i, question: questions[i], chosen: answers[i]),
+            _ReviewCard(
+              index: i,
+              question: questions[i],
+              chosen: answers[i],
+              seconds: secondsSpent[i],
+            ),
           const SizedBox(height: 8),
           FilledButton.icon(
             onPressed: () => Navigator.of(context).pop(),
@@ -114,11 +124,13 @@ class _ReviewCard extends StatelessWidget {
   final int index;
   final Question question;
   final int? chosen;
+  final int seconds;
 
   const _ReviewCard({
     required this.index,
     required this.question,
     required this.chosen,
+    required this.seconds,
   });
 
   @override
@@ -138,6 +150,8 @@ class _ReviewCard extends StatelessWidget {
         leading: Icon(icon, color: color),
         title: Text('Q${index + 1}. ${question.text}',
             maxLines: 2, overflow: TextOverflow.ellipsis),
+        subtitle: Text('Time spent: ${formatSeconds(seconds)}',
+            style: theme.textTheme.bodySmall),
         childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
         expandedCrossAxisAlignment: CrossAxisAlignment.start,
         children: [

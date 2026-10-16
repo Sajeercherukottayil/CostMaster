@@ -2,7 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../models/profile.dart';
 import '../models/question.dart';
+import '../state/app_state.dart';
+import '../utils/time_format.dart';
 import 'result_screen.dart';
 
 class MockTestScreen extends StatefulWidget {
@@ -26,12 +29,15 @@ class _MockTestScreenState extends State<MockTestScreen> {
   final Set<int> _marked = {};
   int _current = 0;
   late Duration _remaining = widget.duration;
+  late final List<int> _secondsSpent =
+      List.filled(widget.questions.length, 0);
   Timer? _timer;
 
   @override
   void initState() {
     super.initState();
     _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+      _secondsSpent[_current]++;
       if (_remaining.inSeconds <= 1) {
         _submit();
       } else {
@@ -48,13 +54,26 @@ class _MockTestScreenState extends State<MockTestScreen> {
 
   void _submit() {
     _timer?.cancel();
+    final timeTaken = widget.duration - _remaining;
+    var correct = 0;
+    for (var i = 0; i < widget.questions.length; i++) {
+      if (_answers[i] == widget.questions[i].answerIndex) correct++;
+    }
+    AppScope.read(context).addAttempt(TestAttempt(
+      title: widget.title,
+      correct: correct,
+      total: widget.questions.length,
+      seconds: timeTaken.inSeconds,
+      date: DateTime.now(),
+    ));
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (_) => ResultScreen(
           title: widget.title,
           questions: widget.questions,
           answers: _answers,
-          timeTaken: widget.duration - _remaining,
+          timeTaken: timeTaken,
+          secondsSpent: _secondsSpent,
         ),
       ),
     );
@@ -143,11 +162,7 @@ class _MockTestScreenState extends State<MockTestScreen> {
     );
   }
 
-  String get _timeText {
-    final m = _remaining.inMinutes.toString().padLeft(2, '0');
-    final s = (_remaining.inSeconds % 60).toString().padLeft(2, '0');
-    return '$m:$s';
-  }
+  String get _timeText => formatSeconds(_remaining.inSeconds);
 
   @override
   Widget build(BuildContext context) {
@@ -198,6 +213,17 @@ class _MockTestScreenState extends State<MockTestScreen> {
                     children: [
                       Text('Question ${_current + 1} of $total',
                           style: theme.textTheme.labelLarge),
+                      const SizedBox(width: 12),
+                      Icon(Icons.hourglass_bottom,
+                          size: 16, color: scheme.outline),
+                      const SizedBox(width: 2),
+                      Text(
+                        formatSeconds(_secondsSpent[_current]),
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          color: scheme.outline,
+                          fontFeatures: const [FontFeature.tabularFigures()],
+                        ),
+                      ),
                       const Spacer(),
                       TextButton.icon(
                         onPressed: () => setState(() => _marked.contains(_current)

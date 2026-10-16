@@ -1,9 +1,23 @@
+const foundation = 'Foundation';
+const intermediate = 'Intermediate';
+const levels = [foundation, intermediate];
+
 class Subject {
   final String id;
   final String name;
   final String level;
+  final int paper;
 
-  const Subject({required this.id, required this.name, required this.level});
+  /// Intermediate group (1 or 2); null for Foundation.
+  final int? group;
+
+  const Subject({
+    required this.id,
+    required this.name,
+    required this.level,
+    required this.paper,
+    this.group,
+  });
 }
 
 class Question {

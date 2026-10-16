@@ -1,29 +1,44 @@
 import 'package:flutter/material.dart';
 
-import 'screens/home_screen.dart';
+import 'screens/profile_form_screen.dart';
+import 'screens/root_screen.dart';
+import 'state/app_state.dart';
+import 'theme.dart';
 
-void main() {
-  runApp(const CostMasterApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final state = await AppState.load();
+  runApp(CostMasterApp(state: state));
 }
 
 class CostMasterApp extends StatelessWidget {
-  const CostMasterApp({super.key});
+  final AppState state;
+
+  const CostMasterApp({super.key, required this.state});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'CostMaster',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1B5E8C)),
+    return AppScope(
+      state: state,
+      child: MaterialApp(
+        title: 'CostMaster',
+        debugShowCheckedModeBanner: false,
+        theme: buildTheme(Brightness.light),
+        darkTheme: buildTheme(Brightness.dark),
+        home: const _Gate(),
       ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF1B5E8C),
-          brightness: Brightness.dark,
-        ),
-      ),
-      home: const HomeScreen(),
     );
+  }
+}
+
+/// Shows onboarding until the student has created a profile.
+class _Gate extends StatelessWidget {
+  const _Gate();
+
+  @override
+  Widget build(BuildContext context) {
+    return AppScope.of(context).profile == null
+        ? const ProfileFormScreen()
+        : const RootScreen();
   }
 }

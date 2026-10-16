@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 
-import '../data/question_bank.dart';
+import '../models/question.dart';
 import 'mock_test_screen.dart';
 
 class MockTestSetupScreen extends StatefulWidget {
-  final String? subjectId;
   final String title;
+  final List<Question> questions;
 
-  const MockTestSetupScreen({super.key, this.subjectId, required this.title});
+  const MockTestSetupScreen({
+    super.key,
+    required this.title,
+    required this.questions,
+  });
 
   @override
   State<MockTestSetupScreen> createState() => _MockTestSetupScreenState();
 }
 
 class _MockTestSetupScreenState extends State<MockTestSetupScreen> {
-  late final int _available = questionsFor(widget.subjectId).length;
+  late final int _available = widget.questions.length;
   late int _count = _available < 10 ? _available : 10;
   int _minutesPerQuestion = 1;
 
@@ -88,7 +92,7 @@ class _MockTestSetupScreenState extends State<MockTestSetupScreen> {
   }
 
   void _start() {
-    final questions = [...questionsFor(widget.subjectId)]..shuffle();
+    final questions = [...widget.questions]..shuffle();
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (_) => MockTestScreen(
