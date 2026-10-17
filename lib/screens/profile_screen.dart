@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../data/question_bank.dart';
 import '../services/auth_service.dart';
+import '../services/premium_service.dart';
 import '../state/app_state.dart';
 import '../theme.dart';
 import '../widgets/ui.dart';
+import 'premium_screen.dart';
 import 'profile_form_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -16,6 +18,7 @@ class ProfileScreen extends StatelessWidget {
     final auth = AuthScope.of(context);
     final profile = state.profile!;
     final theme = Theme.of(context);
+    final premium = PremiumScope.of(context).isActive;
     final papers = subjectsFor(profile).map((s) => s.paper).toSet().toList()
       ..sort();
     void edit() => Navigator.of(context).push(
@@ -111,6 +114,22 @@ class ProfileScreen extends StatelessWidget {
                 Card(
                   child: Column(
                     children: [
+                      _Row(
+                        icon: Icons.workspace_premium_rounded,
+                        label: 'Premium',
+                        value: premium
+                            ? 'Active · lifetime access to all mock tests'
+                            : 'Unlock all mock tests',
+                        stacked: true,
+                        onTap: premium
+                            ? null
+                            : () => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (_) => const PremiumScreen(),
+                                  ),
+                                ),
+                      ),
+                      const Divider(indent: 68),
                       _Row(
                         icon: Icons.logout_rounded,
                         label: 'Log out',

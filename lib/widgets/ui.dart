@@ -207,6 +207,9 @@ class BigActionButton extends StatelessWidget {
   final Color color;
   final VoidCallback onPressed;
 
+  /// Shows a Premium lock in place of the arrow.
+  final bool locked;
+
   const BigActionButton({
     super.key,
     required this.icon,
@@ -214,6 +217,7 @@ class BigActionButton extends StatelessWidget {
     required this.onPressed,
     this.caption,
     this.color = AppColors.cta,
+    this.locked = false,
   });
 
   @override
@@ -264,11 +268,38 @@ class BigActionButton extends StatelessWidget {
                   ],
                 ),
               ),
-              const Icon(
-                Icons.chevron_right_rounded,
-                color: Colors.white,
-                size: 30,
-              ),
+              if (locked)
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 5,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.ink.withValues(alpha: 0.25),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.lock_rounded, color: Colors.white, size: 14),
+                      SizedBox(width: 4),
+                      Text(
+                        'PREMIUM',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              else
+                const Icon(
+                  Icons.chevron_right_rounded,
+                  color: Colors.white,
+                  size: 30,
+                ),
             ],
           ),
         ),

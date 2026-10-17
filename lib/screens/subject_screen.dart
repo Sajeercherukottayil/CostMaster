@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../data/question_bank.dart';
 import '../models/question.dart';
+import '../services/premium_service.dart';
 import '../state/app_state.dart';
 import '../theme.dart';
 import '../widgets/ui.dart';
 import 'chapter_screen.dart';
 import 'mock_test_setup_screen.dart';
+import 'premium_screen.dart';
 
 /// A paper's chapters, plus a full-paper test.
 class SubjectScreen extends StatelessWidget {
@@ -87,12 +89,12 @@ class SubjectScreen extends StatelessWidget {
                   icon: Icons.assignment_rounded,
                   label: 'Full Paper Test',
                   caption: 'Questions from every chapter',
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => MockTestSetupScreen(
-                        title: subject.name,
-                        questions: all,
-                      ),
+                  locked: !PremiumScope.of(context).isActive,
+                  onPressed: () => openWithPremium(
+                    context,
+                    (_) => MockTestSetupScreen(
+                      title: subject.name,
+                      questions: all,
                     ),
                   ),
                 ),

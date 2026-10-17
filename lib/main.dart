@@ -10,6 +10,7 @@ import 'screens/auth_screen.dart';
 import 'screens/onboarding_screen.dart';
 import 'screens/root_screen.dart';
 import 'services/auth_service.dart';
+import 'services/premium_service.dart';
 import 'state/app_state.dart';
 import 'theme.dart';
 
@@ -71,7 +72,11 @@ class _StartupState extends State<_Startup> {
       final state = await AppState.load();
       if (!mounted) return;
       setState(() {
-        _app = CostMasterApp(state: state, auth: FirebaseAuthService());
+        _app = CostMasterApp(
+          state: state,
+          auth: FirebaseAuthService(),
+          premium: FirebasePremiumService(),
+        );
       });
     } catch (e) {
       if (mounted) setState(() => _error = e);
@@ -91,23 +96,49 @@ class _StartupState extends State<_Startup> {
   }
 }
 
-class CostMasterApp extends StatelessWidget {
+class CostMasterApp extends StatefulWidget {
   final AppState state;
   final AuthService auth;
+  final PremiumService premium;
 
-  const CostMasterApp({super.key, required this.state, required this.auth});
+  const CostMasterApp({
+    super.key,
+    required this.state,
+    required this.auth,
+    required this.premium,
+  });
+
+  @override
+  State<CostMasterApp> createState() => _CostMasterAppState();
+}
+
+class _CostMasterAppState extends State<CostMasterApp> {
+  late final _premium = PremiumState(widget.premium);
+
+  @override
+  void dispose() {
+    _premium.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return AuthScope(
-      auth: auth,
+      auth: widget.auth,
       child: AppScope(
-        state: state,
-        child: MaterialApp(
-          title: 'CostMaster',
-          debugShowCheckedModeBanner: false,
-          theme: buildTheme(),
-          home: _Gate(auth: auth, state: state),
+        state: widget.state,
+        child: PremiumScope(
+          state: _premium,
+          child: MaterialApp(
+            title: 'CostMaster',
+            debugShowCheckedModeBanner: false,
+            theme: buildTheme(),
+            home: _Gate(
+              auth: widget.auth,
+              state: widget.state,
+              premium: _premium,
+            ),
+          ),
         ),
       ),
     );
@@ -118,8 +149,13 @@ class CostMasterApp extends StatelessWidget {
 class _Gate extends StatefulWidget {
   final AuthService auth;
   final AppState state;
+  final PremiumState premium;
 
-  const _Gate({required this.auth, required this.state});
+  const _Gate({
+    required this.auth,
+    required this.state,
+    required this.premium,
+  });
 
   @override
   State<_Gate> createState() => _GateState();
@@ -134,6 +170,7 @@ class _GateState extends State<_Gate> {
   void initState() {
     super.initState();
     _user = widget.auth.currentUser;
+    widget.premium.bind(_user?.uid);
     if (_user == null || widget.state.ownerUid == _user!.uid) {
       _ready = true;
     } else {
@@ -154,6 +191,7 @@ class _GateState extends State<_Gate> {
 
   Future<void> _onUser(AuthUser? user) async {
     final generation = ++_generation;
+    widget.premium.bind(user?.uid);
     if (user != null) await widget.state.claimFor(user.uid);
     if (mounted && generation == _generation) {
       setState(() {

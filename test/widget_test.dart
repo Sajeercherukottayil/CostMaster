@@ -9,6 +9,7 @@ import 'package:cost_master/services/auth_service.dart';
 import 'package:cost_master/state/app_state.dart';
 
 import 'fake_auth.dart';
+import 'fake_premium.dart';
 
 const _student = AuthUser(uid: 'u1', email: 'asha@example.com');
 
@@ -24,6 +25,7 @@ void main() {
       CostMasterApp(
         state: state,
         auth: FakeAuthService(signedInAs: _student),
+        premium: FakePremiumService(),
       ),
     );
 
@@ -61,6 +63,7 @@ void main() {
       CostMasterApp(
         state: state,
         auth: FakeAuthService(signedInAs: _student),
+        premium: FakePremiumService(active: true),
       ),
     );
 
@@ -105,6 +108,7 @@ void main() {
       CostMasterApp(
         state: state,
         auth: FakeAuthService(signedInAs: _student),
+        premium: FakePremiumService(),
       ),
     );
 
@@ -126,7 +130,13 @@ void main() {
     Future<FakeAuthService> openApp(WidgetTester tester) async {
       final auth = FakeAuthService();
       final state = await AppState.load();
-      await tester.pumpWidget(CostMasterApp(state: state, auth: auth));
+      await tester.pumpWidget(
+        CostMasterApp(
+          state: state,
+          auth: auth,
+          premium: FakePremiumService(),
+        ),
+      );
       await tester.pumpAndSettle();
       return auth;
     }
@@ -177,6 +187,71 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Incorrect email or password.'), findsOneWidget);
+    });
+  });
+
+  group('Premium', () {
+    Future<(AppState, FakePremiumService)> openHome(
+      WidgetTester tester, {
+      String? failWith,
+    }) async {
+      final state = await AppState.load();
+      await state.saveProfile(
+        const Profile(name: 'Ravi Kumar', course: foundation),
+      );
+      final premium = FakePremiumService(failWith: failWith);
+      await tester.pumpWidget(
+        CostMasterApp(
+          state: state,
+          auth: FakeAuthService(signedInAs: _student),
+          premium: premium,
+        ),
+      );
+      await tester.pumpAndSettle();
+      return (state, premium);
+    }
+
+    testWidgets('mock test is locked until paid, then opens', (tester) async {
+      final (_, premium) = await openHome(tester);
+      expect(find.text('PREMIUM'), findsOneWidget);
+
+      await tapVisible(tester, find.text('Start Mock Test'));
+      await tester.pumpAndSettle();
+      expect(find.text('Unlock all mock tests'), findsOneWidget);
+      expect(find.text('Start Test'), findsNothing);
+
+      await tapVisible(tester, find.text('Pay ₹299'));
+      await tester.pumpAndSettle();
+
+      expect(premium.purchases, 1);
+      expect(find.text('Start Test'), findsOneWidget, reason: 'Goes on to '
+          'the test settings once Premium is granted');
+      await tester.pageBack();
+      await tester.pumpAndSettle();
+      expect(find.text('PREMIUM'), findsNothing);
+    });
+
+    testWidgets('a failed payment shows why and stays locked', (tester) async {
+      await openHome(tester, failWith: 'Payment cancelled.');
+
+      await tapVisible(tester, find.text('Start Mock Test'));
+      await tester.pumpAndSettle();
+      await tapVisible(tester, find.text('Pay ₹299'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Payment cancelled.'), findsOneWidget);
+      expect(find.text('Unlock all mock tests'), findsOneWidget);
+    });
+
+    testWidgets('chapter tests stay free', (tester) async {
+      await openHome(tester);
+      await tapVisible(tester, find.text('Business Laws & Communication'));
+      await tester.pumpAndSettle();
+      await tapVisible(tester, find.text('Sale of Goods Act, 1930'));
+      await tester.pumpAndSettle();
+      await tapVisible(tester, find.text('Start Chapter Test'));
+      await tester.pumpAndSettle();
+      expect(find.text('Start Test'), findsOneWidget);
     });
   });
 

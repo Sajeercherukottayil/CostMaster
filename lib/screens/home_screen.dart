@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import '../data/question_bank.dart';
 import '../models/profile.dart';
 import '../models/question.dart';
+import '../services/premium_service.dart';
 import '../state/app_state.dart';
 import '../theme.dart';
 import '../widgets/attempt_tile.dart';
 import '../widgets/ui.dart';
 import 'mock_test_setup_screen.dart';
+import 'premium_screen.dart';
 import 'root_screen.dart';
 import 'subject_screen.dart';
 
@@ -69,12 +71,12 @@ class HomeScreen extends StatelessWidget {
                   icon: Icons.play_arrow_rounded,
                   label: 'Start Mock Test',
                   caption: 'Mixed questions from all papers',
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => MockTestSetupScreen(
-                        title: '${profile.courseLabel} – Mock Test',
-                        questions: mixed,
-                      ),
+                  locked: !PremiumScope.of(context).isActive,
+                  onPressed: () => openWithPremium(
+                    context,
+                    (_) => MockTestSetupScreen(
+                      title: '${profile.courseLabel} – Mock Test',
+                      questions: mixed,
                     ),
                   ),
                 ),
