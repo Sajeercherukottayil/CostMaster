@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "479200434395",
+    "project_id": "costmaster-ck",
+    "storage_bucket": "costmaster-ck.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479200434395:android:95e429a72a0c10c73d94fe",
+        "android_client_info": {
+          "package_name": "com.costmaster.cost_master"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzcCrg9yKBMniv0L0IaYJPMRL8_-k9lBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

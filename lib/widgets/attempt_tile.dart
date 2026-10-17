@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../models/profile.dart';
+import '../theme.dart';
 import '../utils/time_format.dart';
 
-/// One row of test history: title, date, score and time.
+/// One row of test history: score, title, date and time.
 class AttemptTile extends StatelessWidget {
   final TestAttempt attempt;
 
@@ -11,23 +12,51 @@ class AttemptTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    final passed = attempt.percent >= 50;
-    return ListTile(
-      title: Text(attempt.title, maxLines: 1, overflow: TextOverflow.ellipsis),
-      subtitle: Text('${formatDate(attempt.date)} • '
-          '${formatSeconds(attempt.seconds)}'),
-      trailing: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.end,
+    final theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      child: Row(
         children: [
-          Text('${attempt.percent}%',
+          Container(
+            width: 48,
+            height: 48,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: AppColors.softForScore(attempt.percent),
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: Text(
+              '${attempt.percent}%',
               style: TextStyle(
-                fontWeight: FontWeight.w700,
-                color: passed ? Colors.green.shade700 : scheme.error,
-              )),
-          Text('${attempt.correct}/${attempt.total}',
-              style: Theme.of(context).textTheme.bodySmall),
+                color: AppColors.forScore(attempt.percent),
+                fontWeight: FontWeight.w800,
+                fontSize: 13,
+              ),
+            ),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  attempt.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.bodyMedium
+                      ?.copyWith(fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(height: 3),
+                Text(
+                  '${formatDate(attempt.date)}  ·  '
+                  '${formatSeconds(attempt.seconds)}  ·  '
+                  '${attempt.correct}/${attempt.total}',
+                  style: theme.textTheme.bodySmall
+                      ?.copyWith(color: AppColors.muted),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

@@ -4,6 +4,7 @@ const mathsQuestions = [
   // Ratio, proportion, indices, logarithms
   Question(
     subjectId: 'maths',
+    chapter: 'Ratio & Proportion',
     text: 'If a : b = 2 : 3 and b : c = 4 : 5, then a : b : c is:',
     options: ['2 : 3 : 5', '8 : 12 : 15', '8 : 12 : 5', '2 : 12 : 15'],
     answerIndex: 1,
@@ -11,6 +12,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Ratio & Proportion',
     text: 'The duplicate ratio of 3 : 4 is:',
     options: ['6 : 8', '27 : 64', '9 : 16', '√3 : 2'],
     answerIndex: 2,
@@ -18,6 +20,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Ratio & Proportion',
     text: 'The fourth proportional to 4, 6 and 10 is:',
     options: ['12', '20', '24', '15'],
     answerIndex: 3,
@@ -25,6 +28,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Ratio & Proportion',
     text: 'The mean proportional between 4 and 16 is:',
     options: ['8', '10', '12', '64'],
     answerIndex: 0,
@@ -32,6 +36,56 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Ratio & Proportion',
+    text: 'If x : y = 3 : 4, then (2x + y) : (x + 2y) is:',
+    options: ['5 : 6', '11 : 10', '10 : 11', '7 : 8'],
+    answerIndex: 2,
+    explanation: 'Put x = 3 and y = 4: (6 + 4) : (3 + 8) = 10 : 11.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Ratio & Proportion',
+    text: '₹1,200 is divided in the ratio 1 : 2 : 3. The largest share is:',
+    options: ['₹800', '₹600', '₹200', '₹400'],
+    answerIndex: 1,
+    explanation: 'Total parts = 6, so one part = ₹200. The largest share = 3 × 200 = '
+        '₹600.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Ratio & Proportion',
+    text: 'The inverse ratio of 4 : 5 is:',
+    options: ['5 : 4', '2 : √5', '4 : 5', '16 : 25'],
+    answerIndex: 0,
+    explanation: 'The inverse (reciprocal) ratio of a : b is b : a.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Ratio & Proportion',
+    text: 'The compound ratio of 2 : 3 and 3 : 4 is:',
+    options: ['2 : 1', '1 : 2', '6 : 7', '5 : 7'],
+    answerIndex: 1,
+    explanation: 'Compound ratio = (2 × 3) : (3 × 4) = 6 : 12 = 1 : 2.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Ratio & Proportion',
+    text: 'If 3x = 4y, then x : y is:',
+    options: ['7 : 3', '3 : 4', '4 : 3', '12 : 1'],
+    answerIndex: 2,
+    explanation: 'x ÷ y = 4 ÷ 3, so x : y = 4 : 3.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Ratio & Proportion',
+    text: 'The third proportional to 4 and 6 is:',
+    options: ['8', '24', '9', '12'],
+    answerIndex: 2,
+    explanation: 'If 4 : 6 = 6 : x, then x = 36 ÷ 4 = 9.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Indices & Logarithms',
     text: 'The value of 27^(2/3) is:',
     options: ['18', '3', '9', '6'],
     answerIndex: 2,
@@ -39,6 +93,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Indices & Logarithms',
     text: 'If log 2 = 0.3010, then log 8 is:',
     options: ['0.6020', '0.9030', '2.4080', '1.2040'],
     answerIndex: 1,
@@ -46,15 +101,78 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Indices & Logarithms',
     text: 'The value of log₂ 32 is:',
     options: ['16', '4', '6', '5'],
     answerIndex: 3,
     explanation: '2⁵ = 32, so log₂ 32 = 5.',
   ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Indices & Logarithms',
+    text: 'The value of (2³)² ÷ 2⁴ is:',
+    options: ['8', '4', '16', '2'],
+    answerIndex: 1,
+    explanation: '(2³)² = 2⁶. Then 2⁶ ÷ 2⁴ = 2² = 4.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Indices & Logarithms',
+    text: 'The logarithm of 1 to any positive base (other than 1) is:',
+    options: ['0', '−1', 'Not defined', '1'],
+    answerIndex: 0,
+    explanation: 'Since a⁰ = 1 for any base a, logₐ 1 = 0.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Indices & Logarithms',
+    text: 'If logₓ 81 = 4, then x is:',
+    options: ['27', '3', '9', '4'],
+    answerIndex: 1,
+    explanation: 'logₓ 81 = 4 means x⁴ = 81 = 3⁴, so x = 3.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Indices & Logarithms',
+    text: 'For any non-zero number a, a⁰ equals:',
+    options: ['0', 'a', '1', 'Not defined'],
+    answerIndex: 2,
+    explanation: 'By the laws of indices, aᵐ ÷ aᵐ = aᵐ⁻ᵐ = a⁰ = 1.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Indices & Logarithms',
+    text: 'The value of log₁₀ 100 is:',
+    options: ['2', '10', '100', '1'],
+    answerIndex: 0,
+    explanation: '10² = 100, so log₁₀ 100 = 2.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Indices & Logarithms',
+    text: 'log (ab) is equal to:',
+    options: [
+      '(log a) ÷ (log b)',
+      'log a − log b',
+      'log a + log b',
+      'log a × log b',
+    ],
+    answerIndex: 2,
+    explanation: 'This is the product rule of logarithms.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Indices & Logarithms',
+    text: 'The value of 81^(1/4) is:',
+    options: ['9', '3', '4', '27'],
+    answerIndex: 1,
+    explanation: '81 = 3⁴, so 81^(1/4) = 3.',
+  ),
 
   // Equations and progressions
   Question(
     subjectId: 'maths',
+    chapter: 'Equations',
     text: 'The roots of x² − 5x + 6 = 0 are:',
     options: ['2 and 3', '−2 and −3', '1 and 6', '−1 and −6'],
     answerIndex: 0,
@@ -62,6 +180,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Equations',
     text: 'The sum of the roots of 2x² − 8x + 3 = 0 is:',
     options: ['−4', '3/2', '4', '8'],
     answerIndex: 2,
@@ -69,6 +188,83 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Equations',
+    text: 'The solution of 3x − 7 = 2x + 5 is:',
+    options: ['x = 2', 'x = 12', 'x = 5', 'x = −2'],
+    answerIndex: 1,
+    explanation: '3x − 2x = 5 + 7, so x = 12.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Equations',
+    text: 'If x + y = 10 and x − y = 4, then x is:',
+    options: ['14', '3', '7', '6'],
+    answerIndex: 2,
+    explanation: 'Adding the equations: 2x = 14, so x = 7 (and y = 3).',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Equations',
+    text: 'The roots of x² − 9 = 0 are:',
+    options: ['9 and −9', '3 and −3', '3 and 3', '0 and 9'],
+    answerIndex: 1,
+    explanation: 'x² = 9, so x = ±3.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Equations',
+    text: 'For the quadratic equation ax² + bx + c = 0, if b² − 4ac < 0, the '
+        'roots are:',
+    options: [
+      'Not real (imaginary)',
+      'Both zero',
+      'Real and unequal',
+      'Real and equal',
+    ],
+    answerIndex: 0,
+    explanation: 'The discriminant b² − 4ac decides the nature of roots; when it is '
+        'negative, the roots are not real.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Equations',
+    text: 'The product of the roots of x² − 7x + 12 = 0 is:',
+    options: ['−7', '7', '12', '−12'],
+    answerIndex: 2,
+    explanation: 'Product of roots = c ÷ a = 12 ÷ 1 = 12.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Equations',
+    text: 'If 2x + 3 = 11, then x is:',
+    options: ['8', '4', '7', '5.5'],
+    answerIndex: 1,
+    explanation: '2x = 8, so x = 4.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Equations',
+    text: 'The quadratic equation whose roots are 2 and 5 is:',
+    options: [
+      'x² − 10x + 7 = 0',
+      'x² + 7x + 10 = 0',
+      'x² − 3x − 10 = 0',
+      'x² − 7x + 10 = 0',
+    ],
+    answerIndex: 3,
+    explanation: 'x² − (sum of roots)x + (product of roots) = x² − 7x + 10 = 0.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Equations',
+    text: 'If 2x + y = 7 and x − y = 2, then y is:',
+    options: ['5', '2', '3', '1'],
+    answerIndex: 3,
+    explanation: 'Adding: 3x = 9, so x = 3; then y = 7 − 6 = 1.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Sequence & Series',
     text: 'The 10th term of the AP 3, 7, 11, … is:',
     options: ['43', '39', '40', '36'],
     answerIndex: 1,
@@ -76,6 +272,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Sequence & Series',
     text: 'The sum of the first 20 natural numbers is:',
     options: ['200', '420', '210', '190'],
     answerIndex: 2,
@@ -83,15 +280,73 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Sequence & Series',
     text: 'The 6th term of the GP 2, 6, 18, … is:',
     options: ['162', '1,458', '243', '486'],
     answerIndex: 3,
     explanation: 'tₙ = arⁿ⁻¹ = 2 × 3⁵ = 2 × 243 = 486.',
   ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Sequence & Series',
+    text: 'The sum of the first 10 terms of the AP 2, 5, 8, … is:',
+    options: ['155', '29', '145', '165'],
+    answerIndex: 0,
+    explanation: 'S = n/2 [2a + (n − 1)d] = 10/2 [4 + 27] = 5 × 31 = 155.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Sequence & Series',
+    text: 'The sum to infinity of the GP 1, 1/2, 1/4, … is:',
+    options: ['2', 'Infinite', '1', '3/2'],
+    answerIndex: 0,
+    explanation: 'S∞ = a ÷ (1 − r) = 1 ÷ (1 − 1/2) = 2.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Sequence & Series',
+    text: 'The arithmetic mean between 8 and 20 is:',
+    options: ['14', '16', '12', '28'],
+    answerIndex: 0,
+    explanation: 'AM = (8 + 20) ÷ 2 = 14.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Sequence & Series',
+    text: 'The 15th term of the AP 5, 8, 11, … is:',
+    options: ['45', '44', '50', '47'],
+    answerIndex: 3,
+    explanation: 'a + (n − 1)d = 5 + 14 × 3 = 47.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Sequence & Series',
+    text: 'The sum of the first 5 terms of the GP 3, 6, 12, … is:',
+    options: ['93', '189', '48', '96'],
+    answerIndex: 0,
+    explanation: 'S = a(rⁿ − 1) ÷ (r − 1) = 3(32 − 1) ÷ 1 = 93.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Sequence & Series',
+    text: 'The common ratio of the GP 4, 12, 36, … is:',
+    options: ['4', '3', '1/3', '8'],
+    answerIndex: 1,
+    explanation: 'r = 12 ÷ 4 = 3.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Sequence & Series',
+    text: 'The geometric mean between 4 and 25 is:',
+    options: ['10', '100', '29', '14.5'],
+    answerIndex: 0,
+    explanation: 'GM = √(4 × 25) = √100 = 10.',
+  ),
 
   // Permutations and combinations
   Question(
     subjectId: 'maths',
+    chapter: 'Permutations & Combinations',
     text: 'The value of ⁵C₂ is:',
     options: ['20', '10', '5', '60'],
     answerIndex: 1,
@@ -99,6 +354,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Permutations & Combinations',
     text: 'The value of ⁶P₂ is:',
     options: ['30', '15', '12', '36'],
     answerIndex: 0,
@@ -106,15 +362,76 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Permutations & Combinations',
     text: 'In how many ways can the letters of the word RATIO be arranged?',
     options: ['60', '24', '720', '120'],
     answerIndex: 3,
     explanation: 'All 5 letters are different, so arrangements = 5! = 120.',
   ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Permutations & Combinations',
+    text: 'The value of ⁸C₃ is:',
+    options: ['40', '336', '24', '56'],
+    answerIndex: 3,
+    explanation: '⁸C₃ = 8! ÷ (3! × 5!) = (8 × 7 × 6) ÷ 6 = 56.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Permutations & Combinations',
+    text: 'How many 3-digit numbers can be formed from the digits 1, 2, 3, 4 '
+        'and 5 if no digit is repeated?',
+    options: ['60', '10', '125', '120'],
+    answerIndex: 0,
+    explanation: '⁵P₃ = 5 × 4 × 3 = 60.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Permutations & Combinations',
+    text: 'In how many ways can 5 people be seated around a round table?',
+    options: ['60', '120', '24', '5'],
+    answerIndex: 2,
+    explanation: 'Circular arrangements of n people = (n − 1)! = 4! = 24.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Permutations & Combinations',
+    text: 'The value of 0! is:',
+    options: ['1', 'Infinity', '0', 'Not defined'],
+    answerIndex: 0,
+    explanation: 'By definition 0! = 1, which keeps formulas such as ⁿCₙ = 1 '
+        'consistent.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Permutations & Combinations',
+    text: 'In how many ways can a committee of 3 be chosen from 6 people?',
+    options: ['216', '120', '18', '20'],
+    answerIndex: 3,
+    explanation: '⁶C₃ = (6 × 5 × 4) ÷ (3 × 2 × 1) = 20.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Permutations & Combinations',
+    text: 'The number of arrangements of the letters of the word LETTER is:',
+    options: ['120', '180', '720', '360'],
+    answerIndex: 1,
+    explanation: '6 letters with E twice and T twice: 6! ÷ (2! × 2!) = 720 ÷ 4 = '
+        '180.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Permutations & Combinations',
+    text: 'The value of ¹⁰C₈ is:',
+    options: ['90', '45', '1,80,000', '10'],
+    answerIndex: 1,
+    explanation: '¹⁰C₈ = ¹⁰C₂ = (10 × 9) ÷ 2 = 45.',
+  ),
 
   // Time value of money
   Question(
     subjectId: 'maths',
+    chapter: 'Time Value of Money',
     text: 'Simple interest on ₹10,000 at 8% p.a. for 3 years is:',
     options: ['₹2,400', '₹2,597', '₹800', '₹3,000'],
     answerIndex: 0,
@@ -122,6 +439,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Time Value of Money',
     text: 'The amount of ₹10,000 at 10% p.a. compound interest after 2 years is:',
     options: ['₹12,000', '₹12,100', '₹12,210', '₹11,000'],
     answerIndex: 1,
@@ -129,6 +447,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Time Value of Money',
     text: 'The effective annual rate for 12% p.a. compounded quarterly is '
         'approximately:',
     options: ['12.00%', '12.36%', '12.55%', '12.68%'],
@@ -138,15 +457,70 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Time Value of Money',
     text: 'The present value of ₹11,000 receivable after 1 year at 10% p.a. is:',
     options: ['₹9,900', '₹10,000', '₹10,100', '₹9,000'],
     answerIndex: 1,
     explanation: 'PV = 11,000 / 1.10 = ₹10,000.',
   ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Time Value of Money',
+    text: 'At 6% p.a. simple interest, ₹5,000 amounts to ₹6,500 in:',
+    options: ['5 years', '4 years', '3 years', '6 years'],
+    answerIndex: 0,
+    explanation: 'Interest = ₹1,500. Interest per year = 5,000 × 6% = ₹300, so time '
+        '= 1,500 ÷ 300 = 5 years.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Time Value of Money',
+    text: 'The present value of an annuity of ₹1,000 a year for 2 years at '
+        '10% p.a. (payments at year end) is approximately:',
+    options: ['₹1,652.89', '₹2,000.00', '₹1,735.54', '₹1,818.18'],
+    answerIndex: 2,
+    explanation: 'PV = 1,000/1.1 + 1,000/1.21 = 909.09 + 826.45 = ₹1,735.54.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Time Value of Money',
+    text: 'Compound interest on ₹20,000 at 10% p.a. for 2 years is:',
+    options: ['₹24,200', '₹4,000', '₹2,100', '₹4,200'],
+    answerIndex: 3,
+    explanation: 'Amount = 20,000 × 1.21 = 24,200; interest = ₹4,200.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Time Value of Money',
+    text: 'A sum doubles in 10 years at simple interest. The rate of interest '
+        'is:',
+    options: ['20% p.a.', '10% p.a.', '7.2% p.a.', '5% p.a.'],
+    answerIndex: 1,
+    explanation: 'Interest equals the principal in 10 years, so the rate = 100% ÷ 10 '
+        '= 10% p.a.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Time Value of Money',
+    text: 'The value of ₹1,000 after 3 years at 10% p.a. compounded annually '
+        'is:',
+    options: ['₹1,331', '₹1,464', '₹1,210', '₹1,300'],
+    answerIndex: 0,
+    explanation: '1,000 × 1.1³ = 1,000 × 1.331 = ₹1,331.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Time Value of Money',
+    text: 'The present value of a perpetuity of ₹500 a year at 10% p.a. is:',
+    options: ['₹500', '₹5,000', '₹50,000', '₹5,500'],
+    answerIndex: 1,
+    explanation: 'PV of perpetuity = Annual amount ÷ Rate = 500 ÷ 0.10 = ₹5,000.',
+  ),
 
   // Statistics
   Question(
     subjectId: 'maths',
+    chapter: 'Measures of Central Tendency',
     text: 'The arithmetic mean of 2, 4, 6, 8 and 10 is:',
     options: ['5', '6', '7', '30'],
     answerIndex: 1,
@@ -154,6 +528,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Measures of Central Tendency',
     text: 'The median of 3, 7, 9, 1 and 5 is:',
     options: ['9', '7', '5', '3'],
     answerIndex: 2,
@@ -161,6 +536,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Measures of Central Tendency',
     text: 'The harmonic mean of 2 and 6 is:',
     options: ['4', '3.46', '12', '3'],
     answerIndex: 3,
@@ -168,6 +544,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Measures of Central Tendency',
     text: 'In a moderately skewed distribution, median = 20 and mean = 22. '
         'The mode is approximately:',
     options: ['16', '18', '24', '26'],
@@ -176,6 +553,57 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Measures of Central Tendency',
+    text: 'The mode of 2, 3, 3, 5, 7, 3, 8 is:',
+    options: ['2', '5', '7', '3'],
+    answerIndex: 3,
+    explanation: '3 occurs most often (three times), so the mode is 3.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Central Tendency',
+    text: 'The geometric mean of 4 and 9 is:',
+    options: ['6.5', '6', '36', '13'],
+    answerIndex: 1,
+    explanation: 'GM = √(4 × 9) = √36 = 6.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Central Tendency',
+    text: 'The mean of 10 observations is 20. The sum of the observations is:',
+    options: ['200', '2', '210', '30'],
+    answerIndex: 0,
+    explanation: 'Sum = Mean × Number = 20 × 10 = 200.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Central Tendency',
+    text: 'One group of 10 items has a mean of 20 and another group of 30 '
+        'items a mean of 40. The combined mean is:',
+    options: ['30', '32', '25', '35'],
+    answerIndex: 3,
+    explanation: '(10 × 20 + 30 × 40) ÷ 40 = 1,400 ÷ 40 = 35.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Central Tendency',
+    text: 'The median of 4, 8, 6 and 10 is:',
+    options: ['7', '6', '14', '8'],
+    answerIndex: 0,
+    explanation: 'Arranged: 4, 6, 8, 10; median = (6 + 8) ÷ 2 = 7.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Central Tendency',
+    text: 'Mean is 30 and median is 28. Using the empirical relationship, the '
+        'mode is approximately:',
+    options: ['26', '24', '29', '32'],
+    answerIndex: 1,
+    explanation: 'Mode = 3 Median − 2 Mean = 84 − 60 = 24.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Dispersion',
     text: 'The standard deviation of 5, 5, 5, 5, 5 is:',
     options: ['5', '1', '25', '0'],
     answerIndex: 3,
@@ -183,6 +611,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Measures of Dispersion',
     text: 'The largest value in a data set is 50 and the smallest is 10. The '
         'coefficient of range is approximately:',
     options: ['40', '0.67', '0.80', '1.50'],
@@ -191,6 +620,87 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Measures of Dispersion',
+    text: 'The range of 12, 7, 25, 18, 9 is:',
+    options: ['13', '7', '25', '18'],
+    answerIndex: 3,
+    explanation: 'Range = Largest − Smallest = 25 − 7 = 18.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Dispersion',
+    text: 'The mean of a distribution is 50 and its standard deviation is 10. '
+        'The coefficient of variation is:',
+    options: ['50%', '5%', '10%', '20%'],
+    answerIndex: 3,
+    explanation: 'CV = SD ÷ Mean × 100 = 10 ÷ 50 × 100 = 20%.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Dispersion',
+    text: 'If the standard deviation of a series is 4, its variance is:',
+    options: ['2', '8', '16', '4'],
+    answerIndex: 2,
+    explanation: 'Variance is the square of the standard deviation: 4² = 16.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Dispersion',
+    text: 'Mean deviation is the least when it is taken from the:',
+    options: ['Mean', 'Median', 'Largest value', 'Mode'],
+    answerIndex: 1,
+    explanation: 'The sum of absolute deviations is minimum when measured from the '
+        'median.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Dispersion',
+    text: 'The first quartile is 20 and the third quartile 40. The quartile '
+        'deviation is:',
+    options: ['60', '10', '30', '20'],
+    answerIndex: 1,
+    explanation: 'QD = (Q₃ − Q₁) ÷ 2 = (40 − 20) ÷ 2 = 10.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Dispersion',
+    text: 'The standard deviation of 2, 4, 6, 8, 10 is approximately:',
+    options: ['8', '4', '2', '2.83'],
+    answerIndex: 3,
+    explanation: 'Mean = 6; squared deviations total 40; variance = 40 ÷ 5 = 8; SD = '
+        '√8 ≈ 2.83.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Dispersion',
+    text: 'If a constant is added to every observation, the standard '
+        'deviation:',
+    options: [
+      'Decreases by that constant',
+      'Becomes zero',
+      'Increases by that constant',
+      'Remains unchanged',
+    ],
+    answerIndex: 3,
+    explanation: 'Standard deviation is independent of a change of origin.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Measures of Dispersion',
+    text: 'If every observation is multiplied by 3, the standard deviation:',
+    options: [
+      'Is multiplied by 3',
+      'Is divided by 3',
+      'Remains unchanged',
+      'Is multiplied by 9',
+    ],
+    answerIndex: 0,
+    explanation: 'SD changes with a change of scale; the variance is multiplied by '
+        '9.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Correlation & Regression',
     text: 'The coefficient of correlation always lies between:',
     options: ['0 and 1', '−1 and 0', '−1 and +1', '−∞ and +∞'],
     answerIndex: 2,
@@ -199,6 +709,7 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Correlation & Regression',
     text: 'The regression coefficients are bxy = 0.8 and byx = 0.45. The '
         'coefficient of correlation is:',
     options: ['0.36', '0.6', '1.25', '0.8'],
@@ -208,6 +719,97 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Correlation & Regression',
+    text: 'If the coefficient of correlation is zero, the two variables have:',
+    options: [
+      'No linear correlation',
+      'Perfect positive correlation',
+      'Perfect negative correlation',
+      'A high degree of correlation',
+    ],
+    answerIndex: 0,
+    explanation: 'r = 0 means there is no linear relationship between the variables.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Correlation & Regression',
+    text: 'The regression coefficients are byx = 0.5 and bxy = 1.2. The '
+        'coefficient of correlation is approximately:',
+    options: ['0.60', '1.70', '0.85', '0.77'],
+    answerIndex: 3,
+    explanation: 'r = √(byx × bxy) = √0.6 ≈ 0.77; it is positive because both '
+        'coefficients are positive.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Correlation & Regression',
+    text: 'The two regression lines intersect at the point:',
+    options: [
+      '(SD of X, SD of Y)',
+      '(0, 0)',
+      '(Mean of X, Mean of Y)',
+      '(Median of X, Median of Y)',
+    ],
+    answerIndex: 2,
+    explanation: 'Both regression lines pass through the means, so they intersect at '
+        '(x̄, ȳ).',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Correlation & Regression',
+    text: 'The rank correlation coefficient was developed by:',
+    options: ['Fisher', 'Karl Pearson', 'Laspeyres', 'Spearman'],
+    answerIndex: 3,
+    explanation: 'Spearman\'s rank correlation measures correlation between the ranks '
+        'of two variables.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Correlation & Regression',
+    text: 'If the coefficient of correlation is −1, the correlation is:',
+    options: [
+      'Zero',
+      'Perfectly positive',
+      'Moderate negative',
+      'Perfectly negative',
+    ],
+    answerIndex: 3,
+    explanation: 'All points lie on a straight line sloping downwards.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Correlation & Regression',
+    text: 'For 5 pairs of ranks, Σd² = 6. Spearman\'s rank correlation '
+        'coefficient is:',
+    options: ['0.9', '0.7', '0.3', '−0.7'],
+    answerIndex: 1,
+    explanation: 'R = 1 − 6Σd² ÷ [n(n² − 1)] = 1 − 36 ÷ 120 = 0.7.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Correlation & Regression',
+    text: 'If r = 0.8, the coefficient of determination is:',
+    options: ['0.4', '0.64', '0.8', '0.89'],
+    answerIndex: 1,
+    explanation: 'Coefficient of determination = r² = 0.64, i.e., 64% of the '
+        'variation is explained.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Correlation & Regression',
+    text: 'The regression coefficient of Y on X (byx) shows the:',
+    options: [
+      'Correlation between X and Y',
+      'Change in X for a unit change in Y',
+      'Change in Y for a unit change in X',
+      'Mean of Y',
+    ],
+    answerIndex: 2,
+    explanation: 'byx is the slope of the regression line of Y on X.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Index Numbers',
     text: 'Laspeyres\' price index uses as weights the:',
     options: [
       'Current year quantities',
@@ -219,10 +821,112 @@ const mathsQuestions = [
     explanation: 'Laspeyres = Σp₁q₀ / Σp₀q₀ × 100, weighted by base year '
         'quantities. Paasche uses current year quantities.',
   ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Index Numbers',
+    text: 'The index number for the base year is always:',
+    options: ['1', '100', '0', '1,000'],
+    answerIndex: 1,
+    explanation: 'The base year is the reference point, so its index is taken as '
+        '100.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Index Numbers',
+    text: 'Fisher\'s ideal price index is the:',
+    options: [
+      'Arithmetic mean of the Laspeyres and Paasche indices',
+      'Laspeyres index multiplied by 100',
+      'Ratio of current to base year quantities',
+      'Geometric mean of the Laspeyres and Paasche indices',
+    ],
+    answerIndex: 3,
+    explanation: 'Fisher\'s index = √(Laspeyres × Paasche).',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Index Numbers',
+    text: 'Paasche\'s price index uses as weights the:',
+    options: [
+      'Base year prices',
+      'Base year quantities',
+      'Current year quantities',
+      'Average of prices',
+    ],
+    answerIndex: 2,
+    explanation: 'Paasche uses current year quantities (q₁); Laspeyres uses base '
+        'year quantities (q₀).',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Index Numbers',
+    text: 'Laspeyres\' index is 121 and Paasche\'s index is 100. Fisher\'s ideal '
+        'index is:',
+    options: ['110', '100', '121', '110.5'],
+    answerIndex: 0,
+    explanation: 'Fisher = √(121 × 100) = √12,100 = 110.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Index Numbers',
+    text: 'The total of current year prices of a group of items is ₹250 and '
+        'of base year prices ₹200. The simple aggregative price index is:',
+    options: ['120', '80', '125', '150'],
+    answerIndex: 2,
+    explanation: 'Index = Σp₁ ÷ Σp₀ × 100 = 250 ÷ 200 × 100 = 125.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Index Numbers',
+    text: 'The price of an item is ₹50 in the base year and ₹75 in the '
+        'current year. The price relative is:',
+    options: ['150', '125', '66.67', '75'],
+    answerIndex: 0,
+    explanation: 'Price relative = 75 ÷ 50 × 100 = 150.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Index Numbers',
+    text: 'The cost of living index is also known as the:',
+    options: [
+      'Industrial production index',
+      'Wholesale price index',
+      'Quantity index',
+      'Consumer price index',
+    ],
+    answerIndex: 3,
+    explanation: 'It measures changes in the cost of a basket of consumer goods and '
+        'services.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Index Numbers',
+    text: 'The time reversal test is satisfied by:',
+    options: [
+      'Fisher\'s index',
+      'Laspeyres\' index',
+      'Paasche\'s index',
+      'Simple aggregative index only',
+    ],
+    answerIndex: 0,
+    explanation: 'Fisher\'s index satisfies both the time reversal and factor '
+        'reversal tests.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Index Numbers',
+    text: 'Money wages are ₹15,000 and the consumer price index is 150. Real '
+        'wages are:',
+    options: ['₹1,500', '₹15,000', '₹10,000', '₹22,500'],
+    answerIndex: 2,
+    explanation: 'Real wages = Money wages ÷ CPI × 100 = 15,000 ÷ 150 × 100 = '
+        '₹10,000.',
+  ),
 
   // Probability
   Question(
     subjectId: 'maths',
+    chapter: 'Probability',
     text: 'Two fair dice are thrown. The probability that the sum is 7 is:',
     options: ['1/12', '7/36', '1/6', '1/9'],
     answerIndex: 2,
@@ -230,10 +934,82 @@ const mathsQuestions = [
   ),
   Question(
     subjectId: 'maths',
+    chapter: 'Probability',
     text: 'A card is drawn at random from a well-shuffled pack of 52 cards. The '
         'probability that it is an ace is:',
     options: ['1/13', '1/52', '1/4', '4/13'],
     answerIndex: 0,
     explanation: 'There are 4 aces in 52 cards: 4/52 = 1/13.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Probability',
+    text: 'Two fair coins are tossed. The probability of getting at least one '
+        'head is:',
+    options: ['1/4', '1', '1/2', '3/4'],
+    answerIndex: 3,
+    explanation: 'Outcomes: HH, HT, TH, TT. Three of the four have at least one '
+        'head, so 3/4.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Probability',
+    text: 'A and B are independent events with P(A) = 0.4 and P(B) = 0.5. P(A '
+        'and B) is:',
+    options: ['0.2', '0.1', '0.45', '0.9'],
+    answerIndex: 0,
+    explanation: 'For independent events, P(A ∩ B) = P(A) × P(B) = 0.4 × 0.5 = 0.2.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Probability',
+    text: 'A and B are mutually exclusive events with P(A) = 0.3 and P(B) = '
+        '0.4. P(A or B) is:',
+    options: ['0.7', '0.58', '0.12', '0.1'],
+    answerIndex: 0,
+    explanation: 'For mutually exclusive events, P(A ∪ B) = P(A) + P(B) = 0.7.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Probability',
+    text: 'A fair die is thrown. The probability of getting an even number '
+        'greater than 2 is:',
+    options: ['1/2', '1/6', '1/3', '2/3'],
+    answerIndex: 2,
+    explanation: 'Favourable outcomes are 4 and 6, i.e., 2 out of 6 = 1/3.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Probability',
+    text: 'If P(A) = 0.35, then P(not A) is:',
+    options: ['0.35', '0.65', '1.35', '0.30'],
+    answerIndex: 1,
+    explanation: 'P(A\') = 1 − P(A) = 0.65.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Probability',
+    text: 'A bag has 3 red and 5 blue balls. The probability of drawing a red '
+        'ball is:',
+    options: ['3/5', '1/3', '3/8', '5/8'],
+    answerIndex: 2,
+    explanation: 'Favourable = 3; total = 8.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Probability',
+    text: 'Two fair dice are thrown. The probability that both show the same '
+        'number is:',
+    options: ['1/12', '1/6', '1/36', '1/3'],
+    answerIndex: 1,
+    explanation: 'There are 6 doubles out of 36 outcomes: 6/36 = 1/6.',
+  ),
+  Question(
+    subjectId: 'maths',
+    chapter: 'Probability',
+    text: 'P(A) = 0.5, P(B) = 0.4 and P(A and B) = 0.2. P(A or B) is:',
+    options: ['0.9', '1.1', '0.2', '0.7'],
+    answerIndex: 3,
+    explanation: 'P(A ∪ B) = 0.5 + 0.4 − 0.2 = 0.7.',
   ),
 ];

@@ -6,7 +6,7 @@ class Profile {
   /// [foundation] or [intermediate].
   final String course;
 
-  /// 1 or 2 for an Intermediate student; null means both groups.
+  /// 1 or 2; null means both groups.
   final int? group;
 
   /// Exam term the student is aiming for, e.g. "December 2026".
@@ -21,13 +21,25 @@ class Profile {
 
   String get courseLabel => 'CMA $course';
 
-  String? get groupLabel => course != intermediate
-      ? null
-      : switch (group) {
-          1 => 'Group I',
-          2 => 'Group II',
-          _ => 'Both groups',
-        };
+  String get groupLabel => switch (group) {
+        1 => 'Group I',
+        2 => 'Group II',
+        _ => 'Both groups',
+      };
+
+  /// Start of the target exam month, e.g. 1 December 2026, if one is set.
+  DateTime? get targetDate {
+    final parts = targetTerm?.split(' ');
+    if (parts == null || parts.length != 2) return null;
+    final month = switch (parts[0]) {
+      'June' => 6,
+      'December' => 12,
+      _ => null,
+    };
+    final year = int.tryParse(parts[1]);
+    if (month == null || year == null) return null;
+    return DateTime(year, month);
+  }
 
   String get firstName => name.trim().split(RegExp(r'\s+')).first;
 

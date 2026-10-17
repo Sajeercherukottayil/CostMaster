@@ -8,20 +8,25 @@ class Subject {
   final String level;
   final int paper;
 
-  /// Intermediate group (1 or 2); null for Foundation.
-  final int? group;
+  /// Exam group (1 or 2) within the course.
+  final int group;
+
+  /// Chapter names in syllabus order.
+  final List<String> chapters;
 
   const Subject({
     required this.id,
     required this.name,
     required this.level,
     required this.paper,
-    this.group,
+    required this.group,
+    required this.chapters,
   });
 }
 
 class Question {
   final String subjectId;
+  final String chapter;
   final String text;
   final List<String> options;
   final int answerIndex;
@@ -29,6 +34,7 @@ class Question {
 
   const Question({
     required this.subjectId,
+    required this.chapter,
     required this.text,
     required this.options,
     required this.answerIndex,

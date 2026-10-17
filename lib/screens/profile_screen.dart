@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../data/question_bank.dart';
+import '../services/auth_service.dart';
 import '../state/app_state.dart';
-import '../widgets/attempt_tile.dart';
+import '../theme.dart';
+import '../widgets/ui.dart';
 import 'profile_form_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -11,149 +13,161 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
+    final auth = AuthScope.of(context);
     final profile = state.profile!;
     final theme = Theme.of(context);
-    final scheme = theme.colorScheme;
     final papers = subjectsFor(profile).map((s) => s.paper).toSet().toList()
       ..sort();
+    void edit() => Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => ProfileFormScreen(initial: profile)),
+    );
 
     return Scaffold(
       appBar: AppBar(title: const Text('Profile')),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
+        padding: const EdgeInsets.only(bottom: 32),
         children: [
-          Card(
-            margin: EdgeInsets.zero,
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    radius: 36,
-                    backgroundColor: scheme.primary,
-                    foregroundColor: scheme.onPrimary,
-                    child: Text(profile.initials,
-                        style: const TextStyle(
-                            fontSize: 26, fontWeight: FontWeight.w700)),
-                  ),
-                  const SizedBox(height: 12),
-                  Text(profile.name,
-                      style: theme.textTheme.titleLarge
-                          ?.copyWith(fontWeight: FontWeight.w700),
-                      textAlign: TextAlign.center),
-                  const SizedBox(height: 2),
-                  Text(
-                    [profile.courseLabel, ?profile.groupLabel].join(' • '),
-                    style: theme.textTheme.bodyMedium
-                        ?.copyWith(color: scheme.onSurfaceVariant),
-                  ),
-                  const SizedBox(height: 16),
-                  OutlinedButton.icon(
-                    onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => ProfileFormScreen(initial: profile),
-                      ),
-                    ),
-                    icon: const Icon(Icons.edit_outlined),
-                    label: const Text('Edit profile'),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
-          const _SectionTitle('Study details'),
-          Card(
-            margin: EdgeInsets.zero,
+          HeaderPanel(
             child: Column(
               children: [
-                _InfoTile(
-                  icon: Icons.school_outlined,
-                  label: 'Course',
-                  value: profile.courseLabel,
-                ),
-                if (profile.groupLabel != null)
-                  _InfoTile(
-                    icon: Icons.layers_outlined,
-                    label: 'Group',
-                    value: profile.groupLabel!,
+                CircleAvatar(
+                  radius: 38,
+                  backgroundColor: Colors.white,
+                  foregroundColor: AppColors.brand,
+                  child: Text(
+                    profile.initials,
+                    style: const TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
-                _InfoTile(
-                  icon: Icons.menu_book_outlined,
-                  label: 'Papers',
-                  value: papers.map((p) => 'P$p').join(', '),
                 ),
-                _InfoTile(
-                  icon: Icons.event_outlined,
-                  label: 'Target exam term',
-                  value: profile.targetTerm ?? 'Not decided',
+                const SizedBox(height: 12),
+                Text(
+                  profile.name,
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.titleLarge?.copyWith(
+                    color: Colors.white,
+                  ),
+                ),
+                if (auth.currentUser != null)
+                  Text(
+                    auth.currentUser!.email,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: Colors.white.withValues(alpha: 0.8),
+                    ),
+                  ),
+                const SizedBox(height: 16),
+                OutlinedButton.icon(
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    side: const BorderSide(color: Colors.white, width: 1.5),
+                    minimumSize: const Size(0, 44),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                  ),
+                  onPressed: edit,
+                  icon: const Icon(Icons.edit_rounded, size: 18),
+                  label: const Text('Edit Profile'),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 20),
-          Row(
-            children: [
-              const Expanded(child: _SectionTitle('Test history')),
-              if (state.attempts.isNotEmpty)
-                TextButton(
-                  onPressed: () => _confirm(
-                    context,
-                    title: 'Clear test history?',
-                    message: 'All saved scores will be deleted.',
-                    action: 'Clear',
-                    onConfirm: state.clearHistory,
-                  ),
-                  child: const Text('Clear'),
-                ),
-            ],
-          ),
-          Card(
-            margin: EdgeInsets.zero,
-            child: state.attempts.isEmpty
-                ? const ListTile(
-                    leading: Icon(Icons.history),
-                    title: Text('No tests yet'),
-                    subtitle: Text('Your scores will appear here.'),
-                  )
-                : Column(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SectionHeader('Study details'),
+                Card(
+                  child: Column(
                     children: [
-                      for (final a in state.attempts) AttemptTile(attempt: a),
+                      _Row(
+                        icon: Icons.school_rounded,
+                        label: 'Course',
+                        value: profile.courseLabel,
+                      ),
+                      const Divider(indent: 68),
+                      _Row(
+                        icon: Icons.layers_rounded,
+                        label: 'Group',
+                        value: profile.groupLabel,
+                      ),
+                      const Divider(indent: 68),
+                      _Row(
+                        icon: Icons.menu_book_rounded,
+                        label: 'Papers',
+                        value: papers.map((p) => 'P$p').join(', '),
+                      ),
+                      const Divider(indent: 68),
+                      _Row(
+                        icon: Icons.flag_rounded,
+                        label: 'Target term',
+                        value: profile.targetTerm ?? 'Not decided',
+                      ),
                     ],
                   ),
-          ),
-          const SizedBox(height: 20),
-          const _SectionTitle('About'),
-          Card(
-            margin: EdgeInsets.zero,
-            child: Column(
-              children: [
-                const ListTile(
-                  leading: Icon(Icons.info_outline),
-                  title: Text('CostMaster'),
-                  subtitle: Text('Version 1.0.0'),
                 ),
-                const ListTile(
-                  leading: Icon(Icons.gavel_outlined),
-                  title: Text('Disclaimer'),
-                  subtitle: Text(
-                    'Independent practice app. Not affiliated with or '
-                    'endorsed by The Institute of Cost Accountants of India '
-                    '(ICMAI). All questions are original.',
+                const SectionHeader('Account'),
+                Card(
+                  child: Column(
+                    children: [
+                      _Row(
+                        icon: Icons.logout_rounded,
+                        label: 'Log out',
+                        value: 'Your scores stay on this device',
+                        stacked: true,
+                        onTap: () => _confirm(
+                          context,
+                          title: 'Log out?',
+                          message:
+                              'You can log in again with your email and '
+                              'password.',
+                          action: 'Log out',
+                          onConfirm: auth.signOut,
+                        ),
+                      ),
+                      const Divider(indent: 68),
+                      _Row(
+                        icon: Icons.restart_alt_rounded,
+                        label: 'Reset app',
+                        value: 'Delete profile and test history',
+                        stacked: true,
+                        danger: true,
+                        onTap: () => _confirm(
+                          context,
+                          title: 'Reset CostMaster?',
+                          message:
+                              'Your profile and all test history will be '
+                              'deleted from this device.',
+                          action: 'Reset',
+                          onConfirm: state.reset,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                ListTile(
-                  leading: Icon(Icons.restart_alt, color: scheme.error),
-                  title: Text('Reset app',
-                      style: TextStyle(color: scheme.error)),
-                  subtitle: const Text('Delete profile and test history'),
-                  onTap: () => _confirm(
-                    context,
-                    title: 'Reset CostMaster?',
-                    message: 'Your profile and all test history will be '
-                        'deleted from this device.',
-                    action: 'Reset',
-                    onConfirm: state.reset,
+                const SectionHeader('About'),
+                Panel(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text('CostMaster', style: theme.textTheme.titleSmall),
+                          const SizedBox(width: 8),
+                          const Tag(text: 'v1.0.0'),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Independent practice app. Not affiliated with or '
+                        'endorsed by The Institute of Cost Accountants of India '
+                        '(ICMAI). All questions are original.',
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: AppColors.muted,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -183,7 +197,9 @@ class ProfileScreen extends StatelessWidget {
           ),
           FilledButton(
             style: FilledButton.styleFrom(
-                backgroundColor: Theme.of(ctx).colorScheme.error),
+              backgroundColor: AppColors.danger,
+              minimumSize: const Size(64, 44),
+            ),
             onPressed: () => Navigator.pop(ctx, true),
             child: Text(action),
           ),
@@ -194,45 +210,79 @@ class ProfileScreen extends StatelessWidget {
   }
 }
 
-class _SectionTitle extends StatelessWidget {
-  final String text;
-
-  const _SectionTitle(this.text);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Text(text,
-          style: Theme.of(context)
-              .textTheme
-              .titleMedium
-              ?.copyWith(fontWeight: FontWeight.w700)),
-    );
-  }
-}
-
-class _InfoTile extends StatelessWidget {
+class _Row extends StatelessWidget {
   final IconData icon;
   final String label;
   final String value;
 
-  const _InfoTile({
+  /// Shows [value] under [label] rather than on the right.
+  final bool stacked;
+  final bool danger;
+  final VoidCallback? onTap;
+
+  const _Row({
     required this.icon,
     required this.label,
     required this.value,
+    this.stacked = false,
+    this.danger = false,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(icon),
-      title: Text(label, style: Theme.of(context).textTheme.bodySmall),
-      subtitle: Text(value,
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge
-              ?.copyWith(fontWeight: FontWeight.w600)),
+    final theme = Theme.of(context);
+    final color = danger ? AppColors.danger : AppColors.ink;
+    final labelStyle = theme.textTheme.bodyMedium?.copyWith(
+      fontWeight: FontWeight.w700,
+      color: color,
+    );
+    final valueStyle = theme.textTheme.bodySmall?.copyWith(
+      color: AppColors.muted,
+    );
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        child: Row(
+          children: [
+            IconBadge(
+              tint: (
+                soft: AppColors.accentSoft,
+                strong: danger ? AppColors.danger : AppColors.brand,
+              ),
+              icon: icon,
+              size: 38,
+            ),
+            const SizedBox(width: 14),
+            if (stacked)
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(label, style: labelStyle),
+                    Text(value, style: valueStyle),
+                  ],
+                ),
+              )
+            else ...[
+              Text(label, style: valueStyle?.copyWith(fontSize: 14)),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  value,
+                  textAlign: TextAlign.right,
+                  style: labelStyle,
+                ),
+              ),
+            ],
+            if (onTap != null) ...[
+              const SizedBox(width: 8),
+              const Icon(Icons.chevron_right_rounded, color: AppColors.faint),
+            ],
+          ],
+        ),
+      ),
     );
   }
 }

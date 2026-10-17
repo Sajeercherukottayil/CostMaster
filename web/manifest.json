@@ -1,11 +1,11 @@
 {
-    "name": "cost_master",
-    "short_name": "cost_master",
+    "name": "CostMaster",
+    "short_name": "CostMaster",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#0D4C7A",
+    "theme_color": "#0D4C7A",
+    "description": "Mock tests for CMA Foundation and Intermediate students.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

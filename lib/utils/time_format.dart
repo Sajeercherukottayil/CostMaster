@@ -13,3 +13,11 @@ const _months = [
 /// Formats a date as "16 Oct 2026".
 String formatDate(DateTime date) =>
     '${date.day} ${_months[date.month - 1]} ${date.year}';
+
+const _weekdays = [
+  'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+];
+
+/// Formats a date as "Saturday, 17 Oct".
+String formatLongDate(DateTime date) =>
+    '${_weekdays[date.weekday - 1]}, ${date.day} ${_months[date.month - 1]}';

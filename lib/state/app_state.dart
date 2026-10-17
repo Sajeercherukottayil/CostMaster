@@ -7,15 +7,17 @@ import '../models/profile.dart';
 
 /// Holds the student's profile and test history, saved on the device.
 class AppState extends ChangeNotifier {
+  static const _ownerKey = 'ownerUid';
   static const _profileKey = 'profile';
   static const _attemptsKey = 'attempts';
   static const _maxAttempts = 50;
 
   final SharedPreferences _prefs;
+  String? _ownerUid;
   Profile? _profile;
   final List<TestAttempt> _attempts;
 
-  AppState._(this._prefs, this._profile, this._attempts);
+  AppState._(this._prefs, this._ownerUid, this._profile, this._attempts);
 
   static Future<AppState> load() async {
     final prefs = await SharedPreferences.getInstance();
@@ -32,8 +34,11 @@ class AppState extends ChangeNotifier {
     } on TypeError {
       // Saved data in an unexpected shape: start fresh rather than crash.
     }
-    return AppState._(prefs, profile, attempts);
+    return AppState._(prefs, prefs.getString(_ownerKey), profile, attempts);
   }
+
+  /// The account the saved data belongs to.
+  String? get ownerUid => _ownerUid;
 
   Profile? get profile => _profile;
 
@@ -49,6 +54,48 @@ class AppState extends ChangeNotifier {
   int? get bestPercent => _attempts.isEmpty
       ? null
       : _attempts.map((a) => a.percent).reduce((a, b) => a > b ? a : b);
+
+  /// Average of the paper and chapter tests for the subject named
+  /// [subjectName], whose titles are the name or "name – chapter".
+  int? averagePercentFor(String subjectName) {
+    final matching = _attempts
+        .where((a) =>
+            a.title == subjectName || a.title.startsWith('$subjectName – '))
+        .map((a) => a.percent)
+        .toList();
+    if (matching.isEmpty) return null;
+    return (matching.reduce((a, b) => a + b) / matching.length).round();
+  }
+
+  /// Average score and number of attempts for each test title, e.g. a
+  /// chapter test "Cost Accounting – Material Cost".
+  Map<String, ({int average, int count})> get statsByTitle {
+    final scores = <String, List<int>>{};
+    for (final a in _attempts) {
+      (scores[a.title] ??= []).add(a.percent);
+    }
+    return {
+      for (final MapEntry(:key, :value) in scores.entries)
+        key: (
+          average: (value.reduce((a, b) => a + b) / value.length).round(),
+          count: value.length,
+        ),
+    };
+  }
+
+  /// Questions answered across every saved test.
+  int get questionsAttempted =>
+      _attempts.fold(0, (sum, a) => sum + a.total);
+
+  /// Makes the saved data belong to the account [uid]. If another account
+  /// owned it, that account's profile and history are cleared first, so
+  /// students sharing a device don't see each other's scores.
+  Future<void> claimFor(String uid) async {
+    if (_ownerUid == uid) return;
+    if (_ownerUid != null) await reset();
+    _ownerUid = uid;
+    await _prefs.setString(_ownerKey, uid);
+  }
 
   Future<void> saveProfile(Profile profile) async {
     _profile = profile;
