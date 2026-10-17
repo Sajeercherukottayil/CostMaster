@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Firebase login needs the network; debug builds add this on their own. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="CostMaster"
         android:name="${applicationName}"

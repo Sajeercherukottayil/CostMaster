@@ -121,9 +121,12 @@ class _AuthScreenState extends State<AuthScreen> {
       await auth.sendPasswordReset(address);
       messenger.showSnackBar(
         SnackBar(
+          // Longer than usual so there is time to read the spam hint.
+          duration: const Duration(seconds: 8),
           content: Text(
             'If an account exists for $address, a reset link '
-            'has been sent.',
+            'has been sent. Check your Spam or Junk folder if you '
+            'don\'t see it in your inbox.',
           ),
         ),
       );

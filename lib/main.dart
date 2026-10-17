@@ -13,22 +13,82 @@ import 'services/auth_service.dart';
 import 'state/app_state.dart';
 import 'theme.dart';
 
-Future<void> main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  // Full screen: hide the status and navigation bars. A swipe from the edge
+  // shows them briefly, then they hide again.
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('assets/fonts/OFL.txt');
     yield LicenseEntryWithLineBreaks(['Manrope'], license);
   });
-  try {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-  } catch (e) {
-    runApp(_FirebaseSetupNeeded(error: e));
-    return;
+  // Release builds otherwise draw a failed widget as a blank box.
+  ErrorWidget.builder = (details) => ColoredBox(
+        color: Colors.white,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text(
+              'Something went wrong:\n${details.exceptionAsString()}',
+              textDirection: TextDirection.ltr,
+              style: const TextStyle(color: AppColors.danger, fontSize: 13),
+            ),
+          ),
+        ),
+      );
+  // Draw something straight away; Firebase and saved data load behind the
+  // splash, so a slow or failed start never leaves a black screen.
+  runApp(const _Startup());
+}
+
+/// Shows the splash while Firebase and saved data load, then the app, or
+/// the error if loading failed.
+class _Startup extends StatefulWidget {
+  const _Startup();
+
+  @override
+  State<_Startup> createState() => _StartupState();
+}
+
+class _StartupState extends State<_Startup> {
+  Widget? _app;
+  Object? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _start();
   }
-  final state = await AppState.load();
-  runApp(CostMasterApp(state: state, auth: FirebaseAuthService()));
+
+  Future<void> _start() async {
+    setState(() => _error = null);
+    try {
+      if (Firebase.apps.isEmpty) {
+        await Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform,
+        ).timeout(const Duration(seconds: 20));
+      }
+      final state = await AppState.load();
+      if (!mounted) return;
+      setState(() {
+        _app = CostMasterApp(state: state, auth: FirebaseAuthService());
+      });
+    } catch (e) {
+      if (mounted) setState(() => _error = e);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_app != null) return _app!;
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: buildTheme(),
+      home: _error == null
+          ? const _Splash()
+          : _StartupFailed(error: _error!, onRetry: _start),
+    );
+  }
 }
 
 class CostMasterApp extends StatelessWidget {
@@ -116,44 +176,50 @@ class _GateState extends State<_Gate> {
   }
 }
 
-/// Shown when Firebase has not been connected yet (see firebase_options.dart).
-class _FirebaseSetupNeeded extends StatelessWidget {
+/// Shown when Firebase or the saved data could not be loaded.
+class _StartupFailed extends StatelessWidget {
   final Object error;
+  final VoidCallback onRetry;
 
-  const _FirebaseSetupNeeded({required this.error});
+  const _StartupFailed({required this.error, required this.onRetry});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: buildTheme(),
-      home: Scaffold(
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.cloud_off, size: 48),
-                const SizedBox(height: 16),
-                const Text(
-                  'Firebase is not set up yet',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                ),
-                const SizedBox(height: 8),
-                const Text(
-                  'Run "flutterfire configure" in the project folder, then '
-                  'restart the app.',
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  '$error',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 12, color: Colors.grey),
-                ),
-              ],
-            ),
+    return Scaffold(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.cloud_off_rounded,
+                  size: 56, color: AppColors.brand),
+              const SizedBox(height: 16),
+              const Text(
+                'CostMaster could not start',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'Check your internet connection and try again.',
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              Text(
+                error is TimeoutException
+                    ? 'Connecting to the server took too long.'
+                    : '$error',
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 12, color: AppColors.muted),
+              ),
+              const SizedBox(height: 24),
+              FilledButton.icon(
+                onPressed: onRetry,
+                icon: const Icon(Icons.refresh_rounded),
+                label: const Text('Try again'),
+              ),
+            ],
           ),
         ),
       ),

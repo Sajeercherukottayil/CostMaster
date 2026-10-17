@@ -22,7 +22,9 @@
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="theme-color" content="#1E40AF">
   <meta name="apple-mobile-web-app-title" content="CostMaster">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
@@ -31,8 +33,33 @@
 
   <title>CostMaster</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    /* Shown while the app downloads on first visit; the app draws over it. */
+    html, body { margin: 0; height: 100%; background: #1E40AF; }
+    #loading {
+      position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 18px;
+      color: #fff; font-family: -apple-system, system-ui, sans-serif;
+    }
+    #loading b { font-size: 28px; }
+    #loading span { opacity: .8; font-size: 15px; }
+    #loading i {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 3px solid rgba(255,255,255,.3); border-top-color: #fff;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
 </head>
 <body>
+  <div id="loading"><b>CostMaster</b><i></i><span>Loading…</span></div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var el = document.getElementById('loading');
+      if (el) el.remove();
+    });
+  </script>
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader

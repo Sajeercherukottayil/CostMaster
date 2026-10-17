@@ -3,9 +3,9 @@
     "short_name": "CostMaster",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0D4C7A",
-    "theme_color": "#0D4C7A",
-    "description": "Mock tests for CMA Foundation and Intermediate students.",
+    "background_color": "#1E40AF",
+    "theme_color": "#1E40AF",
+    "description": "CMA Foundation and Intermediate mock tests and chapter-wise practice.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
