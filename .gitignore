@@ -46,3 +46,9 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Payment server (feature/paid-mock-tests): local-only files, never commit.
+server/node_modules/
+server/.vercel/
+server/.env
+server/.env*.local
