@@ -4,6 +4,13 @@ A Flutter study companion for CMA India students: practice questions organised b
 
 > Status: in development.
 
+## Demo video
+
+[![CostMaster demo video: click to watch](demo/poster.jpg)](demo/costmaster-demo.mp4)
+
+An 80-second narrated walkthrough: login, home, chapter practice, a timed
+mock test, results and profile. ([Download the MP4](demo/costmaster-demo.mp4?raw=true))
+
 ## Screenshots
 
 | Login | Home | Paper |
@@ -43,6 +50,9 @@ flutter run
 - `lib/data/question_bank.dart`: combines all subjects into one bank
 - `tool/screenshots_test.dart`: renders `screenshots/` from the real app with
   demo data (`flutter test tool/screenshots_test.dart --update-goldens`)
+- `tool/demo_video/`: builds `demo/costmaster-demo.mp4`, with the narration
+  in `narration.json` (`pip install edge-tts imageio-ffmpeg`, then
+  `python tool/demo_video/make_video.py`)
 
 ## Question content rules (ICMAI)
 
