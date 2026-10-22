@@ -4,8 +4,22 @@ A Flutter study companion for CMA India students: practice questions organised b
 
 > Status: in development.
 
+## Screenshots
+
+| Login | Home | Paper |
+|:---:|:---:|:---:|
+| <img src="screenshots/01_login.png" width="240"> | <img src="screenshots/02_home.png" width="240"> | <img src="screenshots/03_paper.png" width="240"> |
+| **Chapter Q&A** | **Test settings** | **Mock test** |
+| <img src="screenshots/04_chapter.png" width="240"> | <img src="screenshots/05_test_settings.png" width="240"> | <img src="screenshots/06_mock_test.png" width="240"> |
+| **Results** | **Profile** | **Test result** |
+| <img src="screenshots/07_results.png" width="240"> | <img src="screenshots/08_profile.png" width="240"> | <img src="screenshots/09_result.png" width="240"> |
+
 ## Features
 
+- Timed mock tests with a question palette, bookmarks and auto-submit
+- Answer review after every test, plus average, best and per-paper results
+- Countdown to the student's target exam term
+- Email login with Firebase Authentication
 - Practice questions grouped by subject
 - Four options per question with one correct answer
 - Worked explanation showing the steps for each answer
@@ -27,6 +41,8 @@ flutter run
 
 - `lib/data/questions/`: one file per subject
 - `lib/data/question_bank.dart`: combines all subjects into one bank
+- `tool/screenshots_test.dart`: renders `screenshots/` from the real app with
+  demo data (`flutter test tool/screenshots_test.dart --update-goldens`)
 
 ## Question content rules (ICMAI)
 
