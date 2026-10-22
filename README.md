@@ -8,7 +8,8 @@ A Flutter study companion for CMA India students: practice questions organised b
 
 [![CostMaster demo video: click to watch](demo/poster.jpg)](demo/costmaster-demo.mp4)
 
-An 80-second narrated walkthrough: login, home, chapter practice, a timed
+A 90-second narrated walkthrough: login, choosing the course and group,
+home, chapter practice, a timed
 mock test, results and profile. ([Download the MP4](demo/costmaster-demo.mp4?raw=true))
 
 ## Screenshots

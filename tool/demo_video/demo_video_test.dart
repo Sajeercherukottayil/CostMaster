@@ -17,7 +17,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cost_master/data/question_bank.dart';
 import 'package:cost_master/main.dart';
 import 'package:cost_master/models/profile.dart';
-import 'package:cost_master/models/question.dart';
 import 'package:cost_master/state/app_state.dart';
 import 'package:cost_master/theme.dart';
 
@@ -31,6 +30,7 @@ const _fps = 30;
 /// Heading shown beside the phone for each narrated scene, in order.
 const _headings = {
   'login': 'Email login',
+  'onboarding': 'Choose course & group',
   'home': 'Home dashboard',
   'paper': 'Paper-wise practice',
   'chapter': 'Answers with explanations',
@@ -109,14 +109,9 @@ Future<void> _walkthrough(WidgetTester tester, Map durations) async {
     attempt('Corporate Accounting & Auditing', 14, 25, 12),
   ];
   // The fake service gives the first account it creates the uid "uid-0".
+  // No profile yet, so the video shows choosing the course and group.
   SharedPreferences.setMockInitialValues({
     'ownerUid': 'uid-0',
-    'profile': jsonEncode(const Profile(
-      name: 'Asha Menon',
-      course: intermediate,
-      group: 2,
-      targetTerm: 'December 2026',
-    ).toJson()),
     'attempts': [for (final a in attempts) jsonEncode(a.toJson())],
   });
 
@@ -154,8 +149,26 @@ Future<void> _walkthrough(WidgetTester tester, Map durations) async {
     await r.type(fields.at(1), 'cma2026!');
   });
 
-  await r.scene('home', () async {
+  await r.scene('onboarding', () async {
     await r.tap(find.widgetWithText(FilledButton, 'Log in'));
+    await r.play(1.0);
+    await r.hold(0.8);
+    await r.tap(find.text('Continue'));
+    await r.play(0.6);
+    await r.tap(find.text('CMA Intermediate'));
+    await r.play(0.5);
+    await r.tap(find.text('Continue'));
+    await r.play(0.6);
+    await r.tap(find.text('Group II'));
+    await r.play(0.5);
+    await r.tap(find.text('Continue'));
+    await r.play(0.6);
+    await r.tap(find.text('December 2026'));
+    await r.play(0.6);
+  });
+
+  await r.scene('home', () async {
+    await r.tap(find.text('Get started'));
     await r.play(1.2);
     await r.hold(2.5);
     await r.scrollTo(find.text('Your Papers'), alignment: 0.1);

@@ -1,5 +1,6 @@
 {
   "login": "Meet CostMaster, a Flutter app that helps CMA India students prepare for their exams. Students sign in with email, powered by Firebase Authentication.",
+  "onboarding": "New students set up their profile in a few quick steps: their name, their CMA course, Foundation or Intermediate, their group, and the exam term they're aiming for.",
   "home": "The home screen shows a countdown to the exam, scores at a glance, and every paper in the student's course and group.",
   "paper": "Each paper is broken into chapters, so students can practise one topic at a time.",
   "chapter": "In study mode, they can reveal the correct answer, along with a worked explanation.",
