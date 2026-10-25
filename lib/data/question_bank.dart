@@ -13,6 +13,11 @@ import 'descriptive/inter/om.dart';
 import 'descriptive/inter/tax.dart';
 import 'descriptive/law.dart';
 import 'descriptive/maths.dart';
+import 'descriptive/more/cost.dart';
+import 'descriptive/more/eco.dart';
+import 'descriptive/more/fa.dart';
+import 'descriptive/more/law.dart';
+import 'descriptive/more/maths.dart';
 import 'descriptive/problems/cost.dart';
 import 'descriptive/problems/eco.dart';
 import 'descriptive/problems/fa.dart';
@@ -39,6 +44,11 @@ import 'questions/inter/om.dart';
 import 'questions/inter/tax.dart';
 import 'questions/law.dart';
 import 'questions/maths.dart';
+import 'questions/more/cost.dart';
+import 'questions/more/eco.dart';
+import 'questions/more/fa.dart';
+import 'questions/more/law.dart';
+import 'questions/more/maths.dart';
 
 // Subjects follow the CMA Syllabus 2022 papers. Foundation Paper 2 is split
 // into Financial Accounting and Cost Accounting. Intermediate Paper 7
@@ -256,10 +266,15 @@ const subjects = [
 
 const questionBank = [
   ...lawQuestions,
+  ...lawMoreQuestions,
   ...faQuestions,
+  ...faMoreQuestions,
   ...costQuestions,
+  ...costMoreQuestions,
   ...mathsQuestions,
+  ...mathsMoreQuestions,
   ...ecoQuestions,
+  ...ecoMoreQuestions,
   ...interLawQuestions,
   ...interFaQuestions,
   ...interTaxQuestions,
@@ -274,14 +289,19 @@ const questionBank = [
 const descriptiveBank = [
   ...lawDescriptive,
   ...lawProblems,
+  ...lawMoreDescriptive,
   ...faDescriptive,
   ...faProblems,
+  ...faMoreDescriptive,
   ...costDescriptive,
   ...costProblems,
+  ...costMoreDescriptive,
   ...mathsDescriptive,
   ...mathsProblems,
+  ...mathsMoreDescriptive,
   ...ecoDescriptive,
   ...ecoProblems,
+  ...ecoMoreDescriptive,
   ...interLawDescriptive,
   ...interLawProblems,
   ...interFaDescriptive,
