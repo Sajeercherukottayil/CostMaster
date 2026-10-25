@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../services/auth_service.dart';
 import '../theme.dart';
+import '../widgets/policy_links.dart';
 
 /// Log in or create an account with email and password.
 class AuthScreen extends StatefulWidget {
@@ -338,6 +339,8 @@ class _AuthScreenState extends State<AuthScreen> {
                               ),
                             ],
                           ),
+                          const SizedBox(height: 8),
+                          const PolicyLinks(),
                         ],
                       ),
                     ),

@@ -6,6 +6,7 @@ import '../services/premium_service.dart';
 import '../state/app_state.dart';
 import '../theme.dart';
 import '../utils/time_format.dart';
+import '../widgets/policy_links.dart';
 import '../widgets/ui.dart';
 import 'premium_screen.dart';
 import 'profile_form_screen.dart';
@@ -194,6 +195,8 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(height: 8),
+                const PolicyLinks(),
               ],
             ),
           ),

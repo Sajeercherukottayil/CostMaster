@@ -5,6 +5,7 @@ import '../services/premium_service.dart';
 import '../state/app_state.dart';
 import '../theme.dart';
 import '../utils/time_format.dart';
+import '../widgets/policy_links.dart';
 import '../widgets/ui.dart';
 
 /// Opens the page from [builder] if the student has Premium. Otherwise shows
@@ -270,6 +271,8 @@ class _PremiumScreenState extends State<PremiumScreen> {
                     ),
                   ],
                 ),
+                const SizedBox(height: 4),
+                const PolicyLinks(),
               ],
             ),
           ),
