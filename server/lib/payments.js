@@ -2,13 +2,58 @@
 // unit tested (see payments.test.js).
 const crypto = require('crypto');
 
-/** CostMaster Premium: one payment unlocks every mock test for life. */
-const PREMIUM = {
-  product: 'premium_lifetime',
-  // Keep in step with premiumPriceRupees in lib/services/premium_service.dart.
-  amountPaise: 299 * 100,
-  currency: 'INR',
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * The Premium plans, each a one-time payment that unlocks every mock test.
+ * Keep in step with PremiumPlan in lib/services/premium_service.dart.
+ */
+const PLANS = {
+  pass15: {
+    product: 'premium_15_days',
+    amountPaise: 49 * 100,
+    currency: 'INR',
+    days: 15,
+  },
+  lifetime: {
+    product: 'premium_lifetime',
+    amountPaise: 149 * 100,
+    currency: 'INR',
+    days: null,
+  },
 };
+
+/** The plan for [id], or null if there is no such plan. */
+function planFor(id) {
+  return Object.prototype.hasOwnProperty.call(PLANS, id) ? PLANS[id] : null;
+}
+
+/** Whether [current] (an entitlements/{uid} doc, or undefined) is lifetime. */
+function isLifetime(current) {
+  return !!current && current.premium === true && !current.expiresAt;
+}
+
+/**
+ * The fields of entitlements/{uid} after buying [planId], given the
+ * [current] doc (expiresAt as a Date or null) and the time [now].
+ * A pass bought while another is running starts when that one ends.
+ * Lifetime is never cut short by a later pass.
+ */
+function nextEntitlement(current, planId, now) {
+  const plan = planFor(planId);
+  if (!plan) throw new Error(`Unknown plan ${planId}`);
+  if (plan.days === null || isLifetime(current)) {
+    return {premium: true, plan: 'lifetime', expiresAt: null};
+  }
+  const running = current && current.premium === true && current.expiresAt &&
+      current.expiresAt > now;
+  const from = running ? current.expiresAt : now;
+  return {
+    premium: true,
+    plan: planId,
+    expiresAt: new Date(from.getTime() + plan.days * DAY_MS),
+  };
+}
 
 function hmacHex(secret, text) {
   return crypto.createHmac('sha256', secret).update(text).digest('hex');
@@ -54,7 +99,10 @@ function receiptFor(uid) {
 }
 
 module.exports = {
-  PREMIUM,
+  PLANS,
+  planFor,
+  isLifetime,
+  nextEntitlement,
   isValidPaymentSignature,
   isValidWebhookSignature,
   orderIdFromWebhook,

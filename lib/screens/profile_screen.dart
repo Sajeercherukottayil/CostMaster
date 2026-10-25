@@ -5,6 +5,7 @@ import '../services/auth_service.dart';
 import '../services/premium_service.dart';
 import '../state/app_state.dart';
 import '../theme.dart';
+import '../utils/time_format.dart';
 import '../widgets/ui.dart';
 import 'premium_screen.dart';
 import 'profile_form_screen.dart';
@@ -18,7 +19,13 @@ class ProfileScreen extends StatelessWidget {
     final auth = AuthScope.of(context);
     final profile = state.profile!;
     final theme = Theme.of(context);
-    final premium = PremiumScope.of(context).isActive;
+    final premium = PremiumScope.of(context);
+    final premiumValue = !premium.isActive
+        ? 'Unlock all mock tests'
+        : premium.status.expiresAt == null
+        ? 'Active · lifetime access to all mock tests'
+        : 'Active until ${formatDate(premium.status.expiresAt!)} · tap to '
+              'extend';
     final papers = subjectsFor(profile).map((s) => s.paper).toSet().toList()
       ..sort();
     void edit() => Navigator.of(context).push(
@@ -117,17 +124,15 @@ class ProfileScreen extends StatelessWidget {
                       _Row(
                         icon: Icons.workspace_premium_rounded,
                         label: 'Premium',
-                        value: premium
-                            ? 'Active · lifetime access to all mock tests'
-                            : 'Unlock all mock tests',
+                        value: premiumValue,
                         stacked: true,
-                        onTap: premium
+                        onTap: premium.isActive && premium.status.isLifetime
                             ? null
                             : () => Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (_) => const PremiumScreen(),
-                                  ),
+                                MaterialPageRoute(
+                                  builder: (_) => const PremiumScreen(),
                                 ),
+                              ),
                       ),
                       const Divider(indent: 68),
                       _Row(

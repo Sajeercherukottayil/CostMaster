@@ -151,11 +151,7 @@ class _Gate extends StatefulWidget {
   final AppState state;
   final PremiumState premium;
 
-  const _Gate({
-    required this.auth,
-    required this.state,
-    required this.premium,
-  });
+  const _Gate({required this.auth, required this.state, required this.premium});
 
   @override
   State<_Gate> createState() => _GateState();

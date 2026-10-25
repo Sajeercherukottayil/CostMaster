@@ -1,8 +1,10 @@
 // POST /api/create-order  (Authorization: Bearer <Firebase ID token>)
-// Creates a Razorpay order for Premium, owned by the signed-in student.
+// Body: {plan: 'pass15' | 'lifetime'}.
+// Creates a Razorpay order for that Premium plan, owned by the signed-in
+// student.
 const Razorpay = require('razorpay');
 
-const {PREMIUM, receiptFor} = require('../lib/payments');
+const {planFor, isLifetime, receiptFor} = require('../lib/payments');
 const {entitlement, order, uidFrom, FieldValue} = require('../lib/firebase');
 const {cors, fail} = require('../lib/http');
 
@@ -13,10 +15,15 @@ module.exports = async (req, res) => {
   const uid = await uidFrom(req);
   if (!uid) return fail(res, 401, 'Please log in again and retry.');
 
+  const planId = (req.body && req.body.plan) || 'lifetime';
+  const plan = planFor(planId);
+  if (!plan) return fail(res, 400, 'Please choose a Premium plan.');
+
   try {
+    // A running 15-day pass may be extended or upgraded; lifetime may not.
     const current = await entitlement(uid).get();
-    if (current.exists && current.data().premium === true) {
-      return fail(res, 409, 'Premium is already active on this account.');
+    if (current.exists && isLifetime(current.data())) {
+      return fail(res, 409, 'Lifetime Premium is already active on this account.');
     }
 
     const razorpay = new Razorpay({
@@ -24,14 +31,15 @@ module.exports = async (req, res) => {
       key_secret: process.env.RAZORPAY_KEY_SECRET,
     });
     const created = await razorpay.orders.create({
-      amount: PREMIUM.amountPaise,
-      currency: PREMIUM.currency,
+      amount: plan.amountPaise,
+      currency: plan.currency,
       receipt: receiptFor(uid),
-      notes: {uid, product: PREMIUM.product},
+      notes: {uid, plan: planId, product: plan.product},
     });
     await order(created.id).set({
       uid,
-      product: PREMIUM.product,
+      plan: planId,
+      product: plan.product,
       amountPaise: created.amount,
       currency: created.currency,
       status: 'created',

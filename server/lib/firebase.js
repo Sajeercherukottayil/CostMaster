@@ -4,7 +4,7 @@
 const {initializeApp, getApps, cert} = require('firebase-admin/app');
 const {getFirestore, FieldValue} = require('firebase-admin/firestore');
 
-const {PREMIUM} = require('./payments');
+const {nextEntitlement} = require('./payments');
 
 function app() {
   if (getApps().length) return getApps()[0];
@@ -48,20 +48,37 @@ async function uidFrom(req) {
   }
 }
 
-/** Marks the order paid and gives its owner premium. Safe to call twice. */
+/**
+ * Marks the order paid and gives its owner its plan. Safe to call twice:
+ * the app and the webhook both report each payment, and an order that is
+ * already paid is not counted again (which would add a second 15 days).
+ */
 async function grantPremium(orderId, paymentId, source) {
   await db().runTransaction(async (tx) => {
     const snap = await tx.get(order(orderId));
     if (!snap.exists) throw new Error(`Unknown order ${orderId}`);
-    const {uid} = snap.data();
+    const {uid, plan, status} = snap.data();
+    if (status === 'paid') return;
+
+    const currentSnap = await tx.get(entitlement(uid));
+    const current = currentSnap.exists ? currentSnap.data() : undefined;
+    const next = nextEntitlement(
+        current && {
+          premium: current.premium,
+          expiresAt: current.expiresAt ? current.expiresAt.toDate() : null,
+        },
+        // Orders made before there were two plans were lifetime.
+        plan || 'lifetime',
+        new Date(),
+    );
+
     tx.set(order(orderId), {
       status: 'paid',
       paymentId: paymentId || null,
       paidAt: FieldValue.serverTimestamp(),
     }, {merge: true});
     tx.set(entitlement(uid), {
-      premium: true,
-      product: PREMIUM.product,
+      ...next,
       orderId,
       paymentId: paymentId || null,
       source,

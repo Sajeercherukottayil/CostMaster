@@ -6,6 +6,7 @@ import 'package:cost_master/main.dart';
 import 'package:cost_master/models/profile.dart';
 import 'package:cost_master/models/question.dart';
 import 'package:cost_master/services/auth_service.dart';
+import 'package:cost_master/services/premium_service.dart';
 import 'package:cost_master/state/app_state.dart';
 
 import 'fake_auth.dart';
@@ -143,11 +144,7 @@ void main() {
       final auth = FakeAuthService();
       final state = await AppState.load();
       await tester.pumpWidget(
-        CostMasterApp(
-          state: state,
-          auth: auth,
-          premium: FakePremiumService(),
-        ),
+        CostMasterApp(state: state, auth: auth, premium: FakePremiumService()),
       );
       await tester.pumpAndSettle();
       return auth;
@@ -212,12 +209,13 @@ void main() {
     Future<(AppState, FakePremiumService)> openHome(
       WidgetTester tester, {
       String? failWith,
+      PremiumStatus? status,
     }) async {
       final state = await AppState.load();
       await state.saveProfile(
         const Profile(name: 'Ravi Kumar', course: foundation),
       );
-      final premium = FakePremiumService(failWith: failWith);
+      final premium = FakePremiumService(failWith: failWith, status: status);
       await tester.pumpWidget(
         CostMasterApp(
           state: state,
@@ -238,12 +236,22 @@ void main() {
       expect(find.text('Unlock all mock tests'), findsOneWidget);
       expect(find.text('Start Test'), findsNothing);
 
-      await tapVisible(tester, find.text('Pay ₹299'));
+      expect(
+        find.text('Pay ₹149'),
+        findsOneWidget,
+        reason: 'Lifetime is chosen by default',
+      );
+      await tapVisible(tester, find.text('Pay ₹149'));
       await tester.pumpAndSettle();
 
-      expect(premium.purchases, 1);
-      expect(find.text('Start Test'), findsOneWidget, reason: 'Goes on to '
-          'the test settings once Premium is granted');
+      expect(premium.purchases, [PremiumPlan.lifetime]);
+      expect(
+        find.text('Start Test'),
+        findsOneWidget,
+        reason:
+            'Goes on to '
+            'the test settings once Premium is granted',
+      );
       await tester.pageBack();
       await tester.pumpAndSettle();
       expect(find.text('PREMIUM'), findsNothing);
@@ -254,11 +262,65 @@ void main() {
 
       await tapVisible(tester, find.text('Start Mock Test'));
       await tester.pumpAndSettle();
-      await tapVisible(tester, find.text('Pay ₹299'));
+      await tapVisible(tester, find.text('Pay ₹149'));
       await tester.pumpAndSettle();
 
       expect(find.text('Payment cancelled.'), findsOneWidget);
+      expect(
+        find.text('CostMaster Premium'),
+        findsOneWidget,
+        reason: 'Stays on the Premium screen',
+      );
+      expect(find.text('Pay ₹149'), findsOneWidget);
+    });
+
+    testWidgets('the 15-day pass unlocks mock tests until it ends', (
+      tester,
+    ) async {
+      final (_, premium) = await openHome(tester);
+
+      await tapVisible(tester, find.text('Start Mock Test'));
+      await tester.pumpAndSettle();
+      await tapVisible(tester, find.text('15-day pass'));
+      await tester.pumpAndSettle();
+      await tapVisible(tester, find.text('Pay ₹49'));
+      await tester.pumpAndSettle();
+
+      expect(premium.purchases, [PremiumPlan.pass15]);
+      expect(find.text('Start Test'), findsOneWidget);
+      final ends = premium.status.expiresAt!;
+      expect(
+        ends.difference(DateTime.now()).inHours,
+        inInclusiveRange(15 * 24 - 1, 15 * 24),
+      );
+    });
+
+    testWidgets('an expired pass is locked again', (tester) async {
+      await openHome(
+        tester,
+        status: PremiumStatus(
+          premium: true,
+          expiresAt: DateTime.now().subtract(const Duration(days: 1)),
+        ),
+      );
+      expect(find.text('PREMIUM'), findsOneWidget);
+      await tapVisible(tester, find.text('Start Mock Test'));
+      await tester.pumpAndSettle();
       expect(find.text('Unlock all mock tests'), findsOneWidget);
+    });
+
+    test('a running pass stops being active when it ends', () async {
+      var now = DateTime(2026, 11, 1);
+      final service = FakePremiumService(
+        status: PremiumStatus(premium: true, expiresAt: DateTime(2026, 11, 16)),
+      );
+      final state = PremiumState(service, now: () => now);
+      state.bind('u1');
+      await Future<void>.delayed(Duration.zero);
+      expect(state.isActive, isTrue);
+      now = DateTime(2026, 11, 16, 0, 0, 1);
+      expect(state.isActive, isFalse);
+      state.dispose();
     });
 
     testWidgets('chapter tests stay free', (tester) async {
