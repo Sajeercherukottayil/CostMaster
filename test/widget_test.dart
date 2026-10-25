@@ -203,6 +203,21 @@ void main() {
 
       expect(find.text('Incorrect email or password.'), findsOneWidget);
     });
+
+    testWidgets('the login screen links to the policy pages', (tester) async {
+      await openApp(tester);
+      for (final label in [
+        'Pricing',
+        'Terms',
+        'Privacy',
+        'Refunds',
+        'Contact us',
+      ]) {
+        final link = find.widgetWithText(TextButton, label);
+        expect(link, findsOneWidget, reason: label);
+        await tester.ensureVisible(link);
+      }
+    });
   });
 
   group('Premium', () {
