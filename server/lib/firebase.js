@@ -57,7 +57,7 @@ async function grantPremium(orderId, paymentId, source) {
   await db().runTransaction(async (tx) => {
     const snap = await tx.get(order(orderId));
     if (!snap.exists) throw new Error(`Unknown order ${orderId}`);
-    const {uid, plan, status} = snap.data();
+    const {uid, plan, status, mode} = snap.data();
     if (status === 'paid') return;
 
     const currentSnap = await tx.get(entitlement(uid));
@@ -79,6 +79,7 @@ async function grantPremium(orderId, paymentId, source) {
     }, {merge: true});
     tx.set(entitlement(uid), {
       ...next,
+      mode: mode || 'test',
       orderId,
       paymentId: paymentId || null,
       source,

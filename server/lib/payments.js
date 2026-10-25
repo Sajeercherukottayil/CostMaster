@@ -93,6 +93,15 @@ function orderIdFromWebhook(event) {
   );
 }
 
+/**
+ * 'live' or 'test', from the key in use, so that Premium granted by test
+ * payments can be told apart (and removed) once real payments start.
+ */
+function modeFor(keyId) {
+  return typeof keyId === 'string' && keyId.startsWith('rzp_live_') ?
+    'live' : 'test';
+}
+
 /** Razorpay receipts are limited to 40 characters. */
 function receiptFor(uid) {
   return `premium_${uid}`.slice(0, 40);
@@ -106,5 +115,6 @@ module.exports = {
   isValidPaymentSignature,
   isValidWebhookSignature,
   orderIdFromWebhook,
+  modeFor,
   receiptFor,
 };

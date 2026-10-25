@@ -8,6 +8,8 @@ import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
+import 'web_checkout.dart';
+
 /// The ways to buy Premium, each a one-time payment that unlocks every mock
 /// test. Keep in step with PLANS in server/lib/payments.js, which is what is
 /// charged.
@@ -89,9 +91,11 @@ const premiumApiBase = 'https://costmaster-pay.vercel.app/api';
 /// Razorpay Checkout for the payment. The payment server creates the order
 /// and verifies it, and records premium in Firestore at entitlements/{uid}.
 class FirebasePremiumService implements PremiumService {
+  /// The Android app uses razorpay_flutter; the website uses Razorpay's
+  /// checkout.js (see web_checkout.dart).
   @override
   bool get canBuyHere =>
-      !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
+      kIsWeb || defaultTargetPlatform == TargetPlatform.android;
 
   @override
   Stream<PremiumStatus> watch(String uid) =>
@@ -168,16 +172,35 @@ class FirebasePremiumService implements PremiumService {
     return data;
   }
 
-  Future<PaymentSuccessResponse> _checkout(
+  Future<CheckoutResult> _checkout(
     Map<String, dynamic> order,
     PremiumPlan plan, {
     required String email,
     required String name,
   }) {
-    final done = Completer<PaymentSuccessResponse>();
+    final options = <String, Object?>{
+      'key': order['keyId'],
+      'order_id': order['orderId'],
+      'amount': order['amountPaise'],
+      'currency': order['currency'],
+      'name': 'CostMaster',
+      'description': plan.days == null
+          ? 'Premium – all mock tests, lifetime'
+          : 'Premium – all mock tests, ${plan.days} days',
+      'prefill': {'email': email, 'name': name},
+      'theme': {'color': '#1E40AF'},
+    };
+    if (kIsWeb) return openWebCheckout(options);
+
+    final done = Completer<CheckoutResult>();
     final razorpay = Razorpay();
     razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, (PaymentSuccessResponse r) {
-      if (!done.isCompleted) done.complete(r);
+      if (done.isCompleted) return;
+      done.complete((
+        orderId: r.orderId ?? '',
+        paymentId: r.paymentId ?? '',
+        signature: r.signature ?? '',
+      ));
     });
     razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, (PaymentFailureResponse r) {
       if (done.isCompleted) return;
@@ -200,18 +223,7 @@ class FirebasePremiumService implements PremiumService {
         );
       }
     });
-    razorpay.open({
-      'key': order['keyId'],
-      'order_id': order['orderId'],
-      'amount': order['amountPaise'],
-      'currency': order['currency'],
-      'name': 'CostMaster',
-      'description': plan.days == null
-          ? 'Premium – all mock tests, lifetime'
-          : 'Premium – all mock tests, ${plan.days} days',
-      'prefill': {'email': email, 'name': name},
-      'theme': {'color': '#1E40AF'},
-    });
+    razorpay.open(options);
     return done.future.whenComplete(razorpay.clear);
   }
 }

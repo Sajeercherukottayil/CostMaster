@@ -9,6 +9,7 @@ const {
   isValidPaymentSignature,
   isValidWebhookSignature,
   orderIdFromWebhook,
+  modeFor,
   receiptFor,
 } = require('./payments');
 
@@ -106,4 +107,10 @@ test('a pass never cuts lifetime short', () => {
 
 test('rejects an unknown plan', () => {
   assert.throws(() => nextEntitlement(undefined, 'gold', NOW));
+});
+
+test('tells live keys from test keys', () => {
+  assert.strictEqual(modeFor('rzp_live_abc'), 'live');
+  assert.strictEqual(modeFor('rzp_test_abc'), 'test');
+  assert.strictEqual(modeFor(undefined), 'test');
 });

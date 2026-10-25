@@ -4,7 +4,7 @@
 // student.
 const Razorpay = require('razorpay');
 
-const {planFor, isLifetime, receiptFor} = require('../lib/payments');
+const {planFor, isLifetime, modeFor, receiptFor} = require('../lib/payments');
 const {entitlement, order, uidFrom, FieldValue} = require('../lib/firebase');
 const {cors, fail} = require('../lib/http');
 
@@ -40,6 +40,7 @@ module.exports = async (req, res) => {
       uid,
       plan: planId,
       product: plan.product,
+      mode: modeFor(process.env.RAZORPAY_KEY_ID),
       amountPaise: created.amount,
       currency: created.currency,
       status: 'created',
