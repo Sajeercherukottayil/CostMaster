@@ -21,6 +21,7 @@ import 'package:cost_master/state/app_state.dart';
 import 'package:cost_master/theme.dart';
 
 import '../../test/fake_auth.dart';
+import '../../test/fake_premium.dart';
 
 /// Where make_video.py wants the frames, next to its narration timings.
 final _out = Directory(Platform.environment['DEMO_DIR'] ?? 'build/demo_video');
@@ -53,8 +54,12 @@ void main() {
 
   setUpAll(() async {
     await _loadFonts();
-    narration = jsonDecode(File('${_out.path}/narration.json').readAsStringSync());
-    durations = jsonDecode(File('${_out.path}/durations.json').readAsStringSync());
+    narration = jsonDecode(
+      File('${_out.path}/narration.json').readAsStringSync(),
+    );
+    durations = jsonDecode(
+      File('${_out.path}/durations.json').readAsStringSync(),
+    );
   });
 
   testWidgets('app walkthrough', (tester) async {
@@ -72,18 +77,22 @@ void main() {
     addTearDown(tester.view.reset);
     final names = _headings.keys.toList();
     for (final (i, name) in names.indexed) {
-      await tester.pumpWidget(_Background(
-        step: i + 1,
-        steps: names.length,
-        heading: _headings[name]!,
-        caption: narration[name] as String,
-      ));
+      await tester.pumpWidget(
+        _Background(
+          step: i + 1,
+          steps: names.length,
+          heading: _headings[name]!,
+          caption: narration[name] as String,
+        ),
+      );
       await _save(tester, find.byKey(_layerKey), 'bg_$name.png');
     }
-    await tester.pumpWidget(RepaintBoundary(
-      key: _layerKey,
-      child: const CustomPaint(painter: _BezelPainter()),
-    ));
+    await tester.pumpWidget(
+      RepaintBoundary(
+        key: _layerKey,
+        child: const CustomPaint(painter: _BezelPainter()),
+      ),
+    );
     await _save(tester, find.byKey(_layerKey), 'bezel.png');
   });
 }
@@ -127,16 +136,22 @@ Future<void> _walkthrough(WidgetTester tester, Map durations) async {
   );
   final state = await AppState.load();
   final r = _Recorder(tester, durations);
-  await tester.pumpWidget(RepaintBoundary(
-    key: _Recorder.captureKey,
-    child: Stack(
-      textDirection: TextDirection.ltr,
-      children: [
-        CostMasterApp(state: state, auth: auth),
-        _TouchIndicator(r.touch),
-      ],
+  await tester.pumpWidget(
+    RepaintBoundary(
+      key: _Recorder.captureKey,
+      child: Stack(
+        textDirection: TextDirection.ltr,
+        children: [
+          CostMasterApp(
+            state: state,
+            auth: auth,
+            premium: FakePremiumService(active: true),
+          ),
+          _TouchIndicator(r.touch),
+        ],
+      ),
     ),
-  ));
+  );
   await tester.pumpAndSettle();
   await r.frame();
 
@@ -225,10 +240,9 @@ Future<void> _walkthrough(WidgetTester tester, Map durations) async {
     await r.play(0.6);
     await r.tap(find.byTooltip('All questions'));
     await r.play(1.6);
-    await r.tap(find.descendant(
-      of: find.byType(BottomSheet),
-      matching: find.text('2'),
-    ));
+    await r.tap(
+      find.descendant(of: find.byType(BottomSheet), matching: find.text('2')),
+    );
     await r.play(0.8);
   });
 
@@ -247,10 +261,12 @@ Future<void> _walkthrough(WidgetTester tester, Map durations) async {
     await r.hold(0.4);
     await r.tap(find.text('Submit'));
     await r.play(0.6);
-    await r.tap(find.descendant(
-      of: find.byType(AlertDialog),
-      matching: find.text('Submit'),
-    ));
+    await r.tap(
+      find.descendant(
+        of: find.byType(AlertDialog),
+        matching: find.text('Submit'),
+      ),
+    );
     await r.play(1.4);
     await r.hold(1.2);
     await r.scrollTo(find.text('Answer Review'), alignment: 0.05);
@@ -283,8 +299,9 @@ Finder _option({required bool correctly}) {
     (q) => find.text(q.text).evaluate().isNotEmpty,
   );
   final right = question.options[question.answerIndex];
-  final pick =
-      correctly ? right : question.options.firstWhere((o) => o != right);
+  final pick = correctly
+      ? right
+      : question.options.firstWhere((o) => o != right);
   return find.text(pick).last;
 }
 

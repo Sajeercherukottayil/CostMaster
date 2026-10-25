@@ -21,6 +21,7 @@ import 'package:cost_master/services/auth_service.dart';
 import 'package:cost_master/state/app_state.dart';
 
 import '../test/fake_auth.dart';
+import '../test/fake_premium.dart';
 
 const _student = AuthUser(uid: 'u1', email: 'asha@example.com');
 
@@ -49,12 +50,14 @@ void main() {
     ];
     SharedPreferences.setMockInitialValues({
       'ownerUid': 'u1',
-      'profile': jsonEncode(const Profile(
-        name: 'Asha Menon',
-        course: intermediate,
-        group: 2,
-        targetTerm: 'December 2026',
-      ).toJson()),
+      'profile': jsonEncode(
+        const Profile(
+          name: 'Asha Menon',
+          course: intermediate,
+          group: 2,
+          targetTerm: 'December 2026',
+        ).toJson(),
+      ),
       'attempts': [for (final a in attempts) jsonEncode(a.toJson())],
     });
   });
@@ -64,17 +67,20 @@ void main() {
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
     final state = await AppState.load();
-    await tester.pumpWidget(CostMasterApp(
-      state: state,
-      auth: auth ?? FakeAuthService(signedInAs: _student),
-    ));
+    await tester.pumpWidget(
+      CostMasterApp(
+        state: state,
+        auth: auth ?? FakeAuthService(signedInAs: _student),
+        premium: FakePremiumService(active: true),
+      ),
+    );
     await tester.pumpAndSettle();
   }
 
   Future<void> shot(String name) => expectLater(
-        find.byType(MaterialApp).first,
-        matchesGoldenFile('../screenshots/$name.png'),
-      );
+    find.byType(MaterialApp).first,
+    matchesGoldenFile('../screenshots/$name.png'),
+  );
 
   _screenshots('login', (tester) async {
     await open(tester, auth: FakeAuthService());
@@ -140,10 +146,12 @@ void main() {
     }
     await tester.tap(find.text('Submit'));
     await tester.pumpAndSettle();
-    await tester.tap(find.descendant(
-      of: find.byType(AlertDialog),
-      matching: find.text('Submit'),
-    ));
+    await tester.tap(
+      find.descendant(
+        of: find.byType(AlertDialog),
+        matching: find.text('Submit'),
+      ),
+    );
     await tester.pumpAndSettle();
     await shot('09_result');
   });
