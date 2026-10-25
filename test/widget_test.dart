@@ -120,6 +120,18 @@ void main() {
     await tapVisible(tester, find.text('Show answer').first);
     await tester.pump();
     expect(find.text('Hide answer'), findsOneWidget);
+
+    await tapVisible(tester, find.textContaining('Descriptive ('));
+    await tester.pump();
+    expect(find.text('Hide answer'), findsNothing);
+    expect(find.text('5 marks'), findsWidgets);
+    await tapVisible(tester, find.text('Show answer').first);
+    await tester.pump();
+    expect(
+      find.textContaining('caveat emptor', findRichText: true),
+      findsWidgets,
+    );
+    expect(find.text('Hide answer'), findsOneWidget);
   });
 
   group('Email login', () {
@@ -144,12 +156,18 @@ void main() {
       await tester.enterText(fields.at(1), 'asha@example.com');
       await tester.enterText(fields.at(2), 'secret1');
       await tester.enterText(fields.at(3), 'secret2');
-      await tapVisible(tester, find.widgetWithText(FilledButton, 'Create account'));
+      await tapVisible(
+        tester,
+        find.widgetWithText(FilledButton, 'Create account'),
+      );
       await tester.pumpAndSettle();
       expect(find.text('Passwords do not match'), findsOneWidget);
 
       await tester.enterText(fields.at(3), 'secret1');
-      await tapVisible(tester, find.widgetWithText(FilledButton, 'Create account'));
+      await tapVisible(
+        tester,
+        find.widgetWithText(FilledButton, 'Create account'),
+      );
       await tester.pumpAndSettle();
 
       // Back on the login form, signed out, with the email kept.

@@ -41,3 +41,28 @@ class Question {
     required this.explanation,
   });
 }
+
+/// A written-answer question with a model answer to compare against.
+/// Not used in mock tests, since written answers can't be auto-marked.
+class DescriptiveQuestion {
+  final String subjectId;
+  final String chapter;
+  final String text;
+  final int marks;
+
+  /// Model answer. Lines are separated by `\n`; lines starting with `• `
+  /// are bullet points.
+  final String answer;
+
+  /// A numerical or case-based problem, rather than a theory question.
+  final bool problem;
+
+  const DescriptiveQuestion({
+    required this.subjectId,
+    required this.chapter,
+    required this.text,
+    required this.marks,
+    required this.answer,
+    this.problem = false,
+  });
+}
