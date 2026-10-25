@@ -24,18 +24,18 @@ void main() {
   });
   // Release builds otherwise draw a failed widget as a blank box.
   ErrorWidget.builder = (details) => ColoredBox(
-        color: Colors.white,
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Text(
-              'Something went wrong:\n${details.exceptionAsString()}',
-              textDirection: TextDirection.ltr,
-              style: const TextStyle(color: AppColors.danger, fontSize: 13),
-            ),
-          ),
+    color: Colors.white,
+    child: Center(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Text(
+          'Something went wrong:\n${details.exceptionAsString()}',
+          textDirection: TextDirection.ltr,
+          style: const TextStyle(color: AppColors.danger, fontSize: 13),
         ),
-      );
+      ),
+    ),
+  );
   // Draw something straight away; Firebase and saved data load behind the
   // splash, so a slow or failed start never leaves a black screen.
   runApp(const _Startup());
@@ -192,8 +192,11 @@ class _StartupFailed extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.cloud_off_rounded,
-                  size: 56, color: AppColors.brand),
+              const Icon(
+                Icons.cloud_off_rounded,
+                size: 56,
+                color: AppColors.brand,
+              ),
               const SizedBox(height: 16),
               const Text(
                 'CostMaster could not start',
@@ -240,10 +243,7 @@ class _Splash extends StatelessWidget {
           children: [
             BrandMark(large: true),
             SizedBox(height: 32),
-            SizedBox(
-              width: 120,
-              child: LinearProgressIndicator(minHeight: 3),
-            ),
+            SizedBox(width: 120, child: LinearProgressIndicator(minHeight: 3)),
           ],
         ),
       ),

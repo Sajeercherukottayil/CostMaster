@@ -12,7 +12,8 @@ const interCostQuestions = [
       'Material cost',
     ],
     answerIndex: 2,
-    explanation: 'CAS-4 is Cost of Production for Captive Consumption. CAS-1 is '
+    explanation:
+        'CAS-4 is Cost of Production for Captive Consumption. CAS-1 is '
         'Classification of Cost, CAS-2 Capacity Determination and CAS-6 '
         'Material Cost.',
   ),
@@ -27,7 +28,8 @@ const interCostQuestions = [
       'Material Cost',
     ],
     answerIndex: 0,
-    explanation: 'CAS-1 sets out principles for classifying costs, for example by '
+    explanation:
+        'CAS-1 sets out principles for classifying costs, for example by '
         'nature, function and behaviour.',
   ),
   Question(
@@ -41,7 +43,8 @@ const interCostQuestions = [
       'Capacity Determination',
     ],
     answerIndex: 3,
-    explanation: 'CAS-2 defines installed, normal and actual capacity and how they '
+    explanation:
+        'CAS-2 defines installed, normal and actual capacity and how they '
         'are measured.',
   ),
   Question(
@@ -55,7 +58,8 @@ const interCostQuestions = [
       'Overheads',
     ],
     answerIndex: 0,
-    explanation: 'CAS-6 covers the measurement, assignment and presentation of '
+    explanation:
+        'CAS-6 covers the measurement, assignment and presentation of '
         'material cost.',
   ),
   Question(
@@ -69,7 +73,8 @@ const interCostQuestions = [
       'Interest and Financing Charges',
     ],
     answerIndex: 0,
-    explanation: 'CAS-10 covers expenses, other than material and employee cost, '
+    explanation:
+        'CAS-10 covers expenses, other than material and employee cost, '
         'that can be traced directly to a cost object.',
   ),
   Question(
@@ -83,7 +88,8 @@ const interCostQuestions = [
       'Administrative Overheads',
     ],
     answerIndex: 2,
-    explanation: 'CAS-3 sets out principles for collecting, assigning and absorbing '
+    explanation:
+        'CAS-3 sets out principles for collecting, assigning and absorbing '
         'production and operation overheads.',
   ),
   Question(
@@ -123,7 +129,8 @@ const interCostQuestions = [
       'Selling and Distribution Overheads',
     ],
     answerIndex: 0,
-    explanation: 'CAS-11 sets out principles for collecting and assigning '
+    explanation:
+        'CAS-11 sets out principles for collecting and assigning '
         'administrative overheads.',
   ),
   Question(
@@ -142,21 +149,25 @@ const interCostQuestions = [
   Question(
     subjectId: 'i_cost',
     chapter: 'Activity Based Costing',
-    text: 'In activity based costing, the factor that causes a change in the '
+    text:
+        'In activity based costing, the factor that causes a change in the '
         'cost of an activity is called a:',
     options: ['Cost pool', 'Cost driver', 'Cost centre', 'Cost unit'],
     answerIndex: 1,
-    explanation: 'A cost driver (for example, number of set-ups) causes the cost '
+    explanation:
+        'A cost driver (for example, number of set-ups) causes the cost '
         'of an activity. A cost pool collects the costs of an activity.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Activity Based Costing',
-    text: 'Set-up costs are ₹60,000 for 120 set-ups. Product A requires 30 '
+    text:
+        'Set-up costs are ₹60,000 for 120 set-ups. Product A requires 30 '
         'set-ups. Under ABC, set-up cost charged to A is:',
     options: ['₹20,000', '₹15,000', '₹500', '₹30,000'],
     answerIndex: 1,
-    explanation: 'Cost driver rate = 60,000 ÷ 120 = ₹500 per set-up; A\'s cost = 30 × '
+    explanation:
+        'Cost driver rate = 60,000 ÷ 120 = ₹500 per set-up; A\'s cost = 30 × '
         '500 = ₹15,000.',
   ),
   Question(
@@ -170,7 +181,8 @@ const interCostQuestions = [
       'The total sales of a period',
     ],
     answerIndex: 2,
-    explanation: 'Overheads are collected in activity cost pools and then charged to '
+    explanation:
+        'Overheads are collected in activity cost pools and then charged to '
         'products using cost drivers.',
   ),
   Question(
@@ -184,7 +196,8 @@ const interCostQuestions = [
       'Number of units sold',
     ],
     answerIndex: 2,
-    explanation: 'Purchasing cost is caused mainly by the number of orders placed.',
+    explanation:
+        'Purchasing cost is caused mainly by the number of orders placed.',
   ),
   Question(
     subjectId: 'i_cost',
@@ -197,13 +210,15 @@ const interCostQuestions = [
       'All products use resources equally',
     ],
     answerIndex: 2,
-    explanation: 'With diverse products, a single absorption rate distorts costs; '
+    explanation:
+        'With diverse products, a single absorption rate distorts costs; '
         'ABC traces overheads more accurately.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Activity Based Costing',
-    text: 'An activity such as plant management, which supports the whole '
+    text:
+        'An activity such as plant management, which supports the whole '
         'facility, is a:',
     options: [
       'Facility-sustaining activity',
@@ -212,7 +227,8 @@ const interCostQuestions = [
       'Product-sustaining activity',
     ],
     answerIndex: 0,
-    explanation: 'Facility-sustaining activities support the organisation as a whole '
+    explanation:
+        'Facility-sustaining activities support the organisation as a whole '
         'and are not caused by individual units, batches or products.',
   ),
   Question(
@@ -226,18 +242,21 @@ const interCostQuestions = [
       'Facility-level cost driver',
     ],
     answerIndex: 0,
-    explanation: 'Set-up costs are incurred for each batch, regardless of the batch '
+    explanation:
+        'Set-up costs are incurred for each batch, regardless of the batch '
         'size.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Activity Based Costing',
-    text: 'Inspection costs are ₹40,000 for 200 inspections. A product '
+    text:
+        'Inspection costs are ₹40,000 for 200 inspections. A product '
         'requires 15 inspections. Inspection cost charged to it under ABC '
         'is:',
     options: ['₹3,000', '₹15,000', '₹200', '₹2,000'],
     answerIndex: 0,
-    explanation: 'Rate = 40,000 ÷ 200 = ₹200 per inspection; 15 × 200 = ₹3,000.',
+    explanation:
+        'Rate = 40,000 ÷ 200 = ₹200 per inspection; 15 × 200 = ₹3,000.',
   ),
   Question(
     subjectId: 'i_cost',
@@ -250,7 +269,8 @@ const interCostQuestions = [
       'Customers only',
     ],
     answerIndex: 1,
-    explanation: 'This two-stage approach links overheads to the activities that '
+    explanation:
+        'This two-stage approach links overheads to the activities that '
         'cause them.',
   ),
   Question(
@@ -264,34 +284,40 @@ const interCostQuestions = [
       'Machine running',
     ],
     answerIndex: 1,
-    explanation: 'Product-sustaining activities support a product line regardless of '
+    explanation:
+        'Product-sustaining activities support a product line regardless of '
         'units or batches produced.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Joint & By-Products',
-    text: 'Joint cost of ₹60,000 is apportioned on the sales value method. '
+    text:
+        'Joint cost of ₹60,000 is apportioned on the sales value method. '
         'Product A: 2,000 units at ₹30. Product B: 1,000 units at ₹40. Joint '
         'cost apportioned to A is:',
     options: ['₹40,000', '₹24,000', '₹30,000', '₹36,000'],
     answerIndex: 3,
-    explanation: 'Sales value: A = ₹60,000, B = ₹40,000 (ratio 3 : 2). A\'s '
+    explanation:
+        'Sales value: A = ₹60,000, B = ₹40,000 (ratio 3 : 2). A\'s '
         'share = 60,000 × 3/5 = ₹36,000.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Joint & By-Products',
-    text: 'A product of relatively small value produced incidentally along with '
+    text:
+        'A product of relatively small value produced incidentally along with '
         'the main product is a:',
     options: ['Joint product', 'By-product', 'Scrap', 'Co-product'],
     answerIndex: 1,
-    explanation: 'By-products have small value compared with the main product. '
+    explanation:
+        'By-products have small value compared with the main product. '
         'Joint products have comparable values.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Joint & By-Products',
-    text: 'Joint costs of ₹90,000 are apportioned on the physical units '
+    text:
+        'Joint costs of ₹90,000 are apportioned on the physical units '
         'method. Product A yields 6,000 kg and Product B 3,000 kg. The '
         'joint cost of A is:',
     options: ['₹45,000', '₹90,000', '₹30,000', '₹60,000'],
@@ -309,7 +335,8 @@ const interCostQuestions = [
       'Products are sold',
     ],
     answerIndex: 0,
-    explanation: 'Costs before the split-off point are joint costs; costs after it '
+    explanation:
+        'Costs before the split-off point are joint costs; costs after it '
         'are separable costs.',
   ),
   Question(
@@ -323,7 +350,8 @@ const interCostQuestions = [
       'Sales value less estimated profit and post-split-off costs is credited to the main product',
     ],
     answerIndex: 3,
-    explanation: 'The by-product\'s share of joint cost is worked backwards from its '
+    explanation:
+        'The by-product\'s share of joint cost is worked backwards from its '
         'sales value and credited to the main product\'s cost.',
   ),
   Question(
@@ -337,13 +365,15 @@ const interCostQuestions = [
       'Two or more products of significant value produced from the same process',
     ],
     answerIndex: 3,
-    explanation: 'Joint products have comparable importance, unlike by-products, '
+    explanation:
+        'Joint products have comparable importance, unlike by-products, '
         'which have relatively small value.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Joint & By-Products',
-    text: 'Under the net realisable value method, joint costs are apportioned '
+    text:
+        'Under the net realisable value method, joint costs are apportioned '
         'on the basis of:',
     options: [
       'Weight only',
@@ -352,13 +382,15 @@ const interCostQuestions = [
       'Physical units',
     ],
     answerIndex: 2,
-    explanation: 'It is used when products need further processing after the '
+    explanation:
+        'It is used when products need further processing after the '
         'split-off point.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Joint & By-Products',
-    text: 'Joint cost is ₹40,000. Net realisable value is ₹30,000 for Product '
+    text:
+        'Joint cost is ₹40,000. Net realisable value is ₹30,000 for Product '
         'A and ₹50,000 for Product B. The joint cost of A is:',
     options: ['₹30,000', '₹25,000', '₹20,000', '₹15,000'],
     answerIndex: 3,
@@ -367,7 +399,8 @@ const interCostQuestions = [
   Question(
     subjectId: 'i_cost',
     chapter: 'Joint & By-Products',
-    text: 'A joint product should be processed further after the split-off '
+    text:
+        'A joint product should be processed further after the split-off '
         'point if:',
     options: [
       'Incremental revenue exceeds incremental cost',
@@ -376,12 +409,14 @@ const interCostQuestions = [
       'The joint cost is high',
     ],
     answerIndex: 0,
-    explanation: 'Joint costs are irrelevant to the further processing decision.',
+    explanation:
+        'Joint costs are irrelevant to the further processing decision.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Joint & By-Products',
-    text: 'When a by-product has negligible value, its sales proceeds are '
+    text:
+        'When a by-product has negligible value, its sales proceeds are '
         'usually:',
     options: [
       'Treated as a joint product',
@@ -390,22 +425,26 @@ const interCostQuestions = [
       'Ignored',
     ],
     answerIndex: 1,
-    explanation: 'Alternatively, they may be deducted from the cost of the main '
+    explanation:
+        'Alternatively, they may be deducted from the cost of the main '
         'product.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Material & Employee Cost',
-    text: 'Annual demand is 10,000 units, set-up cost is ₹200 per batch and '
+    text:
+        'Annual demand is 10,000 units, set-up cost is ₹200 per batch and '
         'carrying cost is ₹4 per unit per year. The economic batch quantity is:',
     options: ['1,000 units', '500 units', '2,000 units', '707 units'],
     answerIndex: 0,
-    explanation: 'EBQ = √(2DS/C) = √(2 × 10,000 × 200 / 4) = √10,00,000 = 1,000 units.',
+    explanation:
+        'EBQ = √(2DS/C) = √(2 × 10,000 × 200 / 4) = √10,00,000 = 1,000 units.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Material & Employee Cost',
-    text: 'Overtime premium paid because a customer asked for urgent delivery '
+    text:
+        'Overtime premium paid because a customer asked for urgent delivery '
         'of a specific job is:',
     options: [
       'Charged to factory overheads',
@@ -414,25 +453,29 @@ const interCostQuestions = [
       'Ignored in cost accounts',
     ],
     answerIndex: 2,
-    explanation: 'When overtime is due to a specific customer\'s request, the '
+    explanation:
+        'When overtime is due to a specific customer\'s request, the '
         'premium is a direct cost of that job. Overtime due to general pressure '
         'of work is an overhead.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Material & Employee Cost',
-    text: 'Annual demand is 8,000 units, ordering cost ₹40 per order, '
+    text:
+        'Annual demand is 8,000 units, ordering cost ₹40 per order, '
         'purchase price ₹20 per unit and carrying cost 20% p.a. of unit '
         'price. The EOQ is:',
     options: ['400 units', '1,600 units', '200 units', '800 units'],
     answerIndex: 0,
-    explanation: 'Carrying cost per unit = 20 × 20% = ₹4. EOQ = √(2 × 8,000 × 40 ÷ '
+    explanation:
+        'Carrying cost per unit = 20 × 20% = ₹4. EOQ = √(2 × 8,000 × 40 ÷ '
         '4) = √1,60,000 = 400 units.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Material & Employee Cost',
-    text: 'Under Merrick\'s multiple piece rate system, a worker whose '
+    text:
+        'Under Merrick\'s multiple piece rate system, a worker whose '
         'efficiency is above 100% is paid:',
     options: [
       '110% of the normal piece rate',
@@ -441,18 +484,21 @@ const interCostQuestions = [
       '120% of the normal piece rate',
     ],
     answerIndex: 3,
-    explanation: 'Merrick\'s plan pays the normal rate up to 83% efficiency, 110% '
+    explanation:
+        'Merrick\'s plan pays the normal rate up to 83% efficiency, 110% '
         'from 83% to 100%, and 120% above 100%.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Material & Employee Cost',
-    text: 'During a year, 10 workers left and 15 were replaced. The average '
+    text:
+        'During a year, 10 workers left and 15 were replaced. The average '
         'number of workers was 500. Labour turnover under the flux method '
         'is:',
     options: ['25%', '5%', '2%', '3%'],
     answerIndex: 1,
-    explanation: 'Flux method = (Separations + Replacements) ÷ Average workers × 100 '
+    explanation:
+        'Flux method = (Separations + Replacements) ÷ Average workers × 100 '
         '= (10 + 15) ÷ 500 × 100 = 5%.',
   ),
   Question(
@@ -466,7 +512,8 @@ const interCostQuestions = [
       'Continuous recording of receipts and issues, with regular physical checks',
     ],
     answerIndex: 3,
-    explanation: 'Stores records show the balance after every transaction and are '
+    explanation:
+        'Stores records show the balance after every transaction and are '
         'verified by continuous stock-taking.',
   ),
   Question(
@@ -480,22 +527,26 @@ const interCostQuestions = [
       'Variable, Extra and Direct',
     ],
     answerIndex: 2,
-    explanation: 'It focuses control on items whose shortage would stop production.',
+    explanation:
+        'It focuses control on items whose shortage would stop production.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Material & Employee Cost',
-    text: 'Annual material consumption is ₹3,60,000 and average stock '
+    text:
+        'Annual material consumption is ₹3,60,000 and average stock '
         '₹60,000. Taking 360 days, the inventory holding period is:',
     options: ['6 days', '90 days', '60 days', '36 days'],
     answerIndex: 2,
-    explanation: 'Turnover = 3,60,000 ÷ 60,000 = 6 times; holding period = 360 ÷ 6 = '
+    explanation:
+        'Turnover = 3,60,000 ÷ 60,000 = 6 times; holding period = 360 ÷ 6 = '
         '60 days.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Material & Employee Cost',
-    text: 'Under Gantt\'s task and bonus plan, a worker who does not reach the '
+    text:
+        'Under Gantt\'s task and bonus plan, a worker who does not reach the '
         'standard gets:',
     options: [
       'Piece wages at a lower rate',
@@ -504,7 +555,8 @@ const interCostQuestions = [
       'Time wages plus bonus',
     ],
     answerIndex: 1,
-    explanation: 'Workers reaching the standard receive time wages plus a bonus.',
+    explanation:
+        'Workers reaching the standard receive time wages plus a bonus.',
   ),
   Question(
     subjectId: 'i_cost',
@@ -517,13 +569,15 @@ const interCostQuestions = [
       'A level below the minimum level, at which emergency purchases are made',
     ],
     answerIndex: 3,
-    explanation: 'At the danger level, normal issues may be stopped and urgent '
+    explanation:
+        'At the danger level, normal issues may be stopped and urgent '
         'purchase action is taken.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Process & Service Costing',
-    text: 'A bus runs 200 km a day for 25 days in a month, carrying 40 '
+    text:
+        'A bus runs 200 km a day for 25 days in a month, carrying 40 '
         'passengers on average. Passenger-km for the month are:',
     options: ['5,000', '8,000', '2,00,000', '1,000'],
     answerIndex: 2,
@@ -532,7 +586,8 @@ const interCostQuestions = [
   Question(
     subjectId: 'i_cost',
     chapter: 'Standard Costing',
-    text: 'Standard quantity for actual output is 1,000 kg, actual quantity '
+    text:
+        'Standard quantity for actual output is 1,000 kg, actual quantity '
         'used is 1,100 kg and standard price is ₹5 per kg. The material usage '
         'variance is:',
     options: ['₹500 (F)', '₹550 (A)', '₹5,000 (A)', '₹500 (A)'],
@@ -542,27 +597,32 @@ const interCostQuestions = [
   Question(
     subjectId: 'i_cost',
     chapter: 'Standard Costing',
-    text: 'Budgeted fixed overheads are ₹50,000 for 10,000 units. Actual output '
+    text:
+        'Budgeted fixed overheads are ₹50,000 for 10,000 units. Actual output '
         'is 9,000 units. The fixed overhead volume variance is:',
     options: ['₹5,000 (A)', '₹5,000 (F)', '₹4,500 (A)', '₹50,000 (A)'],
     answerIndex: 0,
-    explanation: 'Standard rate = ₹5 per unit. Volume variance = (Actual output − '
+    explanation:
+        'Standard rate = ₹5 per unit. Volume variance = (Actual output − '
         'Budgeted output) × Rate = (9,000 − 10,000) × 5 = ₹5,000 adverse.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Standard Costing',
-    text: '1,000 units are sold at ₹48 each against a standard price of ₹50. '
+    text:
+        '1,000 units are sold at ₹48 each against a standard price of ₹50. '
         'The sales price variance is:',
     options: ['₹2,000 (F)', '₹2,000 (A)', '₹48,000 (A)', '₹200 (A)'],
     answerIndex: 1,
-    explanation: 'Sales price variance = (AP − SP) × Actual quantity = '
+    explanation:
+        'Sales price variance = (AP − SP) × Actual quantity = '
         '(48 − 50) × 1,000 = ₹2,000 adverse.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Standard Costing',
-    text: 'Standard quantity for actual output is 500 kg, actual quantity '
+    text:
+        'Standard quantity for actual output is 500 kg, actual quantity '
         'used 520 kg and standard price ₹8 per kg. The material usage '
         'variance is:',
     options: [
@@ -572,13 +632,15 @@ const interCostQuestions = [
       '₹160 adverse',
     ],
     answerIndex: 3,
-    explanation: 'Usage variance = (SQ − AQ) × SP = (500 − 520) × 8 = −160, i.e., '
+    explanation:
+        'Usage variance = (SQ − AQ) × SP = (500 − 520) × 8 = −160, i.e., '
         '₹160 adverse.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Standard Costing',
-    text: 'Standard hours for actual output are 1,000, actual hours worked '
+    text:
+        'Standard hours for actual output are 1,000, actual hours worked '
         '950 and the standard rate ₹20 per hour. The labour efficiency '
         'variance is:',
     options: [
@@ -588,23 +650,27 @@ const interCostQuestions = [
       '₹950 favourable',
     ],
     answerIndex: 1,
-    explanation: 'Efficiency variance = (SH − AH worked) × SR = (1,000 − 950) × 20 = '
+    explanation:
+        'Efficiency variance = (SH − AH worked) × SR = (1,000 − 950) × 20 = '
         '₹1,000 favourable.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Standard Costing',
-    text: 'Workers were idle for 50 hours due to a power failure. The '
+    text:
+        'Workers were idle for 50 hours due to a power failure. The '
         'standard rate is ₹25 per hour. The idle time variance is:',
     options: ['Nil', '₹50 adverse', '₹1,250 favourable', '₹1,250 adverse'],
     answerIndex: 3,
-    explanation: 'Idle time variance = Idle hours × SR = 50 × 25 = ₹1,250; it is '
+    explanation:
+        'Idle time variance = Idle hours × SR = 50 × 25 = ₹1,250; it is '
         'always adverse.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Standard Costing',
-    text: 'Standard variable overhead rate is ₹4 per hour, actual hours 1,000 '
+    text:
+        'Standard variable overhead rate is ₹4 per hour, actual hours 1,000 '
         'and actual variable overheads ₹4,500. The variable overhead '
         'expenditure variance is:',
     options: [
@@ -614,12 +680,14 @@ const interCostQuestions = [
       '₹4,000 adverse',
     ],
     answerIndex: 1,
-    explanation: 'Expenditure variance = (1,000 × 4) − 4,500 = −₹500, i.e., adverse.',
+    explanation:
+        'Expenditure variance = (1,000 × 4) − 4,500 = −₹500, i.e., adverse.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Standard Costing',
-    text: 'Budgeted sales are 1,000 units and actual sales 1,100 units. '
+    text:
+        'Budgeted sales are 1,000 units and actual sales 1,100 units. '
         'Standard profit is ₹10 per unit. The sales volume (profit) '
         'variance is:',
     options: [
@@ -647,16 +715,19 @@ const interCostQuestions = [
   Question(
     subjectId: 'i_cost',
     chapter: 'Standard Costing',
-    text: 'Budgeted fixed overheads are ₹50,000 and actual fixed overheads '
+    text:
+        'Budgeted fixed overheads are ₹50,000 and actual fixed overheads '
         '₹52,000. The fixed overhead expenditure variance is:',
     options: ['₹52,000 adverse', 'Nil', '₹2,000 adverse', '₹2,000 favourable'],
     answerIndex: 2,
-    explanation: 'Expenditure variance = Budgeted − Actual = −₹2,000, i.e., adverse.',
+    explanation:
+        'Expenditure variance = Budgeted − Actual = −₹2,000, i.e., adverse.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Reconciliation & Integrated Accounts',
-    text: 'Starting from profit as per cost accounts, factory overheads '
+    text:
+        'Starting from profit as per cost accounts, factory overheads '
         'under-absorbed in cost accounts are:',
     options: [
       'Added to get profit as per financial accounts',
@@ -665,7 +736,8 @@ const interCostQuestions = [
       'Deducted to get profit as per financial accounts',
     ],
     answerIndex: 3,
-    explanation: 'Cost accounts charged less than the actual overhead, so cost '
+    explanation:
+        'Cost accounts charged less than the actual overhead, so cost '
         'profit is higher. Deduct the under-absorption to reach financial profit.',
   ),
   Question(
@@ -679,7 +751,8 @@ const interCostQuestions = [
       'Depreciation of plant',
     ],
     answerIndex: 2,
-    explanation: 'Interest received on investments is a purely financial item. '
+    explanation:
+        'Interest received on investments is a purely financial item. '
         'The others are costs of production.',
   ),
   Question(
@@ -693,27 +766,32 @@ const interCostQuestions = [
       'Only cost accounts are kept',
     ],
     answerIndex: 1,
-    explanation: 'Integrated accounts merge cost and financial records, so no '
+    explanation:
+        'Integrated accounts merge cost and financial records, so no '
         'reconciliation is needed.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Reconciliation & Integrated Accounts',
-    text: 'Starting from profit as per cost accounts, factory overheads '
+    text:
+        'Starting from profit as per cost accounts, factory overheads '
         'over-absorbed in cost accounts are:',
     options: ['Deducted', 'Ignored', 'Added', 'Added twice'],
     answerIndex: 2,
-    explanation: 'Over-absorption means cost accounts charged more than actual, so '
+    explanation:
+        'Over-absorption means cost accounts charged more than actual, so '
         'costing profit is lower; add it back to reach financial profit.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Reconciliation & Integrated Accounts',
-    text: 'Starting from profit as per cost accounts, interest received on '
+    text:
+        'Starting from profit as per cost accounts, interest received on '
         'investments (recorded only in financial accounts) is:',
     options: ['Deducted twice', 'Added', 'Deducted', 'Ignored'],
     answerIndex: 1,
-    explanation: 'Purely financial income is not in cost accounts, so it is added to '
+    explanation:
+        'Purely financial income is not in cost accounts, so it is added to '
         'costing profit.',
   ),
   Question(
@@ -727,27 +805,32 @@ const interCostQuestions = [
       'Two separate sets of books are kept',
     ],
     answerIndex: 2,
-    explanation: 'A single set of books serves both cost and financial purposes, so '
+    explanation:
+        'A single set of books serves both cost and financial purposes, so '
         'reconciliation is unnecessary.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Reconciliation & Integrated Accounts',
-    text: 'Starting from profit as per cost accounts, notional rent charged '
+    text:
+        'Starting from profit as per cost accounts, notional rent charged '
         'only in cost accounts is:',
     options: ['Deducted', 'Deducted twice', 'Added', 'Ignored'],
     answerIndex: 2,
-    explanation: 'Notional costs reduce costing profit but not financial profit, so '
+    explanation:
+        'Notional costs reduce costing profit but not financial profit, so '
         'they are added back.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Reconciliation & Integrated Accounts',
-    text: 'Closing stock is valued higher in cost accounts than in financial '
+    text:
+        'Closing stock is valued higher in cost accounts than in financial '
         'accounts. Starting from costing profit, the difference is:',
     options: ['Added twice', 'Added', 'Deducted', 'Ignored'],
     answerIndex: 2,
-    explanation: 'Higher closing stock in cost accounts gives a higher costing '
+    explanation:
+        'Higher closing stock in cost accounts gives a higher costing '
         'profit.',
   ),
   Question(
@@ -761,7 +844,8 @@ const interCostQuestions = [
       'Debiting Wages Control Account and crediting Bank Account',
     ],
     answerIndex: 3,
-    explanation: 'Wages Control Account is later credited and WIP or Overhead '
+    explanation:
+        'Wages Control Account is later credited and WIP or Overhead '
         'Control debited.',
   ),
   Question(
@@ -775,16 +859,23 @@ const interCostQuestions = [
       'Record cash transactions',
     ],
     answerIndex: 0,
-    explanation: 'It is an alternative to the reconciliation statement and is not '
+    explanation:
+        'It is an alternative to the reconciliation statement and is not '
         'part of double entry.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Uniform Costing & Inter-firm Comparison',
     text: 'Inter-firm comparison is best supported by:',
-    options: ['Uniform costing', 'Job costing', 'Marginal costing', 'Batch costing'],
+    options: [
+      'Uniform costing',
+      'Job costing',
+      'Marginal costing',
+      'Batch costing',
+    ],
     answerIndex: 0,
-    explanation: 'Uniform costing means firms in an industry follow the same '
+    explanation:
+        'Uniform costing means firms in an industry follow the same '
         'costing principles, so their costs can be compared.',
   ),
   Question(
@@ -798,7 +889,8 @@ const interCostQuestions = [
       'All firms have the same costs',
     ],
     answerIndex: 1,
-    explanation: 'Uniform costing makes cost data of different firms comparable.',
+    explanation:
+        'Uniform costing makes cost data of different firms comparable.',
   ),
   Question(
     subjectId: 'i_cost',
@@ -811,7 +903,8 @@ const interCostQuestions = [
       'Banks',
     ],
     answerIndex: 1,
-    explanation: 'Industry associations commonly develop and administer uniform '
+    explanation:
+        'Industry associations commonly develop and administer uniform '
         'costing systems for their members.',
   ),
   Question(
@@ -825,7 +918,8 @@ const interCostQuestions = [
       'Identical selling prices',
     ],
     answerIndex: 2,
-    explanation: 'Comparisons are reliable only when firms use common definitions, '
+    explanation:
+        'Comparisons are reliable only when firms use common definitions, '
         'methods and periods.',
   ),
   Question(
@@ -839,7 +933,8 @@ const interCostQuestions = [
       'It improves efficiency',
     ],
     answerIndex: 2,
-    explanation: 'Firms may fear that sensitive information will reach competitors.',
+    explanation:
+        'Firms may fear that sensitive information will reach competitors.',
   ),
   Question(
     subjectId: 'i_cost',
@@ -852,7 +947,8 @@ const interCostQuestions = [
       'Reduce taxes',
     ],
     answerIndex: 1,
-    explanation: 'Comparing ratios and costs with industry figures shows where the '
+    explanation:
+        'Comparing ratios and costs with industry figures shows where the '
         'firm is less efficient.',
   ),
   Question(
@@ -866,7 +962,8 @@ const interCostQuestions = [
       'Statutory audit reports',
     ],
     answerIndex: 0,
-    explanation: 'It ensures all participating firms prepare cost data in the same '
+    explanation:
+        'It ensures all participating firms prepare cost data in the same '
         'way.',
   ),
   Question(
@@ -911,7 +1008,8 @@ const interCostQuestions = [
   Question(
     subjectId: 'i_cost',
     chapter: 'Process & Service Costing',
-    text: 'In process costing, profit included in inter-process transfers is '
+    text:
+        'In process costing, profit included in inter-process transfers is '
         'eliminated mainly to:',
     options: [
       'Increase reported profit',
@@ -920,23 +1018,27 @@ const interCostQuestions = [
       'Show stock at cost and recognise only realised profit',
     ],
     answerIndex: 3,
-    explanation: 'Stock in later processes would otherwise include unrealised '
+    explanation:
+        'Stock in later processes would otherwise include unrealised '
         'profit. A provision removes it so closing stock is at cost.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Process & Service Costing',
-    text: '1,000 units are introduced into a process with a normal loss of '
+    text:
+        '1,000 units are introduced into a process with a normal loss of '
         '10%. Actual output is 920 units. The abnormal gain is:',
     options: ['20 units', 'Nil', '80 units', '100 units'],
     answerIndex: 0,
-    explanation: 'Expected output = 1,000 − 100 = 900 units. Actual output 920 '
+    explanation:
+        'Expected output = 1,000 − 100 = 900 units. Actual output 920 '
         'exceeds this by 20 units.',
   ),
   Question(
     subjectId: 'i_cost',
     chapter: 'Process & Service Costing',
-    text: '2,000 units are introduced into a process with no opening WIP. '
+    text:
+        '2,000 units are introduced into a process with no opening WIP. '
         '1,600 units are completed and 400 units remain, 25% complete as to '
         'conversion. Equivalent units for conversion are:',
     options: ['1,700', '1,900', '2,000', '1,600'],
@@ -959,7 +1061,8 @@ const interCostQuestions = [
   Question(
     subjectId: 'i_cost',
     chapter: 'Process & Service Costing',
-    text: 'A truck carries 10 tonnes for 50 km and then 6 tonnes for a '
+    text:
+        'A truck carries 10 tonnes for 50 km and then 6 tonnes for a '
         'further 30 km. Absolute tonne-km are:',
     options: ['680', '480', '1,280', '800'],
     answerIndex: 0,
@@ -981,7 +1084,8 @@ const interCostQuestions = [
   Question(
     subjectId: 'i_cost',
     chapter: 'Process & Service Costing',
-    text: 'A bus with 50 seats runs 100 km a day for 30 days at 80% average '
+    text:
+        'A bus with 50 seats runs 100 km a day for 30 days at 80% average '
         'occupancy. Passenger-km for the month are:',
     options: ['3,000', '1,50,000', '4,000', '1,20,000'],
     answerIndex: 3,
@@ -990,7 +1094,8 @@ const interCostQuestions = [
   Question(
     subjectId: 'i_cost',
     chapter: 'Process & Service Costing',
-    text: 'Under the FIFO method of process costing, opening work-in-progress '
+    text:
+        'Under the FIFO method of process costing, opening work-in-progress '
         'is assumed to be:',
     options: [
       'Valued at average cost with current costs',
@@ -999,7 +1104,8 @@ const interCostQuestions = [
       'Ignored',
     ],
     answerIndex: 2,
-    explanation: 'The cost of opening WIP is kept separate from current period '
+    explanation:
+        'The cost of opening WIP is kept separate from current period '
         'costs.',
   ),
   Question(
@@ -1013,7 +1119,8 @@ const interCostQuestions = [
       'Selling price',
     ],
     answerIndex: 2,
-    explanation: 'The Abnormal Gain Account is then debited with the scrap value '
+    explanation:
+        'The Abnormal Gain Account is then debited with the scrap value '
         'forgone.',
   ),
 ];

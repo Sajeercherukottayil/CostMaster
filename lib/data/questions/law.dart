@@ -5,21 +5,30 @@ const lawQuestions = [
   Question(
     subjectId: 'law',
     chapter: 'Indian Contract Act, 1872',
-    text: 'As per Section 2(h) of the Indian Contract Act, 1872, an agreement '
+    text:
+        'As per Section 2(h) of the Indian Contract Act, 1872, an agreement '
         'enforceable by law is a:',
     options: ['Promise', 'Contract', 'Proposal', 'Consideration'],
     answerIndex: 1,
-    explanation: 'Section 2(h) defines a contract as an agreement enforceable by '
+    explanation:
+        'Section 2(h) defines a contract as an agreement enforceable by '
         'law. Every contract is an agreement, but not every agreement is a contract.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Indian Contract Act, 1872',
-    text: 'An offer made to the public at large, which anyone can accept by '
+    text:
+        'An offer made to the public at large, which anyone can accept by '
         'performing its conditions, is a:',
-    options: ['Specific offer', 'Cross offer', 'General offer', 'Counter offer'],
+    options: [
+      'Specific offer',
+      'Cross offer',
+      'General offer',
+      'Counter offer',
+    ],
     answerIndex: 2,
-    explanation: 'A general offer is made to the world at large, as in Carlill v. '
+    explanation:
+        'A general offer is made to the world at large, as in Carlill v. '
         'Carbolic Smoke Ball Co., and is accepted by performing the conditions.',
   ),
   Question(
@@ -33,7 +42,8 @@ const lawQuestions = [
       'The acceptance is posted',
     ],
     answerIndex: 1,
-    explanation: 'Under Section 4, communication of a proposal is complete when it '
+    explanation:
+        'Under Section 4, communication of a proposal is complete when it '
         'comes to the knowledge of the person to whom it is made.',
   ),
   Question(
@@ -47,7 +57,8 @@ const lawQuestions = [
       'The promisee or any other person',
     ],
     answerIndex: 3,
-    explanation: 'Section 2(d) says consideration may be given "by the promisee or '
+    explanation:
+        'Section 2(d) says consideration may be given "by the promisee or '
         'any other person", so it need not move from the promisee alone.',
   ),
   Question(
@@ -62,7 +73,8 @@ const lawQuestions = [
       'In restraint of trade',
     ],
     answerIndex: 1,
-    explanation: 'Section 25 lists exceptions to "no consideration, no contract"; '
+    explanation:
+        'Section 25 lists exceptions to "no consideration, no contract"; '
         'a registered written agreement out of natural love and affection '
         'between near relatives is one of them.',
   ),
@@ -70,15 +82,22 @@ const lawQuestions = [
     subjectId: 'law',
     chapter: 'Indian Contract Act, 1872',
     text: 'An agreement with a minor is:',
-    options: ['Valid', 'Voidable at the option of the minor', 'Void ab initio', 'Illegal'],
+    options: [
+      'Valid',
+      'Voidable at the option of the minor',
+      'Void ab initio',
+      'Illegal',
+    ],
     answerIndex: 2,
-    explanation: 'Following Mohori Bibee v. Dharmodas Ghose, an agreement with a '
+    explanation:
+        'Following Mohori Bibee v. Dharmodas Ghose, an agreement with a '
         'minor is void from the beginning.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Indian Contract Act, 1872',
-    text: 'A supplier provides necessaries suited to the condition in life of a '
+    text:
+        'A supplier provides necessaries suited to the condition in life of a '
         'minor. The supplier can recover the price:',
     options: [
       'From the minor personally',
@@ -87,7 +106,8 @@ const lawQuestions = [
       'Not at all',
     ],
     answerIndex: 1,
-    explanation: 'Under Section 68 (a quasi-contract), the supplier is entitled to '
+    explanation:
+        'Under Section 68 (a quasi-contract), the supplier is entitled to '
         'be reimbursed from the property of the incapable person, not from them personally.',
   ),
   Question(
@@ -101,7 +121,8 @@ const lawQuestions = [
       'Voidable at the option of the party whose consent was so caused',
     ],
     answerIndex: 3,
-    explanation: 'Under Section 19, an agreement where consent is caused by '
+    explanation:
+        'Under Section 19, an agreement where consent is caused by '
         'coercion, undue influence, fraud or misrepresentation is voidable at '
         'the option of the party whose consent was so caused.',
   ),
@@ -116,7 +137,8 @@ const lawQuestions = [
   Question(
     subjectId: 'law',
     chapter: 'Indian Contract Act, 1872',
-    text: 'Under Section 7 of the Indian Contract Act, 1872, acceptance of a '
+    text:
+        'Under Section 7 of the Indian Contract Act, 1872, acceptance of a '
         'proposal must be:',
     options: [
       'Conditional on later approval',
@@ -125,7 +147,8 @@ const lawQuestions = [
       'Always in writing',
     ],
     answerIndex: 2,
-    explanation: 'Section 7 requires acceptance to be absolute and unqualified. A '
+    explanation:
+        'Section 7 requires acceptance to be absolute and unqualified. A '
         'conditional acceptance is a counter-offer.',
   ),
   Question(
@@ -139,13 +162,15 @@ const lawQuestions = [
       'An illegal agreement',
     ],
     answerIndex: 2,
-    explanation: 'Section 2(j): a contract which ceases to be enforceable by law '
+    explanation:
+        'Section 2(j): a contract which ceases to be enforceable by law '
         'becomes void when it ceases to be enforceable.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Indian Contract Act, 1872',
-    text: 'Under Section 73, compensation for breach of contract is NOT given '
+    text:
+        'Under Section 73, compensation for breach of contract is NOT given '
         'for:',
     options: [
       'Loss arising directly from the breach',
@@ -154,7 +179,8 @@ const lawQuestions = [
       'Loss the parties knew, when contracting, to be likely',
     ],
     answerIndex: 1,
-    explanation: 'Section 73 allows compensation for loss arising naturally from the '
+    explanation:
+        'Section 73 allows compensation for loss arising naturally from the '
         'breach or known to be likely, but not for remote and indirect '
         'loss.',
   ),
@@ -163,7 +189,8 @@ const lawQuestions = [
   Question(
     subjectId: 'law',
     chapter: 'Sale of Goods Act, 1930',
-    text: 'Under the Sale of Goods Act, 1930, a breach of warranty entitles the '
+    text:
+        'Under the Sale of Goods Act, 1930, a breach of warranty entitles the '
         'buyer to:',
     options: [
       'Reject the goods and repudiate the contract',
@@ -172,7 +199,8 @@ const lawQuestions = [
       'Treat the contract as void',
     ],
     answerIndex: 1,
-    explanation: 'A warranty is collateral to the main purpose, so its breach '
+    explanation:
+        'A warranty is collateral to the main purpose, so its breach '
         'gives a claim for damages only. Breach of a condition allows repudiation.',
   ),
   Question(
@@ -186,23 +214,27 @@ const lawQuestions = [
       'Goods are sold at the seller\'s risk',
     ],
     answerIndex: 1,
-    explanation: 'Caveat emptor means "let the buyer beware": the buyer must '
+    explanation:
+        'Caveat emptor means "let the buyer beware": the buyer must '
         'examine the goods, subject to the exceptions given in the Act.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Sale of Goods Act, 1930',
-    text: 'Under the Sale of Goods Act, 1930, a stipulation essential to the '
+    text:
+        'Under the Sale of Goods Act, 1930, a stipulation essential to the '
         'main purpose of the contract is a:',
     options: ['Warranty', 'Condition', 'Guarantee', 'Representation'],
     answerIndex: 1,
-    explanation: 'A condition is essential to the main purpose; a warranty is '
+    explanation:
+        'A condition is essential to the main purpose; a warranty is '
         'collateral to it.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Sale of Goods Act, 1930',
-    text: 'Under Section 2(7) of the Sale of Goods Act, 1930, "goods" does '
+    text:
+        'Under Section 2(7) of the Sale of Goods Act, 1930, "goods" does '
         'NOT include:',
     options: [
       'Actionable claims and money',
@@ -211,13 +243,15 @@ const lawQuestions = [
       'Stocks and shares',
     ],
     answerIndex: 0,
-    explanation: 'Goods means every kind of movable property other than actionable '
+    explanation:
+        'Goods means every kind of movable property other than actionable '
         'claims and money; stocks, shares and growing crops are included.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Sale of Goods Act, 1930',
-    text: 'Where the transfer of property in goods is to take place at a '
+    text:
+        'Where the transfer of property in goods is to take place at a '
         'future time, the contract is called:',
     options: [
       'A sale',
@@ -226,14 +260,16 @@ const lawQuestions = [
       'An agreement to sell',
     ],
     answerIndex: 3,
-    explanation: 'Under Section 4, when property passes at a future time or on a '
+    explanation:
+        'Under Section 4, when property passes at a future time or on a '
         'condition, it is an agreement to sell; it becomes a sale when that '
         'time passes or the condition is fulfilled.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Sale of Goods Act, 1930',
-    text: 'In a sale by description, there is an implied condition that the '
+    text:
+        'In a sale by description, there is an implied condition that the '
         'goods shall:',
     options: [
       'Be fit for every purpose',
@@ -242,7 +278,8 @@ const lawQuestions = [
       'Be delivered free of cost',
     ],
     answerIndex: 2,
-    explanation: 'Section 15: where goods are sold by description, there is an '
+    explanation:
+        'Section 15: where goods are sold by description, there is an '
         'implied condition that they correspond with the description.',
   ),
   Question(
@@ -256,7 +293,8 @@ const lawQuestions = [
       'Any consideration, including other goods',
     ],
     answerIndex: 2,
-    explanation: 'Section 2(10) defines price as the money consideration; an '
+    explanation:
+        'Section 2(10) defines price as the money consideration; an '
         'exchange of goods for goods is a barter.',
   ),
   Question(
@@ -270,13 +308,15 @@ const lawQuestions = [
       'An agreement to sell',
     ],
     answerIndex: 0,
-    explanation: 'A sale requires a money price, so a pure exchange of goods is a '
+    explanation:
+        'A sale requires a money price, so a pure exchange of goods is a '
         'barter.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Sale of Goods Act, 1930',
-    text: 'Under section 16(1), a condition that goods are fit for a '
+    text:
+        'Under section 16(1), a condition that goods are fit for a '
         'particular purpose is implied when the buyer:',
     options: [
       'Buys under a trade name',
@@ -285,7 +325,8 @@ const lawQuestions = [
       'Examines the goods fully',
     ],
     answerIndex: 2,
-    explanation: 'The condition applies when the purpose is made known and the goods '
+    explanation:
+        'The condition applies when the purpose is made known and the goods '
         'are of a kind the seller deals in.',
   ),
   Question(
@@ -299,7 +340,8 @@ const lawQuestions = [
       'The bid is made',
     ],
     answerIndex: 0,
-    explanation: 'Section 64(2): until the hammer falls, a bidder may retract the '
+    explanation:
+        'Section 64(2): until the hammer falls, a bidder may retract the '
         'bid.',
   ),
 
@@ -307,20 +349,28 @@ const lawQuestions = [
   Question(
     subjectId: 'law',
     chapter: 'Negotiable Instruments Act, 1881',
-    text: 'Which of the following is NOT a negotiable instrument under Section 13 '
+    text:
+        'Which of the following is NOT a negotiable instrument under Section 13 '
         'of the Negotiable Instruments Act, 1881?',
     options: ['Promissory note', 'Bill of exchange', 'Cheque', 'Money order'],
     answerIndex: 3,
-    explanation: 'Section 13 names promissory notes, bills of exchange and '
+    explanation:
+        'Section 13 names promissory notes, bills of exchange and '
         'cheques. A money order is not a negotiable instrument.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Negotiable Instruments Act, 1881',
     text: 'A cheque is a bill of exchange drawn on a specified banker and payable:',
-    options: ['On demand', 'After three days of grace', 'After 30 days', 'On a fixed future date'],
+    options: [
+      'On demand',
+      'After three days of grace',
+      'After 30 days',
+      'On a fixed future date',
+    ],
     answerIndex: 0,
-    explanation: 'Section 6 defines a cheque as a bill of exchange drawn on a '
+    explanation:
+        'Section 6 defines a cheque as a bill of exchange drawn on a '
         'specified banker and not expressed to be payable otherwise than on demand.',
   ),
   Question(
@@ -329,13 +379,15 @@ const lawQuestions = [
     text: 'In a bill of exchange, the person directed to pay is the:',
     options: ['Drawer', 'Payee', 'Drawee', 'Endorser'],
     answerIndex: 2,
-    explanation: 'The drawer makes the bill, the drawee is directed to pay, and '
+    explanation:
+        'The drawer makes the bill, the drawee is directed to pay, and '
         'the payee receives the money.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Negotiable Instruments Act, 1881',
-    text: 'Under Section 4 of the Negotiable Instruments Act, a promissory '
+    text:
+        'Under Section 4 of the Negotiable Instruments Act, a promissory '
         'note must:',
     options: [
       'Be drawn on a specified banker',
@@ -344,14 +396,16 @@ const lawQuestions = [
       'Contain an unconditional undertaking, signed by the maker, to pay a certain sum',
     ],
     answerIndex: 3,
-    explanation: 'A promissory note is a written, unconditional undertaking signed '
+    explanation:
+        'A promissory note is a written, unconditional undertaking signed '
         'by the maker to pay a certain sum of money. An order to pay is a '
         'feature of a bill of exchange.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Negotiable Instruments Act, 1881',
-    text: 'A cheque crossed generally (two parallel transverse lines) can be '
+    text:
+        'A cheque crossed generally (two parallel transverse lines) can be '
         'paid:',
     options: [
       'Only in cash over the counter',
@@ -360,13 +414,15 @@ const lawQuestions = [
       'Only to the drawer personally',
     ],
     answerIndex: 2,
-    explanation: 'A crossed cheque cannot be encashed over the counter; the amount '
+    explanation:
+        'A crossed cheque cannot be encashed over the counter; the amount '
         'must be collected through a bank.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Negotiable Instruments Act, 1881',
-    text: 'A cheque presented for payment after the expiry of its validity '
+    text:
+        'A cheque presented for payment after the expiry of its validity '
         'period (three months from its date) is called a:',
     options: [
       'Mutilated cheque',
@@ -375,7 +431,8 @@ const lawQuestions = [
       'Post-dated cheque',
     ],
     answerIndex: 1,
-    explanation: 'Banks do not pay a cheque presented after its validity period; '
+    explanation:
+        'Banks do not pay a cheque presented after its validity period; '
         'such a cheque is called stale.',
   ),
   Question(
@@ -389,12 +446,14 @@ const lawQuestions = [
       'Only on its due date',
     ],
     answerIndex: 1,
-    explanation: 'Under section 21, "at sight" and "on presentment" mean on demand.',
+    explanation:
+        'Under section 21, "at sight" and "on presentment" mean on demand.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Negotiable Instruments Act, 1881',
-    text: 'A cheque bearing a date later than the date on which it is issued '
+    text:
+        'A cheque bearing a date later than the date on which it is issued '
         'is a:',
     options: [
       'Stale cheque',
@@ -403,13 +462,15 @@ const lawQuestions = [
       'Ante-dated cheque',
     ],
     answerIndex: 2,
-    explanation: 'A post-dated cheque can be paid only on or after the date written '
+    explanation:
+        'A post-dated cheque can be paid only on or after the date written '
         'on it.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Negotiable Instruments Act, 1881',
-    text: 'A cheque crossed with the words "Account Payee" means that the '
+    text:
+        'A cheque crossed with the words "Account Payee" means that the '
         'amount:',
     options: [
       'Can be paid to any endorsee',
@@ -418,7 +479,8 @@ const lawQuestions = [
       'Should be credited only to the payee\'s account',
     ],
     answerIndex: 3,
-    explanation: 'An account payee crossing directs the collecting bank to credit '
+    explanation:
+        'An account payee crossing directs the collecting bank to credit '
         'the proceeds only to the payee\'s account.',
   ),
   Question(
@@ -432,7 +494,8 @@ const lawQuestions = [
       'Delivery alone',
     ],
     answerIndex: 2,
-    explanation: 'A bearer instrument is negotiated by mere delivery; an order '
+    explanation:
+        'A bearer instrument is negotiated by mere delivery; an order '
         'instrument needs endorsement and delivery.',
   ),
 
@@ -443,16 +506,24 @@ const lawQuestions = [
     text: 'Which of the following is NOT one of the 7 Cs of effective communication?',
     options: ['Clarity', 'Conciseness', 'Courtesy', 'Complexity'],
     answerIndex: 3,
-    explanation: 'The 7 Cs are Clarity, Conciseness, Concreteness, Correctness, '
+    explanation:
+        'The 7 Cs are Clarity, Conciseness, Concreteness, Correctness, '
         'Coherence, Completeness and Courtesy. Complexity hinders communication.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Business Communication',
-    text: 'The informal channel of communication in an organisation is known as:',
-    options: ['Grapevine', 'Chain of command', 'Upward communication', 'Circular'],
+    text:
+        'The informal channel of communication in an organisation is known as:',
+    options: [
+      'Grapevine',
+      'Chain of command',
+      'Upward communication',
+      'Circular',
+    ],
     answerIndex: 0,
-    explanation: 'The grapevine is the informal network through which information '
+    explanation:
+        'The grapevine is the informal network through which information '
         'spreads, outside the formal chain of command.',
   ),
   Question(
@@ -466,7 +537,8 @@ const lawQuestions = [
       'Diagonal communication',
     ],
     answerIndex: 2,
-    explanation: 'Upward communication flows from lower to higher levels, for '
+    explanation:
+        'Upward communication flows from lower to higher levels, for '
         'example reports, suggestions and grievances.',
   ),
   Question(
@@ -480,7 +552,8 @@ const lawQuestions = [
       'Converting ideas into symbols',
     ],
     answerIndex: 1,
-    explanation: 'Feedback is the receiver\'s response; it tells the sender '
+    explanation:
+        'Feedback is the receiver\'s response; it tells the sender '
         'whether the message was understood. Disturbance is noise, and '
         'converting ideas into symbols is encoding.',
   ),
@@ -495,7 +568,8 @@ const lawQuestions = [
       'The sender of the message',
     ],
     answerIndex: 2,
-    explanation: 'Noise is any barrier, physical or psychological, that interferes '
+    explanation:
+        'Noise is any barrier, physical or psychological, that interferes '
         'with the correct transmission or understanding of a message.',
   ),
   Question(
@@ -509,13 +583,15 @@ const lawQuestions = [
       'Advertising to customers',
     ],
     answerIndex: 0,
-    explanation: 'A memo is a short, informal written message used for communication '
+    explanation:
+        'A memo is a short, informal written message used for communication '
         'between departments or employees of the same organisation.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Business Communication',
-    text: 'Communication between employees at the same level in an '
+    text:
+        'Communication between employees at the same level in an '
         'organisation is:',
     options: [
       'Downward communication',
@@ -524,7 +600,8 @@ const lawQuestions = [
       'Horizontal (lateral) communication',
     ],
     answerIndex: 3,
-    explanation: 'Horizontal or lateral communication takes place between people at '
+    explanation:
+        'Horizontal or lateral communication takes place between people at '
         'the same level, for example between department heads.',
   ),
   Question(
@@ -538,17 +615,20 @@ const lawQuestions = [
       'A business letter',
     ],
     answerIndex: 1,
-    explanation: 'Gestures, facial expressions and posture communicate without '
+    explanation:
+        'Gestures, facial expressions and posture communicate without '
         'words.',
   ),
   Question(
     subjectId: 'law',
     chapter: 'Business Communication',
-    text: 'The sender\'s act of converting an idea into words, symbols or '
+    text:
+        'The sender\'s act of converting an idea into words, symbols or '
         'gestures is called:',
     options: ['Encoding', 'Decoding', 'Feedback', 'Noise'],
     answerIndex: 0,
-    explanation: 'The receiver decodes the message, that is, interprets its meaning.',
+    explanation:
+        'The receiver decodes the message, that is, interprets its meaning.',
   ),
   Question(
     subjectId: 'law',
@@ -561,7 +641,8 @@ const lawQuestions = [
       'Apply for a job',
     ],
     answerIndex: 0,
-    explanation: 'Circulars carry identical messages to many recipients, for example '
+    explanation:
+        'Circulars carry identical messages to many recipients, for example '
         'a change of office address.',
   ),
 ];

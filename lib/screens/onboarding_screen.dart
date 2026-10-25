@@ -34,10 +34,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   bool get _canContinue => switch (_step) {
-        0 => _name.text.trim().isNotEmpty,
-        1 => _course != null,
-        _ => true,
-      };
+    0 => _name.text.trim().isNotEmpty,
+    1 => _course != null,
+    _ => true,
+  };
 
   Future<void> _next() async {
     FocusScope.of(context).unfocus();
@@ -45,12 +45,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       setState(() => _step++);
       return;
     }
-    await AppScope.read(context).saveProfile(Profile(
-      name: _name.text.trim(),
-      course: _course!,
-      group: _group,
-      targetTerm: _targetTerm,
-    ));
+    await AppScope.read(context).saveProfile(
+      Profile(
+        name: _name.text.trim(),
+        course: _course!,
+        group: _group,
+        targetTerm: _targetTerm,
+      ),
+    );
   }
 
   @override
@@ -58,12 +60,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final theme = Theme.of(context);
     final (title, subtitle) = switch (_step) {
       0 => ('What should we call you?', 'Your name appears on your profile.'),
-      1 => ('Which course are you preparing for?',
-          'We\'ll show the papers in your syllabus.'),
-      2 => ('Which group are you writing?',
-          'You can change this any time from your profile.'),
-      _ => ('When is your exam?',
-          'We\'ll count down the days for you. This is optional.'),
+      1 => (
+        'Which course are you preparing for?',
+        'We\'ll show the papers in your syllabus.',
+      ),
+      2 => (
+        'Which group are you writing?',
+        'You can change this any time from your profile.',
+      ),
+      _ => (
+        'When is your exam?',
+        'We\'ll count down the days for you. This is optional.',
+      ),
     };
 
     return PopScope(
@@ -97,7 +105,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           duration: const Duration(milliseconds: 250),
                           height: 5,
                           decoration: BoxDecoration(
-                            color: i <= _step ? AppColors.brand : AppColors.border,
+                            color: i <= _step
+                                ? AppColors.brand
+                                : AppColors.border,
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
@@ -135,8 +145,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         const SizedBox(height: 20),
                         Text(
                           'Welcome to CostMaster',
-                          style: theme.textTheme.labelLarge
-                              ?.copyWith(color: AppColors.accent),
+                          style: theme.textTheme.labelLarge?.copyWith(
+                            color: AppColors.accent,
+                          ),
                         ),
                         const SizedBox(height: 4),
                       ],
@@ -144,8 +155,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       const SizedBox(height: 6),
                       Text(
                         subtitle,
-                        style: theme.textTheme.bodyMedium
-                            ?.copyWith(color: AppColors.muted),
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: AppColors.muted,
+                        ),
                       ),
                       const SizedBox(height: 28),
                       ..._stepContent(),
@@ -160,7 +172,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: FilledButton(
                     onPressed: _canContinue ? _next : null,
                     child: Text(
-                        _step == _steps - 1 ? 'Get started' : 'Continue'),
+                      _step == _steps - 1 ? 'Get started' : 'Continue',
+                    ),
                   ),
                 ),
               ),
@@ -172,67 +185,67 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   List<Widget> _stepContent() => switch (_step) {
-        0 => [
-            TextField(
-              controller: _name,
-              autofocus: widget.suggestedName == null,
-              textCapitalization: TextCapitalization.words,
-              textInputAction: TextInputAction.next,
-              decoration: const InputDecoration(
-                hintText: 'Your full name',
-                prefixIcon: Icon(Icons.person_outline_rounded),
-              ),
-              onChanged: (_) => setState(() {}),
-              onSubmitted: (_) {
-                if (_canContinue) _next();
-              },
-            ),
-          ],
-        1 => [
-            ChoiceTile(
-              title: 'CMA Foundation',
-              subtitle: '4 papers in 2 groups',
-              icon: Icons.foundation_rounded,
-              tint: (soft: const Color(0xFFD5F5F0), strong: const Color(0xFF0F766E)),
-              selected: _course == foundation,
-              onTap: () => setState(() => _course = foundation),
-            ),
-            ChoiceTile(
-              title: 'CMA Intermediate',
-              subtitle: '8 papers in 2 groups',
-              icon: Icons.stairs_outlined,
-              tint: (soft: AppColors.accentSoft, strong: AppColors.accent),
-              selected: _course == intermediate,
-              onTap: () => setState(() => _course = intermediate),
-            ),
-            const ChoiceTile(
-              title: 'CMA Final',
-              subtitle: 'Coming soon',
-              icon: Icons.workspace_premium_outlined,
-              selected: false,
-            ),
-          ],
-        2 => [
-            for (final (g, title, papers) in [
-              (1, 'Group I', _course == foundation ? '1 – 2' : '5 – 8'),
-              (2, 'Group II', _course == foundation ? '3 – 4' : '9 – 12'),
-              (null, 'Both groups', _course == foundation ? '1 – 4' : '5 – 12'),
-            ])
-              ChoiceTile(
-                title: title,
-                subtitle: 'Papers $papers',
-                selected: _group == g,
-                onTap: () => setState(() => _group = g),
-              ),
-          ],
-        _ => [
-            for (final t in [..._terms, null])
-              ChoiceTile(
-                title: t ?? 'Not decided yet',
-                icon: t == null ? Icons.help_outline_rounded : Icons.event_outlined,
-                selected: _targetTerm == t,
-                onTap: () => setState(() => _targetTerm = t),
-              ),
-          ],
-      };
+    0 => [
+      TextField(
+        controller: _name,
+        autofocus: widget.suggestedName == null,
+        textCapitalization: TextCapitalization.words,
+        textInputAction: TextInputAction.next,
+        decoration: const InputDecoration(
+          hintText: 'Your full name',
+          prefixIcon: Icon(Icons.person_outline_rounded),
+        ),
+        onChanged: (_) => setState(() {}),
+        onSubmitted: (_) {
+          if (_canContinue) _next();
+        },
+      ),
+    ],
+    1 => [
+      ChoiceTile(
+        title: 'CMA Foundation',
+        subtitle: '4 papers in 2 groups',
+        icon: Icons.foundation_rounded,
+        tint: (soft: const Color(0xFFD5F5F0), strong: const Color(0xFF0F766E)),
+        selected: _course == foundation,
+        onTap: () => setState(() => _course = foundation),
+      ),
+      ChoiceTile(
+        title: 'CMA Intermediate',
+        subtitle: '8 papers in 2 groups',
+        icon: Icons.stairs_outlined,
+        tint: (soft: AppColors.accentSoft, strong: AppColors.accent),
+        selected: _course == intermediate,
+        onTap: () => setState(() => _course = intermediate),
+      ),
+      const ChoiceTile(
+        title: 'CMA Final',
+        subtitle: 'Coming soon',
+        icon: Icons.workspace_premium_outlined,
+        selected: false,
+      ),
+    ],
+    2 => [
+      for (final (g, title, papers) in [
+        (1, 'Group I', _course == foundation ? '1 – 2' : '5 – 8'),
+        (2, 'Group II', _course == foundation ? '3 – 4' : '9 – 12'),
+        (null, 'Both groups', _course == foundation ? '1 – 4' : '5 – 12'),
+      ])
+        ChoiceTile(
+          title: title,
+          subtitle: 'Papers $papers',
+          selected: _group == g,
+          onTap: () => setState(() => _group = g),
+        ),
+    ],
+    _ => [
+      for (final t in [..._terms, null])
+        ChoiceTile(
+          title: t ?? 'Not decided yet',
+          icon: t == null ? Icons.help_outline_rounded : Icons.event_outlined,
+          selected: _targetTerm == t,
+          onTap: () => setState(() => _targetTerm = t),
+        ),
+    ],
+  };
 }

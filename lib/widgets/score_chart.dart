@@ -14,9 +14,7 @@ class ScoreChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final shown = attempts.take(10).toList().reversed.toList();
-    final label = Theme.of(context)
-        .textTheme
-        .labelSmall
+    final label = Theme.of(context).textTheme.labelSmall
         ?.copyWith(color: AppColors.faint, fontWeight: FontWeight.w700);
     return SizedBox(
       height: height,
@@ -29,9 +27,7 @@ class ScoreChart extends StatelessWidget {
             bottom: (height - 36) * 0.5 + 4,
             child: Row(
               children: [
-                Expanded(
-                  child: Container(height: 1, color: AppColors.border),
-                ),
+                Expanded(child: Container(height: 1, color: AppColors.border)),
                 const SizedBox(width: 6),
                 Text('50%', style: label),
               ],

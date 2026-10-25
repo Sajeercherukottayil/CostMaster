@@ -6,37 +6,48 @@ const interOmQuestions = [
     subjectId: 'i_om',
     chapter: 'Productivity & Capacity',
     text: '1,200 units are produced using 300 labour hours. Labour productivity is:',
-    options: ['0.25 units per hour', '4 units per hour', '3 units per hour', '900 units'],
+    options: [
+      '0.25 units per hour',
+      '4 units per hour',
+      '3 units per hour',
+      '900 units',
+    ],
     answerIndex: 1,
     explanation: 'Productivity = Output / Input = 1,200 / 300 = 4 units per labour hour.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Productivity & Capacity',
-    text: 'A plant designed to produce 10,000 units a month actually produces '
+    text:
+        'A plant designed to produce 10,000 units a month actually produces '
         '8,000 units. Capacity utilisation is:',
     options: ['125%', '20%', '80%', '8%'],
     answerIndex: 2,
-    explanation: 'Utilisation = Actual output / Design capacity = 8,000 / 10,000 = 80%.',
+    explanation:
+        'Utilisation = Actual output / Design capacity = 8,000 / 10,000 = 80%.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Productivity & Capacity',
-    text: 'Output is valued at ₹5,00,000 and total inputs at ₹4,00,000. Total '
+    text:
+        'Output is valued at ₹5,00,000 and total inputs at ₹4,00,000. Total '
         'productivity is:',
     options: ['9.00', '1.00', '1.25', '0.80'],
     answerIndex: 2,
-    explanation: 'Total productivity = Output ÷ Total inputs = 5,00,000 ÷ 4,00,000 = '
+    explanation:
+        'Total productivity = Output ÷ Total inputs = 5,00,000 ÷ 4,00,000 = '
         '1.25.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Productivity & Capacity',
-    text: 'Effective capacity is 900 units and actual output 810 units. '
+    text:
+        'Effective capacity is 900 units and actual output 810 units. '
         'Efficiency is:',
     options: ['90%', '10%', '81%', '111%'],
     answerIndex: 0,
-    explanation: 'Efficiency = Actual output ÷ Effective capacity × 100 = 810 ÷ 900 '
+    explanation:
+        'Efficiency = Actual output ÷ Effective capacity × 100 = 810 ÷ 900 '
         '× 100 = 90%.',
   ),
   Question(
@@ -50,13 +61,15 @@ const interOmQuestions = [
       'The actual output achieved',
     ],
     answerIndex: 1,
-    explanation: 'Effective capacity is lower than design capacity because of '
+    explanation:
+        'Effective capacity is lower than design capacity because of '
         'allowances for maintenance, product mix and so on.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Productivity & Capacity',
-    text: 'Output is 2,000 units, labour cost ₹10,000 and material cost '
+    text:
+        'Output is 2,000 units, labour cost ₹10,000 and material cost '
         '₹30,000. Multifactor productivity (labour + material) is:',
     options: [
       '0.067 units per rupee',
@@ -65,7 +78,8 @@ const interOmQuestions = [
       '0.2 units per rupee',
     ],
     answerIndex: 2,
-    explanation: 'Multifactor productivity = 2,000 ÷ (10,000 + 30,000) = 0.05 units '
+    explanation:
+        'Multifactor productivity = 2,000 ÷ (10,000 + 30,000) = 0.05 units '
         'per rupee.',
   ),
   Question(
@@ -84,11 +98,13 @@ const interOmQuestions = [
   Question(
     subjectId: 'i_om',
     chapter: 'Productivity & Capacity',
-    text: 'Design capacity is 1,000 units, effective capacity 800 units and '
+    text:
+        'Design capacity is 1,000 units, effective capacity 800 units and '
         'actual output 720 units. Utilisation is:',
     options: ['111%', '72%', '90%', '80%'],
     answerIndex: 1,
-    explanation: 'Utilisation = Actual output ÷ Design capacity = 720 ÷ 1,000 = 72%.',
+    explanation:
+        'Utilisation = Actual output ÷ Design capacity = 720 ÷ 1,000 = 72%.',
   ),
   Question(
     subjectId: 'i_om',
@@ -101,7 +117,8 @@ const interOmQuestions = [
       'The fastest machine',
     ],
     answerIndex: 0,
-    explanation: 'The output of the whole system cannot exceed the bottleneck\'s '
+    explanation:
+        'The output of the whole system cannot exceed the bottleneck\'s '
         'capacity.',
   ),
   Question(
@@ -115,17 +132,25 @@ const interOmQuestions = [
       'Material issues',
     ],
     answerIndex: 1,
-    explanation: 'Short-term planning adjusts output using overtime, shifts and '
+    explanation:
+        'Short-term planning adjusts output using overtime, shifts and '
         'subcontracting.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Plant Layout',
-    text: 'A layout in which similar machines are grouped together (all lathes '
+    text:
+        'A layout in which similar machines are grouped together (all lathes '
         'in one area, all drills in another) is a:',
-    options: ['Product layout', 'Fixed-position layout', 'Cellular layout', 'Process layout'],
+    options: [
+      'Product layout',
+      'Fixed-position layout',
+      'Cellular layout',
+      'Process layout',
+    ],
     answerIndex: 3,
-    explanation: 'Process (functional) layout groups machines by function and '
+    explanation:
+        'Process (functional) layout groups machines by function and '
         'suits job and batch production.',
   ),
   Question(
@@ -139,7 +164,8 @@ const interOmQuestions = [
       'A hospital',
     ],
     answerIndex: 0,
-    explanation: 'Product layout arranges machines in the sequence of operations, '
+    explanation:
+        'Product layout arranges machines in the sequence of operations, '
         'which suits continuous, high-volume production.',
   ),
   Question(
@@ -153,7 +179,8 @@ const interOmQuestions = [
       'Large products such as ships and aircraft',
     ],
     answerIndex: 3,
-    explanation: 'The product stays in one place and workers, materials and machines '
+    explanation:
+        'The product stays in one place and workers, materials and machines '
         'are brought to it.',
   ),
   Question(
@@ -167,7 +194,8 @@ const interOmQuestions = [
       'By function, such as all lathes together',
     ],
     answerIndex: 0,
-    explanation: 'Cellular layout uses group technology to combine the benefits of '
+    explanation:
+        'Cellular layout uses group technology to combine the benefits of '
         'product and process layouts.',
   ),
   Question(
@@ -181,7 +209,8 @@ const interOmQuestions = [
       'It suits only low volumes',
     ],
     answerIndex: 1,
-    explanation: 'Machines are arranged in sequence, so a single breakdown '
+    explanation:
+        'Machines are arranged in sequence, so a single breakdown '
         'interrupts all following operations.',
   ),
   Question(
@@ -195,7 +224,8 @@ const interOmQuestions = [
       'A single standard product',
     ],
     answerIndex: 0,
-    explanation: 'Grouping machines by function gives flexibility to handle '
+    explanation:
+        'Grouping machines by function gives flexibility to handle '
         'different jobs.',
   ),
   Question(
@@ -214,25 +244,30 @@ const interOmQuestions = [
   Question(
     subjectId: 'i_om',
     chapter: 'Plant Layout',
-    text: 'Available production time is 480 minutes a day and demand is 240 '
+    text:
+        'Available production time is 480 minutes a day and demand is 240 '
         'units a day. The cycle time is:',
     options: ['240 minutes', '2 minutes', '0.5 minutes', '4 minutes'],
     answerIndex: 1,
-    explanation: 'Cycle time = Available time ÷ Demand = 480 ÷ 240 = 2 minutes.',
+    explanation:
+        'Cycle time = Available time ÷ Demand = 480 ÷ 240 = 2 minutes.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Plant Layout',
-    text: 'Total task time is 10 minutes and the cycle time is 2 minutes. The '
+    text:
+        'Total task time is 10 minutes and the cycle time is 2 minutes. The '
         'theoretical minimum number of workstations is:',
     options: ['2', '20', '10', '5'],
     answerIndex: 3,
-    explanation: 'Minimum workstations = Total task time ÷ Cycle time = 10 ÷ 2 = 5.',
+    explanation:
+        'Minimum workstations = Total task time ÷ Cycle time = 10 ÷ 2 = 5.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Plant Layout',
-    text: 'A plant producing heavy goods from bulky, weight-losing raw '
+    text:
+        'A plant producing heavy goods from bulky, weight-losing raw '
         'materials is usually located near the:',
     options: [
       'Source of raw materials',
@@ -241,17 +276,20 @@ const interOmQuestions = [
       'Head office',
     ],
     answerIndex: 0,
-    explanation: 'Locating near raw materials reduces transport costs when material '
+    explanation:
+        'Locating near raw materials reduces transport costs when material '
         'loses weight in processing.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Project Management (PERT & CPM)',
-    text: 'In PERT, an activity has optimistic time 4 days, most likely time 6 '
+    text:
+        'In PERT, an activity has optimistic time 4 days, most likely time 6 '
         'days and pessimistic time 14 days. The expected time is:',
     options: ['8 days', '6 days', '7 days', '24 days'],
     answerIndex: 2,
-    explanation: 'Expected time = (o + 4m + p) / 6 = (4 + 24 + 14) / 6 = 7 days.',
+    explanation:
+        'Expected time = (o + 4m + p) / 6 = (4 + 24 + 14) / 6 = 7 days.',
   ),
   Question(
     subjectId: 'i_om',
@@ -264,13 +302,15 @@ const interOmQuestions = [
       'Longest path, which sets the minimum project duration',
     ],
     answerIndex: 3,
-    explanation: 'Activities on the critical path have zero float; any delay in '
+    explanation:
+        'Activities on the critical path have zero float; any delay in '
         'them delays the whole project.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Project Management (PERT & CPM)',
-    text: 'In PERT, an activity has an optimistic time of 4 days and a '
+    text:
+        'In PERT, an activity has an optimistic time of 4 days and a '
         'pessimistic time of 16 days. The variance of the activity is:',
     options: ['2', '4', '12', '16'],
     answerIndex: 1,
@@ -279,7 +319,8 @@ const interOmQuestions = [
   Question(
     subjectId: 'i_om',
     chapter: 'Project Management (PERT & CPM)',
-    text: 'An activity has an earliest start time of 5 and a latest start '
+    text:
+        'An activity has an earliest start time of 5 and a latest start '
         'time of 9. Its total float is:',
     options: ['14', '9', '4', '5'],
     answerIndex: 2,
@@ -296,7 +337,8 @@ const interOmQuestions = [
       'Uses no time or resources and only shows a logical dependency',
     ],
     answerIndex: 3,
-    explanation: 'Dummy activities are shown by dotted arrows to keep the logic of '
+    explanation:
+        'Dummy activities are shown by dotted arrows to keep the logic of '
         'the network correct.',
   ),
   Question(
@@ -310,13 +352,15 @@ const interOmQuestions = [
       'Reducing its duration by adding resources at extra cost',
     ],
     answerIndex: 3,
-    explanation: 'Critical activities with the lowest crash cost per day are '
+    explanation:
+        'Critical activities with the lowest crash cost per day are '
         'shortened first.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Project Management (PERT & CPM)',
-    text: 'In PERT, optimistic time is 2 days, most likely 5 days and '
+    text:
+        'In PERT, optimistic time is 2 days, most likely 5 days and '
         'pessimistic 8 days. The expected time is:',
     options: ['5 days', '6 days', '15 days', '4 days'],
     answerIndex: 0,
@@ -346,7 +390,8 @@ const interOmQuestions = [
   Question(
     subjectId: 'i_om',
     chapter: 'Project Management (PERT & CPM)',
-    text: 'The total variance of the activities on the critical path is 9. '
+    text:
+        'The total variance of the activities on the critical path is 9. '
         'The standard deviation of the project duration is:',
     options: ['9', '81', '3', '4.5'],
     answerIndex: 2,
@@ -363,7 +408,8 @@ const interOmQuestions = [
       'Increase the number of suppliers',
     ],
     answerIndex: 1,
-    explanation: 'JIT produces and receives goods only as needed, aiming at '
+    explanation:
+        'JIT produces and receives goods only as needed, aiming at '
         'near-zero inventory and elimination of waste.',
   ),
   Question(
@@ -377,7 +423,8 @@ const interOmQuestions = [
       'Prepare, Do, Correct, Adjust',
     ],
     answerIndex: 0,
-    explanation: 'PDCA (Plan–Do–Check–Act) is a cycle for continuous improvement.',
+    explanation:
+        'PDCA (Plan–Do–Check–Act) is a cycle for continuous improvement.',
   ),
   Question(
     subjectId: 'i_om',
@@ -403,7 +450,8 @@ const interOmQuestions = [
       'Emergency maintenance',
     ],
     answerIndex: 2,
-    explanation: 'Preventive maintenance is planned in advance to reduce the '
+    explanation:
+        'Preventive maintenance is planned in advance to reduce the '
         'chance of failure, unlike breakdown maintenance done after failure.',
   ),
   Question(
@@ -417,7 +465,8 @@ const interOmQuestions = [
       'Inspection only at the final stage',
     ],
     answerIndex: 1,
-    explanation: 'TQM is an organisation-wide approach focused on customer '
+    explanation:
+        'TQM is an organisation-wide approach focused on customer '
         'satisfaction and continuous improvement.',
   ),
   Question(
@@ -431,7 +480,8 @@ const interOmQuestions = [
       'Preventive maintenance',
     ],
     answerIndex: 1,
-    explanation: 'Kaizen is a Japanese approach in which everyone makes small '
+    explanation:
+        'Kaizen is a Japanese approach in which everyone makes small '
         'improvements continuously.',
   ),
   Question(
@@ -440,7 +490,8 @@ const interOmQuestions = [
     text: 'A control chart for the number of defects per unit is a:',
     options: ['c-chart', 'X̄-chart', 'p-chart', 'R-chart'],
     answerIndex: 0,
-    explanation: 'A p-chart tracks the fraction defective; X̄ and R charts are for '
+    explanation:
+        'A p-chart tracks the fraction defective; X̄ and R charts are for '
         'variables.',
   ),
   Question(
@@ -454,7 +505,8 @@ const interOmQuestions = [
       'Predicting failures using sensors',
     ],
     answerIndex: 1,
-    explanation: 'It is reactive maintenance and can cause costly unplanned '
+    explanation:
+        'It is reactive maintenance and can cause costly unplanned '
         'stoppages.',
   ),
   Question(
@@ -468,7 +520,8 @@ const interOmQuestions = [
       'Financial reporting',
     ],
     answerIndex: 1,
-    explanation: '5S stands for Sort, Set in order, Shine, Standardise and Sustain.',
+    explanation:
+        '5S stands for Sort, Set in order, Shine, Standardise and Sustain.',
   ),
   Question(
     subjectId: 'i_om',
@@ -481,7 +534,8 @@ const interOmQuestions = [
       'Quality training of employees',
     ],
     answerIndex: 3,
-    explanation: 'Scrap and warranty are failure costs; inspection is an appraisal '
+    explanation:
+        'Scrap and warranty are failure costs; inspection is an appraisal '
         'cost.',
   ),
 
@@ -497,17 +551,20 @@ const interOmQuestions = [
       'Opportunities and threats',
     ],
     answerIndex: 3,
-    explanation: 'Strengths and weaknesses are internal; opportunities and threats '
+    explanation:
+        'Strengths and weaknesses are internal; opportunities and threats '
         'come from the external environment.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Strategic Analysis',
-    text: 'In the BCG matrix, a business with a high market share in a '
+    text:
+        'In the BCG matrix, a business with a high market share in a '
         'low-growth market is a:',
     options: ['Star', 'Question mark', 'Cash cow', 'Dog'],
     answerIndex: 2,
-    explanation: 'Cash cows generate more cash than they need. Stars have high '
+    explanation:
+        'Cash cows generate more cash than they need. Stars have high '
         'share in high-growth markets; dogs have low share in low-growth markets.',
   ),
   Question(
@@ -521,7 +578,8 @@ const interOmQuestions = [
       'Rate of inflation',
     ],
     answerIndex: 3,
-    explanation: 'The five forces are rivalry among competitors, threat of new '
+    explanation:
+        'The five forces are rivalry among competitors, threat of new '
         'entrants, threat of substitutes, and bargaining power of buyers and of '
         'suppliers.',
   ),
@@ -536,17 +594,20 @@ const interOmQuestions = [
       'Internal strengths only',
     ],
     answerIndex: 2,
-    explanation: 'PESTLE covers Political, Economic, Social, Technological, Legal '
+    explanation:
+        'PESTLE covers Political, Economic, Social, Technological, Legal '
         'and Environmental factors.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Strategic Analysis',
-    text: 'In the BCG matrix, a business with low market share in a '
+    text:
+        'In the BCG matrix, a business with low market share in a '
         'high-growth market is a:',
     options: ['Dog', 'Star', 'Question mark', 'Cash cow'],
     answerIndex: 2,
-    explanation: 'Question marks need heavy investment to gain share; they may '
+    explanation:
+        'Question marks need heavy investment to gain share; they may '
         'become stars or decline into dogs.',
   ),
   Question(
@@ -560,7 +621,8 @@ const interOmQuestions = [
       'The minimum skills every firm has',
     ],
     answerIndex: 1,
-    explanation: 'Core competencies are hard to imitate, provide customer value and '
+    explanation:
+        'Core competencies are hard to imitate, provide customer value and '
         'can be used across markets.',
   ),
   Question(
@@ -569,23 +631,27 @@ const interOmQuestions = [
     text: 'The value chain concept was developed by:',
     options: ['Igor Ansoff', 'Peter Drucker', 'Michael Porter', 'Henri Fayol'],
     answerIndex: 2,
-    explanation: 'It splits a firm into primary and support activities that create '
+    explanation:
+        'It splits a firm into primary and support activities that create '
         'value.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Strategic Analysis',
-    text: 'In the BCG matrix, a business with high market share in a '
+    text:
+        'In the BCG matrix, a business with high market share in a '
         'high-growth market is a:',
     options: ['Cash cow', 'Dog', 'Star', 'Question mark'],
     answerIndex: 2,
-    explanation: 'Stars need investment to keep up with growth but can become cash '
+    explanation:
+        'Stars need investment to keep up with growth but can become cash '
         'cows.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Strategic Analysis',
-    text: 'In the BCG matrix, a business with low market share in a '
+    text:
+        'In the BCG matrix, a business with low market share in a '
         'low-growth market is a:',
     options: ['Cash cow', 'Dog', 'Star', 'Question mark'],
     answerIndex: 1,
@@ -610,7 +676,8 @@ const interOmQuestions = [
     text: 'Which of the following is NOT one of Porter\'s generic strategies?',
     options: ['Cost leadership', 'Diversification', 'Differentiation', 'Focus'],
     answerIndex: 1,
-    explanation: 'Porter\'s generic strategies are cost leadership, '
+    explanation:
+        'Porter\'s generic strategies are cost leadership, '
         'differentiation and focus. Diversification comes from Ansoff\'s matrix.',
   ),
   Question(
@@ -624,17 +691,20 @@ const interOmQuestions = [
       'Diversification',
     ],
     answerIndex: 2,
-    explanation: 'New product + existing market = product development. Existing '
+    explanation:
+        'New product + existing market = product development. Existing '
         'product + new market = market development.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Strategy Formulation',
-    text: 'A statement of what an organisation aspires to become in the long '
+    text:
+        'A statement of what an organisation aspires to become in the long '
         'run is its:',
     options: ['Vision', 'Policy', 'Procedure', 'Budget'],
     answerIndex: 0,
-    explanation: 'Vision describes the desired future. Mission describes the '
+    explanation:
+        'Vision describes the desired future. Mission describes the '
         'organisation\'s purpose and what it does now.',
   ),
   Question(
@@ -648,7 +718,8 @@ const interOmQuestions = [
       'Market penetration',
     ],
     answerIndex: 1,
-    explanation: 'Diversification combines a new product with a new market and '
+    explanation:
+        'Diversification combines a new product with a new market and '
         'carries the highest risk.',
   ),
   Question(
@@ -662,7 +733,8 @@ const interOmQuestions = [
       'The organisation chart',
     ],
     answerIndex: 2,
-    explanation: 'The mission states the present purpose; the vision describes what '
+    explanation:
+        'The mission states the present purpose; the vision describes what '
         'the organisation wants to become.',
   ),
   Question(
@@ -676,7 +748,8 @@ const interOmQuestions = [
       'Diversification',
     ],
     answerIndex: 2,
-    explanation: 'Divestment is a retrenchment strategy used to exit unprofitable or '
+    explanation:
+        'Divestment is a retrenchment strategy used to exit unprofitable or '
         'non-core businesses.',
   ),
   Question(
@@ -690,12 +763,14 @@ const interOmQuestions = [
       'Become the lowest-cost producer in the industry',
     ],
     answerIndex: 3,
-    explanation: 'Porter\'s other generic strategies are differentiation and focus.',
+    explanation:
+        'Porter\'s other generic strategies are differentiation and focus.',
   ),
   Question(
     subjectId: 'i_om',
     chapter: 'Strategy Formulation',
-    text: 'In Ansoff\'s matrix, selling existing products in existing markets '
+    text:
+        'In Ansoff\'s matrix, selling existing products in existing markets '
         'more aggressively is:',
     options: [
       'Diversification',
@@ -717,7 +792,8 @@ const interOmQuestions = [
       'Closing a business unit',
     ],
     answerIndex: 0,
-    explanation: 'Backward integration moves towards suppliers; forward integration '
+    explanation:
+        'Backward integration moves towards suppliers; forward integration '
         'towards customers.',
   ),
   Question(
@@ -731,7 +807,8 @@ const interOmQuestions = [
       'Merge with a rival',
     ],
     answerIndex: 0,
-    explanation: 'It typically involves cost cuts, restructuring and management '
+    explanation:
+        'It typically involves cost cuts, restructuring and management '
         'changes.',
   ),
 ];

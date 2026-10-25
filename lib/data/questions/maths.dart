@@ -48,7 +48,8 @@ const mathsQuestions = [
     text: '₹1,200 is divided in the ratio 1 : 2 : 3. The largest share is:',
     options: ['₹800', '₹600', '₹200', '₹400'],
     answerIndex: 1,
-    explanation: 'Total parts = 6, so one part = ₹200. The largest share = 3 × 200 = '
+    explanation:
+        'Total parts = 6, so one part = ₹200. The largest share = 3 × 200 = '
         '₹600.',
   ),
   Question(
@@ -213,7 +214,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Equations',
-    text: 'For the quadratic equation ax² + bx + c = 0, if b² − 4ac < 0, the '
+    text:
+        'For the quadratic equation ax² + bx + c = 0, if b² − 4ac < 0, the '
         'roots are:',
     options: [
       'Not real (imaginary)',
@@ -222,7 +224,8 @@ const mathsQuestions = [
       'Real and equal',
     ],
     answerIndex: 0,
-    explanation: 'The discriminant b² − 4ac decides the nature of roots; when it is '
+    explanation:
+        'The discriminant b² − 4ac decides the nature of roots; when it is '
         'negative, the roots are not real.',
   ),
   Question(
@@ -252,7 +255,8 @@ const mathsQuestions = [
       'x² − 7x + 10 = 0',
     ],
     answerIndex: 3,
-    explanation: 'x² − (sum of roots)x + (product of roots) = x² − 7x + 10 = 0.',
+    explanation:
+        'x² − (sum of roots)x + (product of roots) = x² − 7x + 10 = 0.',
   ),
   Question(
     subjectId: 'maths',
@@ -379,7 +383,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Permutations & Combinations',
-    text: 'How many 3-digit numbers can be formed from the digits 1, 2, 3, 4 '
+    text:
+        'How many 3-digit numbers can be formed from the digits 1, 2, 3, 4 '
         'and 5 if no digit is repeated?',
     options: ['60', '10', '125', '120'],
     answerIndex: 0,
@@ -399,7 +404,8 @@ const mathsQuestions = [
     text: 'The value of 0! is:',
     options: ['1', 'Infinity', '0', 'Not defined'],
     answerIndex: 0,
-    explanation: 'By definition 0! = 1, which keeps formulas such as ⁿCₙ = 1 '
+    explanation:
+        'By definition 0! = 1, which keeps formulas such as ⁿCₙ = 1 '
         'consistent.',
   ),
   Question(
@@ -416,7 +422,8 @@ const mathsQuestions = [
     text: 'The number of arrangements of the letters of the word LETTER is:',
     options: ['120', '180', '720', '360'],
     answerIndex: 1,
-    explanation: '6 letters with E twice and T twice: 6! ÷ (2! × 2!) = 720 ÷ 4 = '
+    explanation:
+        '6 letters with E twice and T twice: 6! ÷ (2! × 2!) = 720 ÷ 4 = '
         '180.',
   ),
   Question(
@@ -440,7 +447,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Time Value of Money',
-    text: 'The amount of ₹10,000 at 10% p.a. compound interest after 2 years is:',
+    text:
+        'The amount of ₹10,000 at 10% p.a. compound interest after 2 years is:',
     options: ['₹12,000', '₹12,100', '₹12,210', '₹11,000'],
     answerIndex: 1,
     explanation: 'A = P(1 + r)ⁿ = 10,000 × 1.1² = ₹12,100.',
@@ -448,17 +456,20 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Time Value of Money',
-    text: 'The effective annual rate for 12% p.a. compounded quarterly is '
+    text:
+        'The effective annual rate for 12% p.a. compounded quarterly is '
         'approximately:',
     options: ['12.00%', '12.36%', '12.55%', '12.68%'],
     answerIndex: 2,
-    explanation: 'Effective rate = (1 + 0.12/4)⁴ − 1 = 1.03⁴ − 1 ≈ 12.55%. '
+    explanation:
+        'Effective rate = (1 + 0.12/4)⁴ − 1 = 1.03⁴ − 1 ≈ 12.55%. '
         '(12.36% is half-yearly and 12.68% is monthly compounding.)',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Time Value of Money',
-    text: 'The present value of ₹11,000 receivable after 1 year at 10% p.a. is:',
+    text:
+        'The present value of ₹11,000 receivable after 1 year at 10% p.a. is:',
     options: ['₹9,900', '₹10,000', '₹10,100', '₹9,000'],
     answerIndex: 1,
     explanation: 'PV = 11,000 / 1.10 = ₹10,000.',
@@ -469,13 +480,15 @@ const mathsQuestions = [
     text: 'At 6% p.a. simple interest, ₹5,000 amounts to ₹6,500 in:',
     options: ['5 years', '4 years', '3 years', '6 years'],
     answerIndex: 0,
-    explanation: 'Interest = ₹1,500. Interest per year = 5,000 × 6% = ₹300, so time '
+    explanation:
+        'Interest = ₹1,500. Interest per year = 5,000 × 6% = ₹300, so time '
         '= 1,500 ÷ 300 = 5 years.',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Time Value of Money',
-    text: 'The present value of an annuity of ₹1,000 a year for 2 years at '
+    text:
+        'The present value of an annuity of ₹1,000 a year for 2 years at '
         '10% p.a. (payments at year end) is approximately:',
     options: ['₹1,652.89', '₹2,000.00', '₹1,735.54', '₹1,818.18'],
     answerIndex: 2,
@@ -492,17 +505,20 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Time Value of Money',
-    text: 'A sum doubles in 10 years at simple interest. The rate of interest '
+    text:
+        'A sum doubles in 10 years at simple interest. The rate of interest '
         'is:',
     options: ['20% p.a.', '10% p.a.', '7.2% p.a.', '5% p.a.'],
     answerIndex: 1,
-    explanation: 'Interest equals the principal in 10 years, so the rate = 100% ÷ 10 '
+    explanation:
+        'Interest equals the principal in 10 years, so the rate = 100% ÷ 10 '
         '= 10% p.a.',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Time Value of Money',
-    text: 'The value of ₹1,000 after 3 years at 10% p.a. compounded annually '
+    text:
+        'The value of ₹1,000 after 3 years at 10% p.a. compounded annually '
         'is:',
     options: ['₹1,331', '₹1,464', '₹1,210', '₹1,300'],
     answerIndex: 0,
@@ -514,7 +530,8 @@ const mathsQuestions = [
     text: 'The present value of a perpetuity of ₹500 a year at 10% p.a. is:',
     options: ['₹500', '₹5,000', '₹50,000', '₹5,500'],
     answerIndex: 1,
-    explanation: 'PV of perpetuity = Annual amount ÷ Rate = 500 ÷ 0.10 = ₹5,000.',
+    explanation:
+        'PV of perpetuity = Annual amount ÷ Rate = 500 ÷ 0.10 = ₹5,000.',
   ),
 
   // Statistics
@@ -532,7 +549,8 @@ const mathsQuestions = [
     text: 'The median of 3, 7, 9, 1 and 5 is:',
     options: ['9', '7', '5', '3'],
     answerIndex: 2,
-    explanation: 'Arranged in order: 1, 3, 5, 7, 9. The middle (3rd) value is 5.',
+    explanation:
+        'Arranged in order: 1, 3, 5, 7, 9. The middle (3rd) value is 5.',
   ),
   Question(
     subjectId: 'maths',
@@ -545,7 +563,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Measures of Central Tendency',
-    text: 'In a moderately skewed distribution, median = 20 and mean = 22. '
+    text:
+        'In a moderately skewed distribution, median = 20 and mean = 22. '
         'The mode is approximately:',
     options: ['16', '18', '24', '26'],
     answerIndex: 0,
@@ -578,7 +597,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Measures of Central Tendency',
-    text: 'One group of 10 items has a mean of 20 and another group of 30 '
+    text:
+        'One group of 10 items has a mean of 20 and another group of 30 '
         'items a mean of 40. The combined mean is:',
     options: ['30', '32', '25', '35'],
     answerIndex: 3,
@@ -595,7 +615,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Measures of Central Tendency',
-    text: 'Mean is 30 and median is 28. Using the empirical relationship, the '
+    text:
+        'Mean is 30 and median is 28. Using the empirical relationship, the '
         'mode is approximately:',
     options: ['26', '24', '29', '32'],
     answerIndex: 1,
@@ -607,12 +628,14 @@ const mathsQuestions = [
     text: 'The standard deviation of 5, 5, 5, 5, 5 is:',
     options: ['5', '1', '25', '0'],
     answerIndex: 3,
-    explanation: 'All values equal the mean, so there is no dispersion: SD = 0.',
+    explanation:
+        'All values equal the mean, so there is no dispersion: SD = 0.',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Measures of Dispersion',
-    text: 'The largest value in a data set is 50 and the smallest is 10. The '
+    text:
+        'The largest value in a data set is 50 and the smallest is 10. The '
         'coefficient of range is approximately:',
     options: ['40', '0.67', '0.80', '1.50'],
     answerIndex: 1,
@@ -629,7 +652,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Measures of Dispersion',
-    text: 'The mean of a distribution is 50 and its standard deviation is 10. '
+    text:
+        'The mean of a distribution is 50 and its standard deviation is 10. '
         'The coefficient of variation is:',
     options: ['50%', '5%', '10%', '20%'],
     answerIndex: 3,
@@ -649,13 +673,15 @@ const mathsQuestions = [
     text: 'Mean deviation is the least when it is taken from the:',
     options: ['Mean', 'Median', 'Largest value', 'Mode'],
     answerIndex: 1,
-    explanation: 'The sum of absolute deviations is minimum when measured from the '
+    explanation:
+        'The sum of absolute deviations is minimum when measured from the '
         'median.',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Measures of Dispersion',
-    text: 'The first quartile is 20 and the third quartile 40. The quartile '
+    text:
+        'The first quartile is 20 and the third quartile 40. The quartile '
         'deviation is:',
     options: ['60', '10', '30', '20'],
     answerIndex: 1,
@@ -667,13 +693,15 @@ const mathsQuestions = [
     text: 'The standard deviation of 2, 4, 6, 8, 10 is approximately:',
     options: ['8', '4', '2', '2.83'],
     answerIndex: 3,
-    explanation: 'Mean = 6; squared deviations total 40; variance = 40 ÷ 5 = 8; SD = '
+    explanation:
+        'Mean = 6; squared deviations total 40; variance = 40 ÷ 5 = 8; SD = '
         '√8 ≈ 2.83.',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Measures of Dispersion',
-    text: 'If a constant is added to every observation, the standard '
+    text:
+        'If a constant is added to every observation, the standard '
         'deviation:',
     options: [
       'Decreases by that constant',
@@ -695,7 +723,8 @@ const mathsQuestions = [
       'Is multiplied by 9',
     ],
     answerIndex: 0,
-    explanation: 'SD changes with a change of scale; the variance is multiplied by '
+    explanation:
+        'SD changes with a change of scale; the variance is multiplied by '
         '9.',
   ),
   Question(
@@ -704,17 +733,20 @@ const mathsQuestions = [
     text: 'The coefficient of correlation always lies between:',
     options: ['0 and 1', '−1 and 0', '−1 and +1', '−∞ and +∞'],
     answerIndex: 2,
-    explanation: 'r ranges from −1 (perfect negative) to +1 (perfect positive) '
+    explanation:
+        'r ranges from −1 (perfect negative) to +1 (perfect positive) '
         'correlation.',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Correlation & Regression',
-    text: 'The regression coefficients are bxy = 0.8 and byx = 0.45. The '
+    text:
+        'The regression coefficients are bxy = 0.8 and byx = 0.45. The '
         'coefficient of correlation is:',
     options: ['0.36', '0.6', '1.25', '0.8'],
     answerIndex: 1,
-    explanation: 'r = √(bxy × byx) = √0.36 = 0.6, positive because both '
+    explanation:
+        'r = √(bxy × byx) = √0.36 = 0.6, positive because both '
         'regression coefficients are positive.',
   ),
   Question(
@@ -728,16 +760,19 @@ const mathsQuestions = [
       'A high degree of correlation',
     ],
     answerIndex: 0,
-    explanation: 'r = 0 means there is no linear relationship between the variables.',
+    explanation:
+        'r = 0 means there is no linear relationship between the variables.',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Correlation & Regression',
-    text: 'The regression coefficients are byx = 0.5 and bxy = 1.2. The '
+    text:
+        'The regression coefficients are byx = 0.5 and bxy = 1.2. The '
         'coefficient of correlation is approximately:',
     options: ['0.60', '1.70', '0.85', '0.77'],
     answerIndex: 3,
-    explanation: 'r = √(byx × bxy) = √0.6 ≈ 0.77; it is positive because both '
+    explanation:
+        'r = √(byx × bxy) = √0.6 ≈ 0.77; it is positive because both '
         'coefficients are positive.',
   ),
   Question(
@@ -751,7 +786,8 @@ const mathsQuestions = [
       '(Median of X, Median of Y)',
     ],
     answerIndex: 2,
-    explanation: 'Both regression lines pass through the means, so they intersect at '
+    explanation:
+        'Both regression lines pass through the means, so they intersect at '
         '(x̄, ȳ).',
   ),
   Question(
@@ -760,7 +796,8 @@ const mathsQuestions = [
     text: 'The rank correlation coefficient was developed by:',
     options: ['Fisher', 'Karl Pearson', 'Laspeyres', 'Spearman'],
     answerIndex: 3,
-    explanation: 'Spearman\'s rank correlation measures correlation between the ranks '
+    explanation:
+        'Spearman\'s rank correlation measures correlation between the ranks '
         'of two variables.',
   ),
   Question(
@@ -779,7 +816,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Correlation & Regression',
-    text: 'For 5 pairs of ranks, Σd² = 6. Spearman\'s rank correlation '
+    text:
+        'For 5 pairs of ranks, Σd² = 6. Spearman\'s rank correlation '
         'coefficient is:',
     options: ['0.9', '0.7', '0.3', '−0.7'],
     answerIndex: 1,
@@ -791,7 +829,8 @@ const mathsQuestions = [
     text: 'If r = 0.8, the coefficient of determination is:',
     options: ['0.4', '0.64', '0.8', '0.89'],
     answerIndex: 1,
-    explanation: 'Coefficient of determination = r² = 0.64, i.e., 64% of the '
+    explanation:
+        'Coefficient of determination = r² = 0.64, i.e., 64% of the '
         'variation is explained.',
   ),
   Question(
@@ -818,7 +857,8 @@ const mathsQuestions = [
       'Base year quantities',
     ],
     answerIndex: 3,
-    explanation: 'Laspeyres = Σp₁q₀ / Σp₀q₀ × 100, weighted by base year '
+    explanation:
+        'Laspeyres = Σp₁q₀ / Σp₀q₀ × 100, weighted by base year '
         'quantities. Paasche uses current year quantities.',
   ),
   Question(
@@ -827,7 +867,8 @@ const mathsQuestions = [
     text: 'The index number for the base year is always:',
     options: ['1', '100', '0', '1,000'],
     answerIndex: 1,
-    explanation: 'The base year is the reference point, so its index is taken as '
+    explanation:
+        'The base year is the reference point, so its index is taken as '
         '100.',
   ),
   Question(
@@ -854,13 +895,15 @@ const mathsQuestions = [
       'Average of prices',
     ],
     answerIndex: 2,
-    explanation: 'Paasche uses current year quantities (q₁); Laspeyres uses base '
+    explanation:
+        'Paasche uses current year quantities (q₁); Laspeyres uses base '
         'year quantities (q₀).',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Index Numbers',
-    text: 'Laspeyres\' index is 121 and Paasche\'s index is 100. Fisher\'s ideal '
+    text:
+        'Laspeyres\' index is 121 and Paasche\'s index is 100. Fisher\'s ideal '
         'index is:',
     options: ['110', '100', '121', '110.5'],
     answerIndex: 0,
@@ -869,7 +912,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Index Numbers',
-    text: 'The total of current year prices of a group of items is ₹250 and '
+    text:
+        'The total of current year prices of a group of items is ₹250 and '
         'of base year prices ₹200. The simple aggregative price index is:',
     options: ['120', '80', '125', '150'],
     answerIndex: 2,
@@ -878,7 +922,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Index Numbers',
-    text: 'The price of an item is ₹50 in the base year and ₹75 in the '
+    text:
+        'The price of an item is ₹50 in the base year and ₹75 in the '
         'current year. The price relative is:',
     options: ['150', '125', '66.67', '75'],
     answerIndex: 0,
@@ -895,7 +940,8 @@ const mathsQuestions = [
       'Consumer price index',
     ],
     answerIndex: 3,
-    explanation: 'It measures changes in the cost of a basket of consumer goods and '
+    explanation:
+        'It measures changes in the cost of a basket of consumer goods and '
         'services.',
   ),
   Question(
@@ -909,17 +955,20 @@ const mathsQuestions = [
       'Simple aggregative index only',
     ],
     answerIndex: 0,
-    explanation: 'Fisher\'s index satisfies both the time reversal and factor '
+    explanation:
+        'Fisher\'s index satisfies both the time reversal and factor '
         'reversal tests.',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Index Numbers',
-    text: 'Money wages are ₹15,000 and the consumer price index is 150. Real '
+    text:
+        'Money wages are ₹15,000 and the consumer price index is 150. Real '
         'wages are:',
     options: ['₹1,500', '₹15,000', '₹10,000', '₹22,500'],
     answerIndex: 2,
-    explanation: 'Real wages = Money wages ÷ CPI × 100 = 15,000 ÷ 150 × 100 = '
+    explanation:
+        'Real wages = Money wages ÷ CPI × 100 = 15,000 ÷ 150 × 100 = '
         '₹10,000.',
   ),
 
@@ -935,7 +984,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Probability',
-    text: 'A card is drawn at random from a well-shuffled pack of 52 cards. The '
+    text:
+        'A card is drawn at random from a well-shuffled pack of 52 cards. The '
         'probability that it is an ace is:',
     options: ['1/13', '1/52', '1/4', '4/13'],
     answerIndex: 0,
@@ -944,26 +994,31 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Probability',
-    text: 'Two fair coins are tossed. The probability of getting at least one '
+    text:
+        'Two fair coins are tossed. The probability of getting at least one '
         'head is:',
     options: ['1/4', '1', '1/2', '3/4'],
     answerIndex: 3,
-    explanation: 'Outcomes: HH, HT, TH, TT. Three of the four have at least one '
+    explanation:
+        'Outcomes: HH, HT, TH, TT. Three of the four have at least one '
         'head, so 3/4.',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Probability',
-    text: 'A and B are independent events with P(A) = 0.4 and P(B) = 0.5. P(A '
+    text:
+        'A and B are independent events with P(A) = 0.4 and P(B) = 0.5. P(A '
         'and B) is:',
     options: ['0.2', '0.1', '0.45', '0.9'],
     answerIndex: 0,
-    explanation: 'For independent events, P(A ∩ B) = P(A) × P(B) = 0.4 × 0.5 = 0.2.',
+    explanation:
+        'For independent events, P(A ∩ B) = P(A) × P(B) = 0.4 × 0.5 = 0.2.',
   ),
   Question(
     subjectId: 'maths',
     chapter: 'Probability',
-    text: 'A and B are mutually exclusive events with P(A) = 0.3 and P(B) = '
+    text:
+        'A and B are mutually exclusive events with P(A) = 0.3 and P(B) = '
         '0.4. P(A or B) is:',
     options: ['0.7', '0.58', '0.12', '0.1'],
     answerIndex: 0,
@@ -972,7 +1027,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Probability',
-    text: 'A fair die is thrown. The probability of getting an even number '
+    text:
+        'A fair die is thrown. The probability of getting an even number '
         'greater than 2 is:',
     options: ['1/2', '1/6', '1/3', '2/3'],
     answerIndex: 2,
@@ -989,7 +1045,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Probability',
-    text: 'A bag has 3 red and 5 blue balls. The probability of drawing a red '
+    text:
+        'A bag has 3 red and 5 blue balls. The probability of drawing a red '
         'ball is:',
     options: ['3/5', '1/3', '3/8', '5/8'],
     answerIndex: 2,
@@ -998,7 +1055,8 @@ const mathsQuestions = [
   Question(
     subjectId: 'maths',
     chapter: 'Probability',
-    text: 'Two fair dice are thrown. The probability that both show the same '
+    text:
+        'Two fair dice are thrown. The probability that both show the same '
         'number is:',
     options: ['1/12', '1/6', '1/36', '1/3'],
     answerIndex: 1,

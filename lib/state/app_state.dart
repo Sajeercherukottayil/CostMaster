@@ -48,8 +48,8 @@ class AppState extends ChangeNotifier {
   int? get averagePercent => _attempts.isEmpty
       ? null
       : (_attempts.map((a) => a.percent).reduce((a, b) => a + b) /
-              _attempts.length)
-          .round();
+                _attempts.length)
+            .round();
 
   int? get bestPercent => _attempts.isEmpty
       ? null
@@ -59,8 +59,10 @@ class AppState extends ChangeNotifier {
   /// [subjectName], whose titles are the name or "name – chapter".
   int? averagePercentFor(String subjectName) {
     final matching = _attempts
-        .where((a) =>
-            a.title == subjectName || a.title.startsWith('$subjectName – '))
+        .where(
+          (a) =>
+              a.title == subjectName || a.title.startsWith('$subjectName – '),
+        )
         .map((a) => a.percent)
         .toList();
     if (matching.isEmpty) return null;
@@ -84,8 +86,7 @@ class AppState extends ChangeNotifier {
   }
 
   /// Questions answered across every saved test.
-  int get questionsAttempted =>
-      _attempts.fold(0, (sum, a) => sum + a.total);
+  int get questionsAttempted => _attempts.fold(0, (sum, a) => sum + a.total);
 
   /// Makes the saved data belong to the account [uid]. If another account
   /// owned it, that account's profile and history are cleared first, so
@@ -127,13 +128,14 @@ class AppState extends ChangeNotifier {
     await _prefs.remove(_attemptsKey);
   }
 
-  Future<void> _saveAttempts() => _prefs.setStringList(
-      _attemptsKey, [for (final a in _attempts) jsonEncode(a.toJson())]);
+  Future<void> _saveAttempts() => _prefs.setStringList(_attemptsKey, [
+    for (final a in _attempts) jsonEncode(a.toJson()),
+  ]);
 }
 
 class AppScope extends InheritedNotifier<AppState> {
   const AppScope({super.key, required AppState state, required super.child})
-      : super(notifier: state);
+    : super(notifier: state);
 
   /// Reads the state and rebuilds [context] when it changes.
   static AppState of(BuildContext context) =>
