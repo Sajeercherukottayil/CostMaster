@@ -16,9 +16,13 @@ import 'descriptive/maths.dart';
 import 'descriptive/more/cost.dart';
 import 'descriptive/more/eco.dart';
 import 'descriptive/more/fa.dart';
+import 'descriptive/more/inter/caa.dart';
 import 'descriptive/more/inter/cost.dart';
 import 'descriptive/more/inter/fa.dart';
+import 'descriptive/more/inter/fm.dart';
 import 'descriptive/more/inter/law.dart';
+import 'descriptive/more/inter/ma.dart';
+import 'descriptive/more/inter/om.dart';
 import 'descriptive/more/inter/tax.dart';
 import 'descriptive/more/law.dart';
 import 'descriptive/more/maths.dart';
@@ -51,9 +55,13 @@ import 'questions/maths.dart';
 import 'questions/more/cost.dart';
 import 'questions/more/eco.dart';
 import 'questions/more/fa.dart';
+import 'questions/more/inter/caa.dart';
 import 'questions/more/inter/cost.dart';
 import 'questions/more/inter/fa.dart';
+import 'questions/more/inter/fm.dart';
 import 'questions/more/inter/law.dart';
+import 'questions/more/inter/ma.dart';
+import 'questions/more/inter/om.dart';
 import 'questions/more/inter/tax.dart';
 import 'questions/more/law.dart';
 import 'questions/more/maths.dart';
@@ -292,9 +300,13 @@ const questionBank = [
   ...interCostQuestions,
   ...interCostMoreQuestions,
   ...interOmQuestions,
+  ...interOmMoreQuestions,
   ...interCaaQuestions,
+  ...interCaaMoreQuestions,
   ...interFmQuestions,
+  ...interFmMoreQuestions,
   ...interMaQuestions,
+  ...interMaMoreQuestions,
 ];
 
 /// Written-answer questions, shown on chapter screens but not in tests.
@@ -328,12 +340,16 @@ const descriptiveBank = [
   ...interCostMoreDescriptive,
   ...interOmDescriptive,
   ...interOmProblems,
+  ...interOmMoreDescriptive,
   ...interCaaDescriptive,
   ...interCaaProblems,
+  ...interCaaMoreDescriptive,
   ...interFmDescriptive,
   ...interFmProblems,
+  ...interFmMoreDescriptive,
   ...interMaDescriptive,
   ...interMaProblems,
+  ...interMaMoreDescriptive,
 ];
 
 /// Subjects for the student's course and group.

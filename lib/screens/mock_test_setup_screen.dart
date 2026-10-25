@@ -22,11 +22,11 @@ class MockTestSetupScreen extends StatefulWidget {
 class _MockTestSetupScreenState extends State<MockTestSetupScreen> {
   late final int _available = widget.questions.length;
 
-  /// Steps of 25 up to the questions available, plus "All". Small sets such
-  /// as a single chapter offer 5 and 10 instead.
+  /// Steps of 25 up to 100, plus "All". Small sets such as a single chapter
+  /// offer 5 and 10 instead.
   late final List<int> _countOptions = {
     if (_available < 25) ...[5, 10],
-    for (var n = 25; n <= _available; n += 25) n,
+    for (var n = 25; n <= 100; n += 25) n,
     _available,
   }.where((n) => n <= _available).toList()..sort();
   late int _count = _available < 25 ? _available : 25;
