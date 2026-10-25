@@ -4,6 +4,7 @@ import '../data/question_bank.dart';
 import '../services/auth_service.dart';
 import '../state/app_state.dart';
 import '../theme.dart';
+import '../widgets/policy_links.dart';
 import '../widgets/ui.dart';
 import 'profile_form_screen.dart';
 
@@ -170,6 +171,8 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(height: 8),
+                const PolicyLinks(),
               ],
             ),
           ),
