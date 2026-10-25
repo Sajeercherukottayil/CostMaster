@@ -6,9 +6,15 @@ const interMaQuestions = [
     subjectId: 'i_ma',
     chapter: 'Decision Making',
     text: 'Which cost is irrelevant for decision making?',
-    options: ['Opportunity cost', 'Incremental cost', 'Sunk cost', 'Avoidable cost'],
+    options: [
+      'Opportunity cost',
+      'Incremental cost',
+      'Sunk cost',
+      'Avoidable cost',
+    ],
     answerIndex: 2,
-    explanation: 'A sunk cost has already been incurred and cannot be changed by '
+    explanation:
+        'A sunk cost has already been incurred and cannot be changed by '
         'any decision, so it is irrelevant.',
   ),
   Question(
@@ -22,14 +28,16 @@ const interMaQuestions = [
       'The cost of idle capacity',
     ],
     answerIndex: 1,
-    explanation: 'Opportunity cost is the value of the best alternative '
+    explanation:
+        'Opportunity cost is the value of the best alternative '
         'forgone. It is relevant for decisions even though it is not recorded '
         'in the books.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Decision Making',
-    text: 'Machine hours are the limiting factor. Product X has contribution of '
+    text:
+        'Machine hours are the limiting factor. Product X has contribution of '
         '₹40 per unit and needs 4 machine hours. Product Y has contribution of '
         '₹30 per unit and needs 2 machine hours. Which product should be '
         'preferred?',
@@ -40,13 +48,15 @@ const interMaQuestions = [
       'X, because its contribution per machine hour is ₹10',
     ],
     answerIndex: 1,
-    explanation: 'Rank products by contribution per unit of the key factor: X = '
+    explanation:
+        'Rank products by contribution per unit of the key factor: X = '
         '40/4 = ₹10 per hour and Y = 30/2 = ₹15 per hour, so Y is preferred.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Decision Making',
-    text: 'A component has a variable cost of ₹45 to make, and it can be bought '
+    text:
+        'A component has a variable cost of ₹45 to make, and it can be bought '
         'for ₹50. Fixed costs are unavoidable. The firm should:',
     options: [
       'Buy, saving ₹5 per unit',
@@ -55,13 +65,15 @@ const interMaQuestions = [
       'Be indifferent',
     ],
     answerIndex: 1,
-    explanation: 'Unavoidable fixed costs are irrelevant. Making costs ₹45 '
+    explanation:
+        'Unavoidable fixed costs are irrelevant. Making costs ₹45 '
         'against ₹50 to buy, so making saves ₹5 per unit.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Decision Making',
-    text: 'In the short run, a firm should continue operating rather than shut '
+    text:
+        'In the short run, a firm should continue operating rather than shut '
         'down as long as the selling price covers:',
     options: [
       'Average total cost',
@@ -70,22 +82,26 @@ const interMaQuestions = [
       'Marginal revenue',
     ],
     answerIndex: 2,
-    explanation: 'If price covers variable cost, every unit contributes towards '
+    explanation:
+        'If price covers variable cost, every unit contributes towards '
         'fixed costs that would be incurred even after shutdown.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Decision Making',
-    text: 'A product\'s target selling price is ₹500 and the desired profit is '
+    text:
+        'A product\'s target selling price is ₹500 and the desired profit is '
         '20% of selling price. The target cost is:',
     options: ['₹400', '₹416.67', '₹600', '₹480'],
     answerIndex: 0,
-    explanation: 'Target cost = Target price − Desired profit = 500 − 20% × 500 = ₹400.',
+    explanation:
+        'Target cost = Target price − Desired profit = 500 − 20% × 500 = ₹400.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Decision Making',
-    text: 'A firm with spare capacity receives a special order at ₹60 per '
+    text:
+        'A firm with spare capacity receives a special order at ₹60 per '
         'unit. Variable cost is ₹50 per unit and no extra fixed cost is '
         'needed. The order should be:',
     options: [
@@ -95,7 +111,8 @@ const interMaQuestions = [
       'Rejected, as fixed costs are not covered',
     ],
     answerIndex: 1,
-    explanation: 'With spare capacity and no extra fixed costs, any price above '
+    explanation:
+        'With spare capacity and no extra fixed costs, any price above '
         'variable cost increases profit.',
   ),
   Question(
@@ -109,7 +126,8 @@ const interMaQuestions = [
       'The difference in total cost between two alternatives',
     ],
     answerIndex: 3,
-    explanation: 'Differential (incremental) cost is the change in cost caused by '
+    explanation:
+        'Differential (incremental) cost is the change in cost caused by '
         'choosing one alternative over another.',
   ),
   Question(
@@ -123,17 +141,20 @@ const interMaQuestions = [
       'A cost that cannot be controlled',
     ],
     answerIndex: 0,
-    explanation: 'When a resource is scarce, products are ranked by contribution per '
+    explanation:
+        'When a resource is scarce, products are ranked by contribution per '
         'unit of that key factor.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Decision Making',
-    text: 'Product X sells at ₹100 with variable cost ₹60. Product Y sells at '
+    text:
+        'Product X sells at ₹100 with variable cost ₹60. Product Y sells at '
         '₹80 with variable cost ₹40. Which has the higher P/V ratio?',
     options: ['X, at 40%', 'Y, at 50%', 'Both have 40%', 'X, at 60%'],
     answerIndex: 1,
-    explanation: 'X: 40 ÷ 100 = 40%. Y: 40 ÷ 80 = 50%. Y has the higher P/V ratio.',
+    explanation:
+        'X: 40 ÷ 100 = 40%. Y: 40 ÷ 80 = 50%. Y has the higher P/V ratio.',
   ),
 
   // Budgeting
@@ -141,15 +162,22 @@ const interMaQuestions = [
     subjectId: 'i_ma',
     chapter: 'Budgeting & Budgetary Control',
     text: 'A budget designed to change with the level of activity is a:',
-    options: ['Fixed budget', 'Master budget', 'Capital budget', 'Flexible budget'],
+    options: [
+      'Fixed budget',
+      'Master budget',
+      'Capital budget',
+      'Flexible budget',
+    ],
     answerIndex: 3,
-    explanation: 'A flexible budget recognises cost behaviour and shows costs at '
+    explanation:
+        'A flexible budget recognises cost behaviour and shows costs at '
         'different activity levels.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Budgeting & Budgetary Control',
-    text: 'Fixed costs are ₹20,000 and variable cost is ₹5 per unit. Under a '
+    text:
+        'Fixed costs are ₹20,000 and variable cost is ₹5 per unit. Under a '
         'flexible budget, the total cost at 6,000 units is:',
     options: ['₹30,000', '₹50,000', '₹26,000', '₹1,20,000'],
     answerIndex: 1,
@@ -158,7 +186,8 @@ const interMaQuestions = [
   Question(
     subjectId: 'i_ma',
     chapter: 'Budgeting & Budgetary Control',
-    text: 'A budgeting method in which every activity must be justified from '
+    text:
+        'A budgeting method in which every activity must be justified from '
         'scratch each period is:',
     options: [
       'Incremental budgeting',
@@ -167,16 +196,23 @@ const interMaQuestions = [
       'Flexible budgeting',
     ],
     answerIndex: 2,
-    explanation: 'Zero-base budgeting starts from zero, not from last year\'s '
+    explanation:
+        'Zero-base budgeting starts from zero, not from last year\'s '
         'figures.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Budgeting & Budgetary Control',
     text: 'The budget that summarises all the functional budgets is the:',
-    options: ['Cash budget', 'Master budget', 'Sales budget', 'Production budget'],
+    options: [
+      'Cash budget',
+      'Master budget',
+      'Sales budget',
+      'Production budget',
+    ],
     answerIndex: 1,
-    explanation: 'The master budget brings together the functional budgets, the '
+    explanation:
+        'The master budget brings together the functional budgets, the '
         'budgeted P&L and the budgeted balance sheet.',
   ),
   Question(
@@ -195,11 +231,13 @@ const interMaQuestions = [
   Question(
     subjectId: 'i_ma',
     chapter: 'Budgeting & Budgetary Control',
-    text: 'Budgeted sales are 5,000 units, opening finished stock 800 units '
+    text:
+        'Budgeted sales are 5,000 units, opening finished stock 800 units '
         'and desired closing stock 1,000 units. The production budget is:',
     options: ['6,800 units', '5,000 units', '4,800 units', '5,200 units'],
     answerIndex: 3,
-    explanation: 'Production = Sales + Closing stock − Opening stock = 5,000 + 1,000 '
+    explanation:
+        'Production = Sales + Closing stock − Opening stock = 5,000 + 1,000 '
         '− 800 = 5,200 units.',
   ),
   Question(
@@ -213,7 +251,8 @@ const interMaQuestions = [
       'The largest expense',
     ],
     answerIndex: 2,
-    explanation: 'The budget for the limiting factor is prepared first and other '
+    explanation:
+        'The budget for the limiting factor is prepared first and other '
         'budgets are built around it.',
   ),
   Question(
@@ -227,7 +266,8 @@ const interMaQuestions = [
       'Past year\'s figures',
     ],
     answerIndex: 1,
-    explanation: 'Performance budgeting links resources to measurable outputs and '
+    explanation:
+        'Performance budgeting links resources to measurable outputs and '
         'results.',
   ),
   Question(
@@ -241,7 +281,8 @@ const interMaQuestions = [
       'Covers only one month',
     ],
     answerIndex: 1,
-    explanation: 'It always looks the same period ahead, for example 12 months.',
+    explanation:
+        'It always looks the same period ahead, for example 12 months.',
   ),
   Question(
     subjectId: 'i_ma',
@@ -261,7 +302,8 @@ const interMaQuestions = [
   Question(
     subjectId: 'i_ma',
     chapter: 'Performance Measurement',
-    text: 'A division earns a profit of ₹2,00,000 on capital employed of '
+    text:
+        'A division earns a profit of ₹2,00,000 on capital employed of '
         '₹10,00,000. Its return on investment is:',
     options: ['5%', '50%', '2%', '20%'],
     answerIndex: 3,
@@ -270,45 +312,58 @@ const interMaQuestions = [
   Question(
     subjectId: 'i_ma',
     chapter: 'Performance Measurement',
-    text: 'Profit is ₹2,00,000, capital employed is ₹10,00,000 and the cost of '
+    text:
+        'Profit is ₹2,00,000, capital employed is ₹10,00,000 and the cost of '
         'capital is 15%. Residual income is:',
     options: ['₹50,000', '₹1,50,000', '₹2,00,000', '₹30,000'],
     answerIndex: 0,
-    explanation: 'RI = Profit − (Capital employed × Cost of capital) = 2,00,000 '
+    explanation:
+        'RI = Profit − (Capital employed × Cost of capital) = 2,00,000 '
         '− 1,50,000 = ₹50,000.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Performance Measurement',
-    text: 'When a perfectly competitive market exists for an intermediate '
+    text:
+        'When a perfectly competitive market exists for an intermediate '
         'product, the ideal transfer price is generally the:',
-    options: ['Variable cost', 'Full cost', 'Market price', 'Negotiated cost plus 50%'],
+    options: [
+      'Variable cost',
+      'Full cost',
+      'Market price',
+      'Negotiated cost plus 50%',
+    ],
     answerIndex: 2,
-    explanation: 'Market price is objective and leads both divisions to act in '
+    explanation:
+        'Market price is objective and leads both divisions to act in '
         'the interest of the company as a whole.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Performance Measurement',
-    text: 'A responsibility centre whose manager controls revenues, costs and '
+    text:
+        'A responsibility centre whose manager controls revenues, costs and '
         'the capital invested is an:',
-    options: ['Investment centre', 'Cost centre', 'Revenue centre', 'Expense centre'],
+    options: [
+      'Investment centre',
+      'Cost centre',
+      'Revenue centre',
+      'Expense centre',
+    ],
     answerIndex: 0,
-    explanation: 'Investment centres are judged on ROI or residual income, since '
+    explanation:
+        'Investment centres are judged on ROI or residual income, since '
         'their managers also control investment.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Performance Measurement',
-    text: 'Which is NOT one of the four perspectives of the Balanced Scorecard?',
-    options: [
-      'Financial',
-      'Customer',
-      'Learning and growth',
-      'Competitor',
-    ],
+    text:
+        'Which is NOT one of the four perspectives of the Balanced Scorecard?',
+    options: ['Financial', 'Customer', 'Learning and growth', 'Competitor'],
     answerIndex: 3,
-    explanation: 'The four perspectives are financial, customer, internal '
+    explanation:
+        'The four perspectives are financial, customer, internal '
         'business process, and learning and growth.',
   ),
   Question(
@@ -322,7 +377,8 @@ const interMaQuestions = [
       'Revenues only',
     ],
     answerIndex: 2,
-    explanation: 'A profit centre adds revenues; an investment centre also covers '
+    explanation:
+        'A profit centre adds revenues; an investment centre also covers '
         'the capital invested.',
   ),
   Question(
@@ -341,17 +397,20 @@ const interMaQuestions = [
   Question(
     subjectId: 'i_ma',
     chapter: 'Performance Measurement',
-    text: 'NOPAT is ₹3,00,000, capital employed ₹20,00,000 and WACC 12%. '
+    text:
+        'NOPAT is ₹3,00,000, capital employed ₹20,00,000 and WACC 12%. '
         'Economic Value Added (EVA) is:',
     options: ['₹3,00,000', '−₹60,000', '₹2,40,000', '₹60,000'],
     answerIndex: 3,
-    explanation: 'EVA = NOPAT − (Capital employed × WACC) = 3,00,000 − 2,40,000 = '
+    explanation:
+        'EVA = NOPAT − (Capital employed × WACC) = 3,00,000 − 2,40,000 = '
         '₹60,000.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Performance Measurement',
-    text: 'If the transfer price is set at variable cost, the selling '
+    text:
+        'If the transfer price is set at variable cost, the selling '
         '(supplying) division:',
     options: [
       'Always gains at the buyer\'s expense',
@@ -360,13 +419,15 @@ const interMaQuestions = [
       'Earns a market-level profit',
     ],
     answerIndex: 2,
-    explanation: 'At variable cost, the supplying division only recovers its '
+    explanation:
+        'At variable cost, the supplying division only recovers its '
         'variable costs, which may demotivate its manager.',
   ),
   Question(
     subjectId: 'i_ma',
     chapter: 'Performance Measurement',
-    text: 'A weakness of ROI as a measure of divisional performance is that '
+    text:
+        'A weakness of ROI as a measure of divisional performance is that '
         'managers may:',
     options: [
       'Always maximise company value',

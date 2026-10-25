@@ -22,10 +22,10 @@ class Profile {
   String get courseLabel => 'CMA $course';
 
   String get groupLabel => switch (group) {
-        1 => 'Group I',
-        2 => 'Group II',
-        _ => 'Both groups',
-      };
+    1 => 'Group I',
+    2 => 'Group II',
+    _ => 'Both groups',
+  };
 
   /// Start of the target exam month, e.g. 1 December 2026, if one is set.
   DateTime? get targetDate {
@@ -50,18 +50,18 @@ class Profile {
   }
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'course': course,
-        'group': group,
-        'targetTerm': targetTerm,
-      };
+    'name': name,
+    'course': course,
+    'group': group,
+    'targetTerm': targetTerm,
+  };
 
   factory Profile.fromJson(Map<String, dynamic> json) => Profile(
-        name: json['name'] as String,
-        course: json['course'] as String,
-        group: json['group'] as int?,
-        targetTerm: json['targetTerm'] as String?,
-      );
+    name: json['name'] as String,
+    course: json['course'] as String,
+    group: json['group'] as int?,
+    targetTerm: json['targetTerm'] as String?,
+  );
 }
 
 class TestAttempt {
@@ -82,20 +82,20 @@ class TestAttempt {
   int get percent => total == 0 ? 0 : (correct * 100 / total).round();
 
   Map<String, dynamic> toJson() => {
-        'title': title,
-        'correct': correct,
-        'total': total,
-        'seconds': seconds,
-        'date': date.toIso8601String(),
-      };
+    'title': title,
+    'correct': correct,
+    'total': total,
+    'seconds': seconds,
+    'date': date.toIso8601String(),
+  };
 
   factory TestAttempt.fromJson(Map<String, dynamic> json) => TestAttempt(
-        title: json['title'] as String,
-        correct: json['correct'] as int,
-        total: json['total'] as int,
-        seconds: json['seconds'] as int,
-        date: DateTime.parse(json['date'] as String),
-      );
+    title: json['title'] as String,
+    correct: json['correct'] as int,
+    total: json['total'] as int,
+    seconds: json['seconds'] as int,
+    date: DateTime.parse(json['date'] as String),
+  );
 }
 
 /// The next few CMA exam terms (June and December) from [now].

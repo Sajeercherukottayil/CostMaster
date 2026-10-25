@@ -43,16 +43,18 @@ class AttemptTile extends StatelessWidget {
                   attempt.title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.bodyMedium
-                      ?.copyWith(fontWeight: FontWeight.w700),
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 const SizedBox(height: 3),
                 Text(
                   '${formatDate(attempt.date)}  ·  '
                   '${formatSeconds(attempt.seconds)}  ·  '
                   '${attempt.correct}/${attempt.total}',
-                  style: theme.textTheme.bodySmall
-                      ?.copyWith(color: AppColors.muted),
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: AppColors.muted,
+                  ),
                 ),
               ],
             ),

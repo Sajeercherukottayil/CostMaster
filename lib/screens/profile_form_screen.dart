@@ -35,12 +35,14 @@ class _ProfileFormScreenState extends State<ProfileFormScreen> {
   }
 
   Future<void> _save() async {
-    await AppScope.read(context).saveProfile(Profile(
-      name: _name.text.trim(),
-      course: _course,
-      group: _group,
-      targetTerm: _targetTerm,
-    ));
+    await AppScope.read(context).saveProfile(
+      Profile(
+        name: _name.text.trim(),
+        course: _course,
+        group: _group,
+        targetTerm: _targetTerm,
+      ),
+    );
     if (mounted) Navigator.of(context).pop();
   }
 
@@ -110,10 +112,10 @@ class _Label extends StatelessWidget {
       child: Text(
         text.toUpperCase(),
         style: Theme.of(context).textTheme.labelSmall?.copyWith(
-              color: AppColors.muted,
-              fontWeight: FontWeight.w800,
-              letterSpacing: 1,
-            ),
+          color: AppColors.muted,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 1,
+        ),
       ),
     );
   }

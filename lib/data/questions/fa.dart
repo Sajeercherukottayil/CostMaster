@@ -12,13 +12,15 @@ const faQuestions = [
       'Liabilities = Assets + Capital',
     ],
     answerIndex: 1,
-    explanation: 'Every asset is financed either by outsiders (liabilities) or by '
+    explanation:
+        'Every asset is financed either by outsiders (liabilities) or by '
         'the owner (capital): Assets = Liabilities + Capital.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Accounting Concepts & Principles',
-    text: 'The assumption that a business will continue to operate in the '
+    text:
+        'The assumption that a business will continue to operate in the '
         'foreseeable future is the:',
     options: [
       'Going concern concept',
@@ -27,13 +29,15 @@ const faQuestions = [
       'Business entity concept',
     ],
     answerIndex: 0,
-    explanation: 'The going concern concept assumes no intention or need to '
+    explanation:
+        'The going concern concept assumes no intention or need to '
         'liquidate, which is why assets are shown at cost less depreciation.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Accounting Concepts & Principles',
-    text: 'Recording income and expenses in the period to which they relate, '
+    text:
+        'Recording income and expenses in the period to which they relate, '
         'whether or not cash is received or paid, follows the:',
     options: [
       'Consistency concept',
@@ -42,13 +46,15 @@ const faQuestions = [
       'Conservatism concept',
     ],
     answerIndex: 2,
-    explanation: 'The accrual concept matches income and expenses to the period '
+    explanation:
+        'The accrual concept matches income and expenses to the period '
         'they belong to, not the period in which cash moves.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Accounting Concepts & Principles',
-    text: '"Anticipate no profit, but provide for all possible losses" '
+    text:
+        '"Anticipate no profit, but provide for all possible losses" '
         'describes the:',
     options: [
       'Matching concept',
@@ -57,7 +63,8 @@ const faQuestions = [
       'Conservatism (prudence) concept',
     ],
     answerIndex: 3,
-    explanation: 'Conservatism (prudence) requires caution: losses are provided '
+    explanation:
+        'Conservatism (prudence) requires caution: losses are provided '
         'for when foreseen, but gains are recognised only when realised.',
   ),
   Question(
@@ -71,7 +78,8 @@ const faQuestions = [
       'Only transactions that can be expressed in money are recorded',
     ],
     answerIndex: 3,
-    explanation: 'Accounting records only those transactions and events that can be '
+    explanation:
+        'Accounting records only those transactions and events that can be '
         'measured in money; for example, staff morale is not recorded.',
   ),
   Question(
@@ -85,7 +93,8 @@ const faQuestions = [
       'All assets are recorded at cost',
     ],
     answerIndex: 1,
-    explanation: 'Under the entity concept, the business is separate from its owner, '
+    explanation:
+        'Under the entity concept, the business is separate from its owner, '
         'which is why capital is shown as a liability of the business.',
   ),
   Question(
@@ -99,7 +108,8 @@ const faQuestions = [
       'Assets are shown at market value',
     ],
     answerIndex: 2,
-    explanation: 'This concept is the basis of the double entry system and the '
+    explanation:
+        'This concept is the basis of the double entry system and the '
         'accounting equation.',
   ),
   Question(
@@ -113,7 +123,8 @@ const faQuestions = [
       'Their current market value',
     ],
     answerIndex: 1,
-    explanation: 'Assets are recorded at acquisition cost and then depreciated, not '
+    explanation:
+        'Assets are recorded at acquisition cost and then depreciated, not '
         'revalued to market.',
   ),
   Question(
@@ -127,7 +138,8 @@ const faQuestions = [
       'The same accounting policies are followed from year to year',
     ],
     answerIndex: 3,
-    explanation: 'Consistency makes the results of different periods comparable; a '
+    explanation:
+        'Consistency makes the results of different periods comparable; a '
         'change must be disclosed.',
   ),
   Question(
@@ -141,7 +153,8 @@ const faQuestions = [
       'Items too small to influence users may be treated in the simplest way',
     ],
     answerIndex: 3,
-    explanation: 'For example, a stapler may be written off as an expense instead of '
+    explanation:
+        'For example, a stapler may be written off as an expense instead of '
         'being depreciated.',
   ),
   Question(
@@ -155,7 +168,8 @@ const faQuestions = [
       'Shown as an expense in the Trading Account',
     ],
     answerIndex: 1,
-    explanation: 'Trade discount is deducted on the invoice itself, so the sale '
+    explanation:
+        'Trade discount is deducted on the invoice itself, so the sale '
         'is recorded at the net amount. Only cash discount is recorded.',
   ),
   Question(
@@ -169,13 +183,15 @@ const faQuestions = [
       'Compensating error',
     ],
     answerIndex: 2,
-    explanation: 'A capital item treated as revenue (or vice versa) violates an '
+    explanation:
+        'A capital item treated as revenue (or vice versa) violates an '
         'accounting principle, so it is an error of principle.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Accounting Process & Rectification of Errors',
-    text: 'When the Trial Balance does not agree, the difference is temporarily '
+    text:
+        'When the Trial Balance does not agree, the difference is temporarily '
         'placed in:',
     options: [
       'Capital Account',
@@ -184,13 +200,15 @@ const faQuestions = [
       'Suspense Account',
     ],
     answerIndex: 3,
-    explanation: 'The difference is parked in a Suspense Account until the errors '
+    explanation:
+        'The difference is parked in a Suspense Account until the errors '
         'are located and rectified.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Accounting Process & Rectification of Errors',
-    text: 'Goods withdrawn by the proprietor for personal use are recorded by '
+    text:
+        'Goods withdrawn by the proprietor for personal use are recorded by '
         'debiting Drawings Account and crediting:',
     options: [
       'Sales Account',
@@ -199,7 +217,8 @@ const faQuestions = [
       'Purchases Account',
     ],
     answerIndex: 3,
-    explanation: 'Goods taken for personal use reduce the goods available for sale, '
+    explanation:
+        'Goods taken for personal use reduce the goods available for sale, '
         'so Drawings A/c is debited and Purchases A/c is credited at cost.',
   ),
   Question(
@@ -213,28 +232,33 @@ const faQuestions = [
       'Error of casting',
     ],
     answerIndex: 2,
-    explanation: 'An error of principle (for example, capital expenditure treated as '
+    explanation:
+        'An error of principle (for example, capital expenditure treated as '
         'revenue) records equal debits and credits, so the Trial Balance '
         'still agrees.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Accounting Process & Rectification of Errors',
-    text: 'A credit sale of ₹5,000 to Ram was not recorded in the Sales Book '
+    text:
+        'A credit sale of ₹5,000 to Ram was not recorded in the Sales Book '
         'at all. This is an error of:',
     options: ['Principle', 'Commission', 'Complete omission', 'Compensation'],
     answerIndex: 2,
-    explanation: 'When a transaction is not recorded at all, it is an error of '
+    explanation:
+        'When a transaction is not recorded at all, it is an error of '
         'complete omission. It does not affect the Trial Balance.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Accounting Process & Rectification of Errors',
-    text: 'Capital is ₹1,00,000 and liabilities are ₹40,000. Total assets '
+    text:
+        'Capital is ₹1,00,000 and liabilities are ₹40,000. Total assets '
         'are:',
     options: ['₹1,00,000', '₹1,40,000', '₹60,000', '₹40,000'],
     answerIndex: 1,
-    explanation: 'Assets = Capital + Liabilities = 1,00,000 + 40,000 = ₹1,40,000.',
+    explanation:
+        'Assets = Capital + Liabilities = 1,00,000 + 40,000 = ₹1,40,000.',
   ),
   Question(
     subjectId: 'fa',
@@ -247,23 +271,27 @@ const faQuestions = [
       'An entry is made in the wrong account of the same class',
     ],
     answerIndex: 2,
-    explanation: 'Compensating errors offset each other, so the Trial Balance still '
+    explanation:
+        'Compensating errors offset each other, so the Trial Balance still '
         'agrees.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Accounting Process & Rectification of Errors',
-    text: 'A credit sale of ₹2,000 to Mohan was posted to Sohan\'s account. '
+    text:
+        'A credit sale of ₹2,000 to Mohan was posted to Sohan\'s account. '
         'This is an error of:',
     options: ['Compensation', 'Principle', 'Omission', 'Commission'],
     answerIndex: 3,
-    explanation: 'Posting to the wrong personal account of the same class is an '
+    explanation:
+        'Posting to the wrong personal account of the same class is an '
         'error of commission.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Accounting Process & Rectification of Errors',
-    text: 'The Sales Book was undercast by ₹500, and the difference was put '
+    text:
+        'The Sales Book was undercast by ₹500, and the difference was put '
         'to a Suspense Account. The rectifying entry is:',
     options: [
       'Debit Debtors A/c, credit Sales A/c ₹500',
@@ -272,13 +300,15 @@ const faQuestions = [
       'Debit Sales A/c, credit Suspense A/c ₹500',
     ],
     answerIndex: 2,
-    explanation: 'Sales A/c was credited ₹500 short while debtors were posted '
+    explanation:
+        'Sales A/c was credited ₹500 short while debtors were posted '
         'correctly, so Sales A/c must be credited and Suspense debited.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bank Reconciliation Statement',
-    text: 'Starting from a debit balance as per Cash Book, cheques issued but '
+    text:
+        'Starting from a debit balance as per Cash Book, cheques issued but '
         'not yet presented for payment are:',
     options: [
       'Deducted to get Pass Book balance',
@@ -287,24 +317,28 @@ const faQuestions = [
       'Shown in the Suspense Account',
     ],
     answerIndex: 1,
-    explanation: 'The Cash Book has already been credited, but the bank has not '
+    explanation:
+        'The Cash Book has already been credited, but the bank has not '
         'yet paid, so the Pass Book balance is higher — add them back.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bank Reconciliation Statement',
-    text: 'Starting from the debit balance as per Cash Book, cheques '
+    text:
+        'Starting from the debit balance as per Cash Book, cheques '
         'deposited but not yet collected by the bank are:',
     options: ['Ignored', 'Deducted', 'Added', 'Added twice'],
     answerIndex: 1,
-    explanation: 'The Cash Book has been debited but the bank has not yet credited '
+    explanation:
+        'The Cash Book has been debited but the bank has not yet credited '
         'the amount, so the Pass Book balance is lower. Deduct to arrive at '
         'the Pass Book balance.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bank Reconciliation Statement',
-    text: 'Starting from the debit balance as per Cash Book, bank charges '
+    text:
+        'Starting from the debit balance as per Cash Book, bank charges '
         'debited in the Pass Book but not entered in the Cash Book are:',
     options: [
       'Deducted',
@@ -313,17 +347,20 @@ const faQuestions = [
       'Shown separately in the Balance Sheet',
     ],
     answerIndex: 0,
-    explanation: 'Bank charges reduce the Pass Book balance only, so they are '
+    explanation:
+        'Bank charges reduce the Pass Book balance only, so they are '
         'deducted from the Cash Book balance.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bank Reconciliation Statement',
-    text: 'Starting from the debit balance as per Cash Book, interest '
+    text:
+        'Starting from the debit balance as per Cash Book, interest '
         'credited by the bank but not yet entered in the Cash Book is:',
     options: ['Added', 'Deducted twice', 'Ignored', 'Deducted'],
     answerIndex: 0,
-    explanation: 'Interest credited increases the Pass Book balance only, so it is '
+    explanation:
+        'Interest credited increases the Pass Book balance only, so it is '
         'added to the Cash Book balance.',
   ),
   Question(
@@ -337,18 +374,21 @@ const faQuestions = [
       'A credit balance in the bank column of the Cash Book',
     ],
     answerIndex: 3,
-    explanation: 'An overdraft means the business owes the bank. In the Cash Book '
+    explanation:
+        'An overdraft means the business owes the bank. In the Cash Book '
         'this appears as a credit balance in the bank column.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bank Reconciliation Statement',
-    text: 'Balance as per Cash Book is ₹10,000 (debit). Cheques issued but '
+    text:
+        'Balance as per Cash Book is ₹10,000 (debit). Cheques issued but '
         'not presented are ₹2,000 and cheques deposited but not collected '
         'are ₹3,000. The balance as per Pass Book is:',
     options: ['₹15,000', '₹9,000', '₹11,000', '₹5,000'],
     answerIndex: 1,
-    explanation: '₹10,000 + ₹2,000 (cheques not yet presented) − ₹3,000 (cheques not '
+    explanation:
+        '₹10,000 + ₹2,000 (cheques not yet presented) − ₹3,000 (cheques not '
         'yet collected) = ₹9,000.',
   ),
   Question(
@@ -362,24 +402,28 @@ const faQuestions = [
       'The Reserve Bank of India',
     ],
     answerIndex: 1,
-    explanation: 'The business prepares it to explain the difference between the '
+    explanation:
+        'The business prepares it to explain the difference between the '
         'Cash Book and the Pass Book balances.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bank Reconciliation Statement',
-    text: 'Starting from the debit balance as per Cash Book, a cheque '
+    text:
+        'Starting from the debit balance as per Cash Book, a cheque '
         'deposited and later dishonoured, recorded only in the Pass Book, '
         'is:',
     options: ['Ignored', 'Deducted', 'Added twice', 'Added'],
     answerIndex: 1,
-    explanation: 'The bank has reversed the credit, so the Pass Book balance is '
+    explanation:
+        'The bank has reversed the credit, so the Pass Book balance is '
         'lower than the Cash Book balance.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bank Reconciliation Statement',
-    text: 'The credit balance as per Pass Book is ₹15,000. Cheques of ₹4,000 '
+    text:
+        'The credit balance as per Pass Book is ₹15,000. Cheques of ₹4,000 '
         'deposited have not yet been collected. There are no other '
         'differences. The balance as per Cash Book is:',
     options: [
@@ -389,13 +433,15 @@ const faQuestions = [
       '₹19,000 (debit)',
     ],
     answerIndex: 3,
-    explanation: 'The Cash Book already includes the deposit, so it is higher: '
+    explanation:
+        'The Cash Book already includes the deposit, so it is higher: '
         '15,000 + 4,000 = ₹19,000.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bank Reconciliation Statement',
-    text: 'Starting from the debit balance as per Cash Book, an amount '
+    text:
+        'Starting from the debit balance as per Cash Book, an amount '
         'deposited directly into the bank by a customer, not yet entered in '
         'the Cash Book, is:',
     options: ['Deducted', 'Added', 'Ignored', 'Deducted twice'],
@@ -413,7 +459,8 @@ const faQuestions = [
       'Insurance premium paid',
     ],
     answerIndex: 2,
-    explanation: 'Purchase of machinery gives benefit over several years, so it '
+    explanation:
+        'Purchase of machinery gives benefit over several years, so it '
         'is capital expenditure. The others are revenue expenditure.',
   ),
   Question(
@@ -422,17 +469,20 @@ const faQuestions = [
     text: 'Prepaid expenses are shown in the Balance Sheet as a:',
     options: ['Current liability', 'Fixed asset', 'Current asset', 'Reserve'],
     answerIndex: 2,
-    explanation: 'Prepaid expenses represent a benefit receivable in the next '
+    explanation:
+        'Prepaid expenses represent a benefit receivable in the next '
         'period, so they are a current asset.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Final Accounts',
-    text: 'Sales ₹5,00,000, opening stock ₹50,000, purchases ₹3,50,000, direct '
+    text:
+        'Sales ₹5,00,000, opening stock ₹50,000, purchases ₹3,50,000, direct '
         'expenses ₹20,000 and closing stock ₹60,000. Gross profit is:',
     options: ['₹1,20,000', '₹1,40,000', '₹1,60,000', '₹1,50,000'],
     answerIndex: 1,
-    explanation: 'Cost of goods sold = 50,000 + 3,50,000 + 20,000 − 60,000 = '
+    explanation:
+        'Cost of goods sold = 50,000 + 3,50,000 + 20,000 − 60,000 = '
         '₹3,60,000. Gross profit = 5,00,000 − 3,60,000 = ₹1,40,000.',
   ),
   Question(
@@ -446,7 +496,8 @@ const faQuestions = [
       'Profit and Loss Account',
     ],
     answerIndex: 2,
-    explanation: 'Carriage inwards is a direct expense of bringing goods in, so it '
+    explanation:
+        'Carriage inwards is a direct expense of bringing goods in, so it '
         'is shown in the Trading Account.',
   ),
   Question(
@@ -460,17 +511,20 @@ const faQuestions = [
       'Current asset',
     ],
     answerIndex: 2,
-    explanation: 'Salary due but not yet paid is an amount owed by the business, so '
+    explanation:
+        'Salary due but not yet paid is an amount owed by the business, so '
         'it is a current liability.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Final Accounts',
-    text: 'Opening stock is ₹20,000, purchases ₹80,000 and closing stock '
+    text:
+        'Opening stock is ₹20,000, purchases ₹80,000 and closing stock '
         '₹30,000. The cost of goods sold is:',
     options: ['₹70,000', '₹50,000', '₹90,000', '₹1,30,000'],
     answerIndex: 0,
-    explanation: 'Cost of goods sold = Opening stock + Purchases − Closing stock = '
+    explanation:
+        'Cost of goods sold = Opening stock + Purchases − Closing stock = '
         '20,000 + 80,000 − 30,000 = ₹70,000.',
   ),
   Question(
@@ -484,7 +538,8 @@ const faQuestions = [
       'Only in the Balance Sheet',
     ],
     answerIndex: 0,
-    explanation: 'An item outside the Trial Balance is recorded twice in the final '
+    explanation:
+        'An item outside the Trial Balance is recorded twice in the final '
         'accounts.',
   ),
   Question(
@@ -498,13 +553,15 @@ const faQuestions = [
       'Profit and Loss Account',
     ],
     answerIndex: 3,
-    explanation: 'It is an indirect (office) expense, so it goes to Profit and Loss '
+    explanation:
+        'It is an indirect (office) expense, so it goes to Profit and Loss '
         'and is deducted from the asset.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Final Accounts',
-    text: 'Gross profit is ₹80,000, operating expenses ₹30,000 and other '
+    text:
+        'Gross profit is ₹80,000, operating expenses ₹30,000 and other '
         'income ₹5,000. Net profit is:',
     options: ['₹45,000', '₹1,15,000', '₹55,000', '₹50,000'],
     answerIndex: 2,
@@ -521,13 +578,15 @@ const faQuestions = [
       'Current asset',
     ],
     answerIndex: 0,
-    explanation: 'The business owes the service or goods for that income, so it is a '
+    explanation:
+        'The business owes the service or goods for that income, so it is a '
         'liability.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Depreciation',
-    text: 'A machine costs ₹1,00,000 with a residual value of ₹10,000 and a '
+    text:
+        'A machine costs ₹1,00,000 with a residual value of ₹10,000 and a '
         'useful life of 9 years. Annual depreciation under SLM is:',
     options: ['₹11,111', '₹9,000', '₹10,000', '₹12,000'],
     answerIndex: 2,
@@ -536,11 +595,13 @@ const faQuestions = [
   Question(
     subjectId: 'fa',
     chapter: 'Depreciation',
-    text: 'A machine costing ₹1,00,000 is depreciated at 10% p.a. on the WDV '
+    text:
+        'A machine costing ₹1,00,000 is depreciated at 10% p.a. on the WDV '
         'method. Its book value after 2 years is:',
     options: ['₹80,000', '₹81,000', '₹90,000', '₹82,000'],
     answerIndex: 1,
-    explanation: 'Year 1: 1,00,000 − 10,000 = 90,000. Year 2: 90,000 − 9,000 = ₹81,000.',
+    explanation:
+        'Year 1: 1,00,000 − 10,000 = 90,000. Year 2: 90,000 − 9,000 = ₹81,000.',
   ),
   Question(
     subjectId: 'fa',
@@ -553,13 +614,15 @@ const faQuestions = [
       'First in, first out method',
     ],
     answerIndex: 3,
-    explanation: 'FIFO is a method of pricing material issues and valuing '
+    explanation:
+        'FIFO is a method of pricing material issues and valuing '
         'inventory, not a depreciation method.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Depreciation',
-    text: 'Under the straight line method, the amount of depreciation charged '
+    text:
+        'Under the straight line method, the amount of depreciation charged '
         'each year is:',
     options: [
       'Lower every year',
@@ -568,7 +631,8 @@ const faQuestions = [
       'Charged only in the first year',
     ],
     answerIndex: 2,
-    explanation: 'The straight line method charges an equal amount every year: (Cost '
+    explanation:
+        'The straight line method charges an equal amount every year: (Cost '
         '− Residual value) ÷ Useful life.',
   ),
   Question(
@@ -582,25 +646,29 @@ const faQuestions = [
       'Wear and tear and the passage of time',
     ],
     answerIndex: 3,
-    explanation: 'Fixed assets lose value through use, wear and tear, obsolescence '
+    explanation:
+        'Fixed assets lose value through use, wear and tear, obsolescence '
         'and the passage of time; depreciation spreads this cost over their '
         'useful life.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Depreciation',
-    text: 'A machine costing ₹50,000 with nil residual value and a useful '
+    text:
+        'A machine costing ₹50,000 with nil residual value and a useful '
         'life of 5 years is depreciated on the straight line method. Its '
         'book value at the end of year 3 is:',
     options: ['₹30,000', '₹10,000', '₹25,000', '₹20,000'],
     answerIndex: 3,
-    explanation: 'Annual depreciation = 50,000 ÷ 5 = ₹10,000. After 3 years: 50,000 '
+    explanation:
+        'Annual depreciation = 50,000 ÷ 5 = ₹10,000. After 3 years: 50,000 '
         '− 30,000 = ₹20,000.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Depreciation',
-    text: 'Under the written down value method, depreciation is calculated '
+    text:
+        'Under the written down value method, depreciation is calculated '
         'on:',
     options: [
       'The market value',
@@ -609,13 +677,15 @@ const faQuestions = [
       'The residual value',
     ],
     answerIndex: 1,
-    explanation: 'Because the book value falls each year, the depreciation charge '
+    explanation:
+        'Because the book value falls each year, the depreciation charge '
         'also falls.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Depreciation',
-    text: 'Depreciation of wasting assets such as mines and quarries is '
+    text:
+        'Depreciation of wasting assets such as mines and quarries is '
         'usually charged by the:',
     options: [
       'Revaluation method',
@@ -624,23 +694,27 @@ const faQuestions = [
       'Depletion method',
     ],
     answerIndex: 3,
-    explanation: 'The depletion method charges depreciation on the basis of quantity '
+    explanation:
+        'The depletion method charges depreciation on the basis of quantity '
         'extracted.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Depreciation',
-    text: 'A machine costing ₹2,00,000 is depreciated at 20% p.a. on the '
+    text:
+        'A machine costing ₹2,00,000 is depreciated at 20% p.a. on the '
         'written down value method. Depreciation for the second year is:',
     options: ['₹28,800', '₹32,000', '₹36,000', '₹40,000'],
     answerIndex: 1,
-    explanation: 'Year 1: 40,000, leaving 1,60,000. Year 2: 1,60,000 × 20% = '
+    explanation:
+        'Year 1: 40,000, leaving 1,60,000. Year 2: 1,60,000 × 20% = '
         '₹32,000.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Depreciation',
-    text: 'A machine with a book value of ₹30,000 is sold for ₹25,000. The '
+    text:
+        'A machine with a book value of ₹30,000 is sold for ₹25,000. The '
         'result is:',
     options: [
       'A loss of ₹5,000',
@@ -649,17 +723,20 @@ const faQuestions = [
       'A profit of ₹5,000',
     ],
     answerIndex: 0,
-    explanation: 'Loss on sale = Book value − Sale proceeds = 30,000 − 25,000 = '
+    explanation:
+        'Loss on sale = Book value − Sale proceeds = 30,000 − 25,000 = '
         '₹5,000.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bills of Exchange',
-    text: 'In India, the number of days of grace allowed on a time bill of '
+    text:
+        'In India, the number of days of grace allowed on a time bill of '
         'exchange is:',
     options: ['3 days', '5 days', '7 days', 'No days of grace'],
     answerIndex: 0,
-    explanation: 'Three days of grace are added to the due date of a bill payable '
+    explanation:
+        'Three days of grace are added to the due date of a bill payable '
         'after a fixed period. No grace is allowed on bills payable on demand.',
   ),
   Question(
@@ -668,27 +745,32 @@ const faQuestions = [
     text: 'The person who draws (makes) a bill of exchange is called the:',
     options: ['Drawer', 'Drawee', 'Payee', 'Endorsee'],
     answerIndex: 0,
-    explanation: 'The drawer creates the bill and orders the drawee to pay. The '
+    explanation:
+        'The drawer creates the bill and orders the drawee to pay. The '
         'payee is the person to whom the amount is payable.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bills of Exchange',
-    text: 'A bill dated 1 March 2026 is payable 2 months after date. Its date '
+    text:
+        'A bill dated 1 March 2026 is payable 2 months after date. Its date '
         'of maturity, including days of grace, is:',
     options: ['1 May 2026', '4 May 2026', '3 May 2026', '31 May 2026'],
     answerIndex: 1,
-    explanation: 'Two months after 1 March is 1 May; adding 3 days of grace gives 4 '
+    explanation:
+        'Two months after 1 March is 1 May; adding 3 days of grace gives 4 '
         'May 2026.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bills of Exchange',
-    text: 'When a dishonoured bill is noted by a Notary Public, the fee paid '
+    text:
+        'When a dishonoured bill is noted by a Notary Public, the fee paid '
         'is called:',
     options: ['Noting charges', 'Commission', 'Discount', 'Bank charges'],
     answerIndex: 0,
-    explanation: 'Noting charges are paid to the Notary Public for recording the '
+    explanation:
+        'Noting charges are paid to the Notary Public for recording the '
         'fact of dishonour. They are recoverable from the drawee.',
   ),
   Question(
@@ -702,13 +784,15 @@ const faQuestions = [
       'Cancelling the bill',
     ],
     answerIndex: 1,
-    explanation: 'The holder receives the amount of the bill less a discount '
+    explanation:
+        'The holder receives the amount of the bill less a discount '
         '(interest) from the bank before maturity.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Bills of Exchange',
-    text: 'When the drawee of a bill becomes insolvent, the amount that '
+    text:
+        'When the drawee of a bill becomes insolvent, the amount that '
         'cannot be recovered from the drawee is finally debited by the '
         'drawer to:',
     options: [
@@ -718,7 +802,8 @@ const faQuestions = [
       'Bills Receivable Account',
     ],
     answerIndex: 2,
-    explanation: 'On dishonour the drawee\'s account is debited. The part that cannot '
+    explanation:
+        'On dishonour the drawee\'s account is debited. The part that cannot '
         'be recovered from the insolvent estate is written off as a bad '
         'debt.',
   ),
@@ -733,7 +818,8 @@ const faQuestions = [
       'Endorsed by the payee',
     ],
     answerIndex: 2,
-    explanation: 'The drawee becomes liable by signing the acceptance on the bill.',
+    explanation:
+        'The drawee becomes liable by signing the acceptance on the bill.',
   ),
   Question(
     subjectId: 'fa',
@@ -746,7 +832,8 @@ const faQuestions = [
       'To help a party raise funds, without any trade transaction',
     ],
     answerIndex: 3,
-    explanation: 'Accommodation bills are drawn for mutual financial help and are '
+    explanation:
+        'Accommodation bills are drawn for mutual financial help and are '
         'often discounted.',
   ),
   Question(
@@ -760,7 +847,8 @@ const faQuestions = [
       'Renewing it',
     ],
     answerIndex: 1,
-    explanation: 'When the drawee pays early, the holder may allow a rebate for the '
+    explanation:
+        'When the drawee pays early, the holder may allow a rebate for the '
         'unexpired period.',
   ),
   Question(
@@ -774,7 +862,8 @@ const faQuestions = [
       'Cancelling the old bill and drawing a new bill for a further period',
     ],
     answerIndex: 3,
-    explanation: 'When the drawee cannot pay, a new bill, usually including '
+    explanation:
+        'When the drawee cannot pay, a new bill, usually including '
         'interest, replaces the old one.',
   ),
   Question(
@@ -783,7 +872,8 @@ const faQuestions = [
     text: 'In consignment, the Account Sales is prepared and sent by the:',
     options: ['Consignor', 'Consignee', 'Customer', 'Bank'],
     answerIndex: 1,
-    explanation: 'The consignee sells the goods on the consignor\'s behalf and '
+    explanation:
+        'The consignee sells the goods on the consignor\'s behalf and '
         'reports the sales, expenses and commission in an Account Sales.',
   ),
   Question(
@@ -797,13 +887,15 @@ const faQuestions = [
       'Sending an advance to the consignor',
     ],
     answerIndex: 2,
-    explanation: 'Del credere commission is extra commission for guaranteeing '
+    explanation:
+        'Del credere commission is extra commission for guaranteeing '
         'collection from credit customers, so bad debts are borne by the consignee.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Consignment',
-    text: 'In a consignment, the relationship between the consignor and the '
+    text:
+        'In a consignment, the relationship between the consignor and the '
         'consignee is that of:',
     options: [
       'Principal and agent',
@@ -812,20 +904,23 @@ const faQuestions = [
       'Lender and borrower',
     ],
     answerIndex: 0,
-    explanation: 'The consignee sells goods on behalf of the consignor for a '
+    explanation:
+        'The consignee sells goods on behalf of the consignor for a '
         'commission. Ownership stays with the consignor until the goods are '
         'sold.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Consignment',
-    text: 'Goods costing ₹1,00,000 are sent on consignment and the consignor '
+    text:
+        'Goods costing ₹1,00,000 are sent on consignment and the consignor '
         'spends ₹4,000 on freight. Three-fourths of the goods are sold. The '
         'value of closing stock with the consignee (ignoring the '
         'consignee\'s expenses) is:',
     options: ['₹26,000', '₹78,000', '₹25,000', '₹75,000'],
     answerIndex: 0,
-    explanation: 'Stock is valued at cost plus a proportionate share of the '
+    explanation:
+        'Stock is valued at cost plus a proportionate share of the '
         'consignor\'s expenses: (1,00,000 + 4,000) × 1/4 = ₹26,000.',
   ),
   Question(
@@ -839,7 +934,8 @@ const faQuestions = [
       'Recovered from the consignee',
     ],
     answerIndex: 0,
-    explanation: 'Normal loss is unavoidable and is spread over the good units, so '
+    explanation:
+        'Normal loss is unavoidable and is spread over the good units, so '
         'the closing stock is valued at a higher cost per unit.',
   ),
   Question(
@@ -853,7 +949,8 @@ const faQuestions = [
       'Credited to the Consignment Account and transferred to the Profit and Loss Account',
     ],
     answerIndex: 3,
-    explanation: 'Abnormal loss is avoidable. Its cost is taken out of the '
+    explanation:
+        'Abnormal loss is avoidable. Its cost is taken out of the '
         'Consignment Account, and any amount not recovered from the insurer '
         'is written off to P&L.',
   ),
@@ -868,13 +965,15 @@ const faQuestions = [
       'Consignor to the consignee',
     ],
     answerIndex: 3,
-    explanation: 'It gives details of the goods and their prices; it is not a demand '
+    explanation:
+        'It gives details of the goods and their prices; it is not a demand '
         'for payment.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Consignment',
-    text: 'Goods are sent on consignment at invoice price ₹1,20,000, which is '
+    text:
+        'Goods are sent on consignment at invoice price ₹1,20,000, which is '
         'cost plus 20%. The loading included is:',
     options: ['₹1,00,000', '₹20,000', '₹16,000', '₹24,000'],
     answerIndex: 1,
@@ -883,7 +982,8 @@ const faQuestions = [
   Question(
     subjectId: 'fa',
     chapter: 'Consignment',
-    text: 'The consignee sells goods for ₹80,000 and is entitled to a 5% '
+    text:
+        'The consignee sells goods for ₹80,000 and is entitled to a 5% '
         'commission on sales. The commission is:',
     options: ['₹5,000', '₹3,800', '₹4,000', '₹8,000'],
     answerIndex: 2,
@@ -892,7 +992,8 @@ const faQuestions = [
   Question(
     subjectId: 'fa',
     chapter: 'Consignment',
-    text: 'Which expense incurred by the consignee is included in valuing the '
+    text:
+        'Which expense incurred by the consignee is included in valuing the '
         'unsold stock?',
     options: [
       'Selling commission',
@@ -901,7 +1002,8 @@ const faQuestions = [
       'Carriage paid on receiving the goods into the godown',
     ],
     answerIndex: 3,
-    explanation: 'Only expenses incurred to bring the goods to the place of sale are '
+    explanation:
+        'Only expenses incurred to bring the goods to the place of sale are '
         'added to stock; selling expenses are not.',
   ),
   Question(
@@ -910,33 +1012,39 @@ const faQuestions = [
     text: 'In the absence of a partnership deed, interest on partners\' capital is:',
     options: ['6% p.a.', '12% p.a.', 'Not allowed', 'At the bank rate'],
     answerIndex: 2,
-    explanation: 'Under the Indian Partnership Act, 1932, without an agreement '
+    explanation:
+        'Under the Indian Partnership Act, 1932, without an agreement '
         'partners are not entitled to interest on capital.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Partnership Accounts',
-    text: 'In the absence of a partnership deed, interest on a loan advanced by '
+    text:
+        'In the absence of a partnership deed, interest on a loan advanced by '
         'a partner to the firm is allowed at:',
     options: ['9% p.a.', '12% p.a.', 'Nil', '6% p.a.'],
     answerIndex: 3,
-    explanation: 'Without an agreement, a partner who advances money beyond the '
+    explanation:
+        'Without an agreement, a partner who advances money beyond the '
         'agreed capital is entitled to interest at 6% per annum.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Partnership Accounts',
-    text: 'A and B share profits 3 : 2. C is admitted for a 1/5 share, taken '
+    text:
+        'A and B share profits 3 : 2. C is admitted for a 1/5 share, taken '
         'from A and B in their old ratio. The new profit-sharing ratio is:',
     options: ['12 : 8 : 5', '3 : 2 : 1', '3 : 2 : 5', '6 : 4 : 5'],
     answerIndex: 0,
-    explanation: 'Remaining share 4/5 is split 3 : 2 — A = 12/25, B = 8/25. '
+    explanation:
+        'Remaining share 4/5 is split 3 : 2 — A = 12/25, B = 8/25. '
         'C = 1/5 = 5/25. New ratio 12 : 8 : 5.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Partnership Accounts',
-    text: 'Average profit is ₹50,000. Goodwill at 2 years\' purchase of average '
+    text:
+        'Average profit is ₹50,000. Goodwill at 2 years\' purchase of average '
         'profit is:',
     options: ['₹25,000', '₹50,000', '₹1,00,000', '₹1,50,000'],
     answerIndex: 2,
@@ -945,7 +1053,8 @@ const faQuestions = [
   Question(
     subjectId: 'fa',
     chapter: 'Partnership Accounts',
-    text: 'In the absence of a partnership deed, profits and losses are '
+    text:
+        'In the absence of a partnership deed, profits and losses are '
         'shared:',
     options: [
       'In the ratio of time devoted',
@@ -954,23 +1063,27 @@ const faQuestions = [
       'Equally',
     ],
     answerIndex: 3,
-    explanation: 'Section 13(b) of the Indian Partnership Act, 1932 provides that '
+    explanation:
+        'Section 13(b) of the Indian Partnership Act, 1932 provides that '
         'partners share profits and losses equally unless agreed otherwise.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Partnership Accounts',
-    text: 'A and B share profits 3 : 2. C is admitted and the new ratio is 2 '
+    text:
+        'A and B share profits 3 : 2. C is admitted and the new ratio is 2 '
         ': 2 : 1. The sacrificing ratio of A and B is:',
     options: ['1 : 0', '2 : 3', '3 : 2', '1 : 1'],
     answerIndex: 0,
-    explanation: 'Sacrifice = Old share − New share. A: 3/5 − 2/5 = 1/5; B: 2/5 − '
+    explanation:
+        'Sacrifice = Old share − New share. A: 3/5 − 2/5 = 1/5; B: 2/5 − '
         '2/5 = 0. So A alone sacrifices: 1 : 0.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Partnership Accounts',
-    text: 'On the retirement of a partner, the gaining ratio of the '
+    text:
+        'On the retirement of a partner, the gaining ratio of the '
         'continuing partners is calculated as:',
     options: [
       'Equal shares',
@@ -979,7 +1092,8 @@ const faQuestions = [
       'New ratio − Old ratio',
     ],
     answerIndex: 3,
-    explanation: 'The continuing partners gain the retiring partner\'s share; each '
+    explanation:
+        'The continuing partners gain the retiring partner\'s share; each '
         'partner\'s gain is new share minus old share.',
   ),
   Question(
@@ -993,13 +1107,15 @@ const faQuestions = [
       'Debited to the partner\'s capital or current account',
     ],
     answerIndex: 3,
-    explanation: 'Interest on drawings is a charge on partners and is credited to '
+    explanation:
+        'Interest on drawings is a charge on partners and is credited to '
         'the Profit and Loss Appropriation Account.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Partnership Accounts',
-    text: 'Under the fluctuating capital method, a partner\'s salary is '
+    text:
+        'Under the fluctuating capital method, a partner\'s salary is '
         'credited to the partner\'s:',
     options: [
       'Current Account',
@@ -1008,23 +1124,27 @@ const faQuestions = [
       'Drawings Account',
     ],
     answerIndex: 1,
-    explanation: 'Under fixed capitals, such items go to the Current Account '
+    explanation:
+        'Under fixed capitals, such items go to the Current Account '
         'instead.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Partnership Accounts',
-    text: 'Average profit is ₹60,000 and normal profit ₹40,000. Goodwill at 3 '
+    text:
+        'Average profit is ₹60,000 and normal profit ₹40,000. Goodwill at 3 '
         'years\' purchase of super profit is:',
     options: ['₹20,000', '₹60,000', '₹1,80,000', '₹1,20,000'],
     answerIndex: 1,
-    explanation: 'Super profit = 60,000 − 40,000 = 20,000; goodwill = 20,000 × 3 = '
+    explanation:
+        'Super profit = 60,000 − 40,000 = 20,000; goodwill = 20,000 × 3 = '
         '₹60,000.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Not-for-Profit Organisations',
-    text: 'A Receipts and Payments Account of a not-for-profit organisation is:',
+    text:
+        'A Receipts and Payments Account of a not-for-profit organisation is:',
     options: [
       'A summary of cash and bank transactions',
       'A nominal account showing surplus or deficit',
@@ -1032,14 +1152,16 @@ const faQuestions = [
       'A personal account of members',
     ],
     answerIndex: 0,
-    explanation: 'It summarises the Cash Book (a real account) and includes '
+    explanation:
+        'It summarises the Cash Book (a real account) and includes '
         'capital and revenue items of any period. Surplus or deficit comes '
         'from the Income & Expenditure Account.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Not-for-Profit Organisations',
-    text: 'The Income and Expenditure Account of a not-for-profit '
+    text:
+        'The Income and Expenditure Account of a not-for-profit '
         'organisation is prepared on the:',
     options: [
       'Cash basis, like a Cash Book',
@@ -1048,29 +1170,34 @@ const faQuestions = [
       'Single entry basis',
     ],
     answerIndex: 1,
-    explanation: 'It records revenue income and expenses of the period on an accrual '
+    explanation:
+        'It records revenue income and expenses of the period on an accrual '
         'basis, including outstanding and prepaid items.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Not-for-Profit Organisations',
-    text: 'In a not-for-profit organisation, the excess of income over '
+    text:
+        'In a not-for-profit organisation, the excess of income over '
         'expenditure is called:',
     options: ['Surplus', 'Net profit', 'Deficit', 'Capital fund'],
     answerIndex: 0,
-    explanation: 'An excess of income over expenditure is a surplus and is added to '
+    explanation:
+        'An excess of income over expenditure is a surplus and is added to '
         'the Capital Fund; the opposite is a deficit.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Not-for-Profit Organisations',
-    text: 'Subscriptions received during the year are ₹50,000. These include '
+    text:
+        'Subscriptions received during the year are ₹50,000. These include '
         '₹5,000 for next year and ₹3,000 for last year. Subscriptions of '
         '₹4,000 for the current year are outstanding. Subscription income '
         'for the year is:',
     options: ['₹42,000', '₹50,000', '₹46,000', '₹52,000'],
     answerIndex: 2,
-    explanation: '50,000 − 5,000 (next year) − 3,000 (last year) + 4,000 '
+    explanation:
+        '50,000 − 5,000 (next year) − 3,000 (last year) + 4,000 '
         '(outstanding) = ₹46,000.',
   ),
   Question(
@@ -1084,13 +1211,15 @@ const faQuestions = [
       'Treated as revenue income of the year',
     ],
     answerIndex: 1,
-    explanation: 'Life membership fees are non-recurring and are usually '
+    explanation:
+        'Life membership fees are non-recurring and are usually '
         'capitalised, i.e., added to the Capital Fund.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Not-for-Profit Organisations',
-    text: 'The Capital Fund of a not-for-profit organisation is equivalent '
+    text:
+        'The Capital Fund of a not-for-profit organisation is equivalent '
         'to:',
     options: [
       'A current liability',
@@ -1099,7 +1228,8 @@ const faQuestions = [
       'The capital of a trading concern',
     ],
     answerIndex: 3,
-    explanation: 'The Capital Fund (excess of assets over liabilities) plays the '
+    explanation:
+        'The Capital Fund (excess of assets over liabilities) plays the '
         'same role as capital in a business.',
   ),
   Question(
@@ -1113,12 +1243,14 @@ const faQuestions = [
       'Outstanding expenses',
     ],
     answerIndex: 2,
-    explanation: 'It is a summary of cash and bank transactions, like a Cash Book.',
+    explanation:
+        'It is a summary of cash and bank transactions, like a Cash Book.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Not-for-Profit Organisations',
-    text: 'Subscriptions outstanding at the end of the year are shown in the '
+    text:
+        'Subscriptions outstanding at the end of the year are shown in the '
         'Balance Sheet as:',
     options: [
       'Income received in advance',
@@ -1127,12 +1259,14 @@ const faQuestions = [
       'Part of the Capital Fund',
     ],
     answerIndex: 1,
-    explanation: 'Amounts due from members are receivables of the organisation.',
+    explanation:
+        'Amounts due from members are receivables of the organisation.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Not-for-Profit Organisations',
-    text: 'A small general donation not earmarked for any purpose is usually '
+    text:
+        'A small general donation not earmarked for any purpose is usually '
         'treated as:',
     options: [
       'Revenue income',
@@ -1141,45 +1275,53 @@ const faQuestions = [
       'A liability',
     ],
     answerIndex: 0,
-    explanation: 'General donations are credited to the Income and Expenditure '
+    explanation:
+        'General donations are credited to the Income and Expenditure '
         'Account; large or earmarked donations are capitalised.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Not-for-Profit Organisations',
-    text: 'At the start of the year a club\'s assets are ₹1,20,000 and '
+    text:
+        'At the start of the year a club\'s assets are ₹1,20,000 and '
         'liabilities ₹20,000. The opening Capital Fund is:',
     options: ['₹1,00,000', '₹20,000', '₹1,40,000', '₹1,20,000'],
     answerIndex: 0,
-    explanation: 'Capital Fund = Assets − Liabilities = 1,20,000 − 20,000 = '
+    explanation:
+        'Capital Fund = Assets − Liabilities = 1,20,000 − 20,000 = '
         '₹1,00,000.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Single Entry System',
-    text: 'Under the statement of affairs method, opening capital is ₹1,00,000, '
+    text:
+        'Under the statement of affairs method, opening capital is ₹1,00,000, '
         'closing capital ₹1,50,000, drawings ₹20,000 and fresh capital '
         'introduced ₹10,000. Profit for the year is:',
     options: ['₹50,000', '₹40,000', '₹60,000', '₹80,000'],
     answerIndex: 2,
-    explanation: 'Profit = Closing capital − Opening capital + Drawings − Fresh '
+    explanation:
+        'Profit = Closing capital − Opening capital + Drawings − Fresh '
         'capital = 1,50,000 − 1,00,000 + 20,000 − 10,000 = ₹60,000.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Single Entry System',
-    text: 'Closing capital is ₹80,000, opening capital ₹60,000, drawings '
+    text:
+        'Closing capital is ₹80,000, opening capital ₹60,000, drawings '
         '₹10,000 and additional capital introduced ₹5,000. The profit for '
         'the year is:',
     options: ['₹35,000', '₹15,000', '₹20,000', '₹25,000'],
     answerIndex: 3,
-    explanation: 'Profit = Closing capital − Opening capital + Drawings − Additional '
+    explanation:
+        'Profit = Closing capital − Opening capital + Drawings − Additional '
         'capital = 80,000 − 60,000 + 10,000 − 5,000 = ₹25,000.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Single Entry System',
-    text: 'Under the single entry system, capital at a date is found by '
+    text:
+        'Under the single entry system, capital at a date is found by '
         'preparing a:',
     options: [
       'Receipts and Payments Account',
@@ -1188,7 +1330,8 @@ const faQuestions = [
       'Trial Balance',
     ],
     answerIndex: 1,
-    explanation: 'A Statement of Affairs lists assets and liabilities; the excess of '
+    explanation:
+        'A Statement of Affairs lists assets and liabilities; the excess of '
         'assets over liabilities is the capital.',
   ),
   Question(
@@ -1202,18 +1345,21 @@ const faQuestions = [
       'Government departments',
     ],
     answerIndex: 1,
-    explanation: 'It is an incomplete record kept mainly by small businesses; '
+    explanation:
+        'It is an incomplete record kept mainly by small businesses; '
         'companies must maintain accounts on the double entry system.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Single Entry System',
-    text: 'Opening debtors are ₹20,000, cash received from debtors ₹70,000 '
+    text:
+        'Opening debtors are ₹20,000, cash received from debtors ₹70,000 '
         'and closing debtors ₹25,000. There were no returns or bad debts. '
         'Credit sales are:',
     options: ['₹70,000', '₹1,15,000', '₹75,000', '₹65,000'],
     answerIndex: 2,
-    explanation: 'Credit sales = Closing debtors + Cash received − Opening debtors = '
+    explanation:
+        'Credit sales = Closing debtors + Cash received − Opening debtors = '
         '25,000 + 70,000 − 20,000 = ₹75,000.',
   ),
   Question(
@@ -1227,17 +1373,20 @@ const faQuestions = [
       'It records both aspects of every transaction',
     ],
     answerIndex: 1,
-    explanation: 'Because both aspects of transactions are not recorded, the '
+    explanation:
+        'Because both aspects of transactions are not recorded, the '
         'arithmetical accuracy cannot be checked through a Trial Balance.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Single Entry System',
-    text: 'Opening creditors are ₹15,000, cash paid to creditors ₹60,000 and '
+    text:
+        'Opening creditors are ₹15,000, cash paid to creditors ₹60,000 and '
         'closing creditors ₹20,000. Credit purchases are:',
     options: ['₹95,000', '₹65,000', '₹55,000', '₹60,000'],
     answerIndex: 1,
-    explanation: 'Credit purchases = Closing creditors + Payments − Opening '
+    explanation:
+        'Credit purchases = Closing creditors + Payments − Opening '
         'creditors = 20,000 + 60,000 − 15,000 = ₹65,000.',
   ),
   Question(
@@ -1251,23 +1400,27 @@ const faQuestions = [
       'Converting capital into loans',
     ],
     answerIndex: 1,
-    explanation: 'Missing figures are found from total accounts, and a Trading and '
+    explanation:
+        'Missing figures are found from total accounts, and a Trading and '
         'Profit and Loss Account is prepared.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Single Entry System',
-    text: 'Closing capital is ₹1,50,000, profit for the year ₹30,000 and '
+    text:
+        'Closing capital is ₹1,50,000, profit for the year ₹30,000 and '
         'drawings ₹10,000, with no fresh capital. Opening capital was:',
     options: ['₹1,70,000', '₹1,30,000', '₹1,10,000', '₹1,50,000'],
     answerIndex: 1,
-    explanation: 'Opening capital = Closing capital − Profit + Drawings = 1,50,000 − '
+    explanation:
+        'Opening capital = Closing capital − Profit + Drawings = 1,50,000 − '
         '30,000 + 10,000 = ₹1,30,000.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Single Entry System',
-    text: 'Under single entry, a missing figure of cash sales is usually '
+    text:
+        'Under single entry, a missing figure of cash sales is usually '
         'found by preparing the:',
     options: [
       'Cash Account',
@@ -1276,13 +1429,15 @@ const faQuestions = [
       'Capital Account',
     ],
     answerIndex: 0,
-    explanation: 'The balancing figure on the receipts side of the Cash Account '
+    explanation:
+        'The balancing figure on the receipts side of the Cash Account '
         'gives the missing cash sales.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Ratio Analysis',
-    text: 'Current assets are ₹2,00,000 and current liabilities are ₹1,00,000. '
+    text:
+        'Current assets are ₹2,00,000 and current liabilities are ₹1,00,000. '
         'The current ratio is:',
     options: ['1 : 2', '2 : 1', '1 : 1', '3 : 1'],
     answerIndex: 1,
@@ -1291,32 +1446,38 @@ const faQuestions = [
   Question(
     subjectId: 'fa',
     chapter: 'Ratio Analysis',
-    text: 'Current assets are ₹2,00,000, including inventory ₹80,000 and '
+    text:
+        'Current assets are ₹2,00,000, including inventory ₹80,000 and '
         'prepaid expenses ₹20,000. Current liabilities are ₹1,00,000. The '
         'quick ratio is:',
     options: ['1.2 : 1', '2 : 1', '0.8 : 1', '1 : 1'],
     answerIndex: 3,
-    explanation: 'Quick assets = 2,00,000 − 80,000 − 20,000 = ₹1,00,000. '
+    explanation:
+        'Quick assets = 2,00,000 − 80,000 − 20,000 = ₹1,00,000. '
         'Quick ratio = 1,00,000 / 1,00,000 = 1 : 1.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Ratio Analysis',
-    text: 'Gross profit is ₹1,00,000 and sales are ₹4,00,000. The gross '
+    text:
+        'Gross profit is ₹1,00,000 and sales are ₹4,00,000. The gross '
         'profit ratio is:',
     options: ['40%', '25%', '33.33%', '20%'],
     answerIndex: 1,
-    explanation: 'Gross profit ratio = Gross profit ÷ Sales × 100 = 1,00,000 ÷ '
+    explanation:
+        'Gross profit ratio = Gross profit ÷ Sales × 100 = 1,00,000 ÷ '
         '4,00,000 × 100 = 25%.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Ratio Analysis',
-    text: 'Cost of goods sold is ₹3,00,000 and average inventory is ₹50,000. '
+    text:
+        'Cost of goods sold is ₹3,00,000 and average inventory is ₹50,000. '
         'The inventory turnover ratio is:',
     options: ['6 times', '60 times', '5 times', '3 times'],
     answerIndex: 0,
-    explanation: 'Inventory turnover = Cost of goods sold ÷ Average inventory = '
+    explanation:
+        'Inventory turnover = Cost of goods sold ÷ Average inventory = '
         '3,00,000 ÷ 50,000 = 6 times.',
   ),
   Question(
@@ -1330,24 +1491,28 @@ const faQuestions = [
       'Current assets ÷ Current liabilities',
     ],
     answerIndex: 0,
-    explanation: 'The debt-equity ratio compares long-term borrowed funds with '
+    explanation:
+        'The debt-equity ratio compares long-term borrowed funds with '
         'owners\' funds and measures long-term solvency.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Ratio Analysis',
-    text: 'Net credit sales are ₹6,00,000 and average trade receivables are '
+    text:
+        'Net credit sales are ₹6,00,000 and average trade receivables are '
         '₹1,00,000. Taking a 360-day year, the average collection period '
         'is:',
     options: ['60 days', '90 days', '6 days', '36 days'],
     answerIndex: 0,
-    explanation: 'Receivables turnover = 6,00,000 ÷ 1,00,000 = 6 times; collection '
+    explanation:
+        'Receivables turnover = 6,00,000 ÷ 1,00,000 = 6 times; collection '
         'period = 360 ÷ 6 = 60 days.',
   ),
   Question(
     subjectId: 'fa',
     chapter: 'Ratio Analysis',
-    text: 'Net profit is ₹60,000 and sales are ₹5,00,000. The net profit '
+    text:
+        'Net profit is ₹60,000 and sales are ₹5,00,000. The net profit '
         'ratio is:',
     options: ['60%', '6%', '8.33%', '12%'],
     answerIndex: 3,
@@ -1359,7 +1524,8 @@ const faQuestions = [
     text: 'The generally accepted ideal current ratio is:',
     options: ['1 : 1', '2 : 1', '3 : 1', '1 : 2'],
     answerIndex: 1,
-    explanation: 'Current assets twice current liabilities is considered a '
+    explanation:
+        'Current assets twice current liabilities is considered a '
         'comfortable cushion.',
   ),
   Question(
@@ -1373,11 +1539,13 @@ const faQuestions = [
   Question(
     subjectId: 'fa',
     chapter: 'Ratio Analysis',
-    text: 'Shareholders\' funds are ₹6,00,000 and total assets ₹10,00,000. The '
+    text:
+        'Shareholders\' funds are ₹6,00,000 and total assets ₹10,00,000. The '
         'proprietary ratio is:',
     options: ['1.67', '0.6', '6', '0.4'],
     answerIndex: 1,
-    explanation: 'Proprietary ratio = Shareholders\' funds ÷ Total assets = 6,00,000 '
+    explanation:
+        'Proprietary ratio = Shareholders\' funds ÷ Total assets = 6,00,000 '
         '÷ 10,00,000 = 0.6.',
   ),
 ];

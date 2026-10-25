@@ -13,7 +13,8 @@ const interFmQuestions = [
       'Minimising tax',
     ],
     answerIndex: 2,
-    explanation: 'Wealth maximisation considers the time value of money and risk, '
+    explanation:
+        'Wealth maximisation considers the time value of money and risk, '
         'which profit maximisation ignores.',
   ),
   Question(
@@ -27,7 +28,8 @@ const interFmQuestions = [
       'Total sales',
     ],
     answerIndex: 0,
-    explanation: 'Wealth maximisation aims to increase the market value of shares, '
+    explanation:
+        'Wealth maximisation aims to increase the market value of shares, '
         'which reflects risk and the timing of returns.',
   ),
   Question(
@@ -46,11 +48,13 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Introduction to Financial Management',
-    text: 'A major criticism of profit maximisation as an objective is that '
+    text:
+        'A major criticism of profit maximisation as an objective is that '
         'it ignores:',
     options: ['Taxes', 'Sales', 'The time value of money and risk', 'Costs'],
     answerIndex: 2,
-    explanation: 'Profit maximisation does not consider when returns are received or '
+    explanation:
+        'Profit maximisation does not consider when returns are received or '
         'how risky they are.',
   ),
   Question(
@@ -64,7 +68,8 @@ const interFmQuestions = [
       'Customers and suppliers',
     ],
     answerIndex: 2,
-    explanation: 'Managers (agents) may pursue their own interests instead of '
+    explanation:
+        'Managers (agents) may pursue their own interests instead of '
         'maximising shareholders\' (principals\') wealth.',
   ),
   Question(
@@ -78,7 +83,8 @@ const interFmQuestions = [
       'Money loses all value over time',
     ],
     answerIndex: 2,
-    explanation: 'Money available now can be invested to earn a return, so it is '
+    explanation:
+        'Money available now can be invested to earn a return, so it is '
         'more valuable than the same amount later.',
   ),
   Question(
@@ -92,7 +98,8 @@ const interFmQuestions = [
       'Choosing the assets in which funds will be invested',
     ],
     answerIndex: 3,
-    explanation: 'Capital budgeting and working capital decisions are investment '
+    explanation:
+        'Capital budgeting and working capital decisions are investment '
         'decisions.',
   ),
   Question(
@@ -114,7 +121,8 @@ const interFmQuestions = [
     text: 'Holding excess cash increases liquidity but reduces:',
     options: ['Solvency', 'Profitability', 'Share capital', 'Sales'],
     answerIndex: 1,
-    explanation: 'Idle cash earns little or no return, which is the '
+    explanation:
+        'Idle cash earns little or no return, which is the '
         'liquidity-profitability trade-off.',
   ),
   Question(
@@ -133,7 +141,8 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Cost of Capital',
-    text: '10% debentures are issued at par and the tax rate is 30%. The '
+    text:
+        '10% debentures are issued at par and the tax rate is 30%. The '
         'after-tax cost of debt is:',
     options: ['10%', '3%', '13%', '7%'],
     answerIndex: 3,
@@ -142,7 +151,8 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Cost of Capital',
-    text: 'Expected dividend (D₁) is ₹2, current share price is ₹40 and '
+    text:
+        'Expected dividend (D₁) is ₹2, current share price is ₹40 and '
         'dividends grow at 5% a year. The cost of equity is:',
     options: ['10%', '5%', '15%', '7.5%'],
     answerIndex: 0,
@@ -151,7 +161,8 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Cost of Capital',
-    text: 'Capital is 60% equity (cost 12%) and 40% debt (after-tax cost 7%). '
+    text:
+        'Capital is 60% equity (cost 12%) and 40% debt (after-tax cost 7%). '
         'The weighted average cost of capital is:',
     options: ['9.5%', '10%', '19%', '12%'],
     answerIndex: 1,
@@ -160,7 +171,8 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Cost of Capital',
-    text: '10% irredeemable preference shares of ₹100 each are issued at ₹95. '
+    text:
+        '10% irredeemable preference shares of ₹100 each are issued at ₹95. '
         'The cost of preference capital is approximately:',
     options: ['5.26%', '10.00%', '10.53%', '9.50%'],
     answerIndex: 2,
@@ -169,7 +181,8 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Cost of Capital',
-    text: 'Ignoring flotation costs, the cost of retained earnings is '
+    text:
+        'Ignoring flotation costs, the cost of retained earnings is '
         'generally taken as equal to the:',
     options: [
       'Cost of equity capital',
@@ -178,13 +191,15 @@ const interFmQuestions = [
       'Cost of debt',
     ],
     answerIndex: 0,
-    explanation: 'Retained earnings belong to equity shareholders, so they carry the '
+    explanation:
+        'Retained earnings belong to equity shareholders, so they carry the '
         'opportunity cost of equity.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Cost of Capital',
-    text: 'Under CAPM, the risk-free rate is 6%, the beta is 1.2 and the '
+    text:
+        'Under CAPM, the risk-free rate is 6%, the beta is 1.2 and the '
         'market return is 11%. The cost of equity is:',
     options: ['13.2%', '11%', '7.2%', '12%'],
     answerIndex: 3,
@@ -193,18 +208,21 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Cost of Capital',
-    text: 'A 10% debenture of ₹100 is issued at ₹95, redeemable at par after '
+    text:
+        'A 10% debenture of ₹100 is issued at ₹95, redeemable at par after '
         '5 years. The tax rate is 30%. The approximate after-tax cost of '
         'debt is:',
     options: ['8.21%', '7.37%', '7.00%', '10.53%'],
     answerIndex: 0,
-    explanation: 'Kd = [10 × (1 − 0.3) + (100 − 95) ÷ 5] ÷ [(100 + 95) ÷ 2] = 8 ÷ '
+    explanation:
+        'Kd = [10 × (1 − 0.3) + (100 − 95) ÷ 5] ÷ [(100 + 95) ÷ 2] = 8 ÷ '
         '97.5 ≈ 8.21%.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Cost of Capital',
-    text: 'EPS is ₹5, the market price ₹50, and all earnings are paid out '
+    text:
+        'EPS is ₹5, the market price ₹50, and all earnings are paid out '
         'with no growth. Under the earnings yield approach, the cost of '
         'equity is:',
     options: ['20%', '5%', '50%', '10%'],
@@ -240,7 +258,8 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Leverage',
-    text: 'Contribution is ₹5,00,000 and EBIT is ₹2,00,000. The degree of '
+    text:
+        'Contribution is ₹5,00,000 and EBIT is ₹2,00,000. The degree of '
         'operating leverage is:',
     options: ['0.4', '2.5', '3.0', '1.5'],
     answerIndex: 1,
@@ -249,7 +268,8 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Leverage',
-    text: 'EBIT is ₹2,00,000 and interest is ₹50,000. The degree of financial '
+    text:
+        'EBIT is ₹2,00,000 and interest is ₹50,000. The degree of financial '
         'leverage is approximately:',
     options: ['4.00', '0.75', '1.33', '1.50'],
     answerIndex: 2,
@@ -258,7 +278,8 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Leverage',
-    text: 'The degree of operating leverage is 2 and the degree of financial '
+    text:
+        'The degree of operating leverage is 2 and the degree of financial '
         'leverage is 1.5. The degree of combined leverage is:',
     options: ['1.33', '0.75', '3.5', '3'],
     answerIndex: 3,
@@ -275,13 +296,15 @@ const interFmQuestions = [
       'Funds carrying fixed financial charges, such as debt',
     ],
     answerIndex: 3,
-    explanation: 'Fixed interest or preference dividend magnifies the effect of '
+    explanation:
+        'Fixed interest or preference dividend magnifies the effect of '
         'changes in EBIT on EPS.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Leverage',
-    text: 'EBIT is ₹3,00,000 and interest is ₹1,00,000. The degree of '
+    text:
+        'EBIT is ₹3,00,000 and interest is ₹1,00,000. The degree of '
         'financial leverage is:',
     options: ['1.5', '0.67', '2', '3'],
     answerIndex: 0,
@@ -298,23 +321,27 @@ const interFmQuestions = [
       'Taxes',
     ],
     answerIndex: 2,
-    explanation: 'Fixed operating costs make EBIT change by a larger percentage than '
+    explanation:
+        'Fixed operating costs make EBIT change by a larger percentage than '
         'sales.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Leverage',
-    text: 'Sales are ₹10,00,000, variable costs ₹6,00,000 and fixed costs '
+    text:
+        'Sales are ₹10,00,000, variable costs ₹6,00,000 and fixed costs '
         '₹2,00,000. The degree of operating leverage is:',
     options: ['2', '1.5', '2.5', '4'],
     answerIndex: 0,
-    explanation: 'Contribution = 4,00,000; EBIT = 2,00,000; DOL = 4,00,000 ÷ '
+    explanation:
+        'Contribution = 4,00,000; EBIT = 2,00,000; DOL = 4,00,000 ÷ '
         '2,00,000 = 2.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Leverage',
-    text: 'The degree of financial leverage is 2. If EBIT increases by 10%, '
+    text:
+        'The degree of financial leverage is 2. If EBIT increases by 10%, '
         'EPS will increase by:',
     options: ['5%', '10%', '12%', '20%'],
     answerIndex: 3,
@@ -331,7 +358,8 @@ const interFmQuestions = [
       'Operating leverage is one',
     ],
     answerIndex: 0,
-    explanation: 'Above this point, the plan with more debt gives a higher EPS.',
+    explanation:
+        'Above this point, the plan with more debt gives a higher EPS.',
   ),
   Question(
     subjectId: 'i_fm',
@@ -344,13 +372,15 @@ const interFmQuestions = [
       'Selling equity shares in the market',
     ],
     answerIndex: 1,
-    explanation: 'It works only when the return on investment exceeds the cost of '
+    explanation:
+        'It works only when the return on investment exceeds the cost of '
         'debt.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Capital Budgeting',
-    text: 'A project costs ₹1,00,000 and generates a uniform cash inflow of '
+    text:
+        'A project costs ₹1,00,000 and generates a uniform cash inflow of '
         '₹25,000 a year. The payback period is:',
     options: ['2.5 years', '25 years', '5 years', '4 years'],
     answerIndex: 3,
@@ -367,27 +397,32 @@ const interFmQuestions = [
       'Profitability index is 2',
     ],
     answerIndex: 1,
-    explanation: 'At the IRR, the present value of inflows equals the present '
+    explanation:
+        'At the IRR, the present value of inflows equals the present '
         'value of outflows, so NPV = 0.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Capital Budgeting',
-    text: 'A project costs ₹1,00,000 and the present value of its cash '
+    text:
+        'A project costs ₹1,00,000 and the present value of its cash '
         'inflows is ₹1,15,000. Its NPV is:',
     options: ['₹15,000', '₹2,15,000', '₹1,15,000', '−₹15,000'],
     answerIndex: 0,
-    explanation: 'NPV = PV of inflows − PV of outflows = 1,15,000 − 1,00,000 = '
+    explanation:
+        'NPV = PV of inflows − PV of outflows = 1,15,000 − 1,00,000 = '
         '₹15,000.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Capital Budgeting',
-    text: 'The present value of inflows is ₹1,20,000 and the initial outlay '
+    text:
+        'The present value of inflows is ₹1,20,000 and the initial outlay '
         'is ₹1,00,000. The profitability index is:',
     options: ['0.83', '20', '1.2', '2.2'],
     answerIndex: 2,
-    explanation: 'PI = PV of inflows ÷ PV of outflows = 1,20,000 ÷ 1,00,000 = 1.2.',
+    explanation:
+        'PI = PV of inflows ÷ PV of outflows = 1,20,000 ÷ 1,00,000 = 1.2.',
   ),
   Question(
     subjectId: 'i_fm',
@@ -400,7 +435,8 @@ const interFmQuestions = [
       'IRR is below the cost of capital',
     ],
     answerIndex: 2,
-    explanation: 'A positive NPV means the project earns more than the cost of '
+    explanation:
+        'A positive NPV means the project earns more than the cost of '
         'capital and adds value.',
   ),
   Question(
@@ -414,13 +450,15 @@ const interFmQuestions = [
       'Ignores cash flows after the payback period',
     ],
     answerIndex: 3,
-    explanation: 'Payback ignores returns after recovery of the investment and, in '
+    explanation:
+        'Payback ignores returns after recovery of the investment and, in '
         'its simple form, the time value of money.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Capital Budgeting',
-    text: 'Average annual profit is ₹20,000 and the average investment '
+    text:
+        'Average annual profit is ₹20,000 and the average investment '
         '₹1,00,000. The accounting rate of return is:',
     options: ['5%', '20%', '2%', '10%'],
     answerIndex: 1,
@@ -429,7 +467,8 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Capital Budgeting',
-    text: 'The discounted payback period differs from the simple payback '
+    text:
+        'The discounted payback period differs from the simple payback '
         'period because it:',
     options: [
       'Is always shorter',
@@ -438,12 +477,14 @@ const interFmQuestions = [
       'Ignores cash flows',
     ],
     answerIndex: 1,
-    explanation: 'Cash flows are discounted before calculating the payback period.',
+    explanation:
+        'Cash flows are discounted before calculating the payback period.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Capital Budgeting',
-    text: 'When NPV and IRR give conflicting rankings for mutually exclusive '
+    text:
+        'When NPV and IRR give conflicting rankings for mutually exclusive '
         'projects, preference is generally given to:',
     options: ['Payback', 'ARR', 'IRR', 'NPV'],
     answerIndex: 3,
@@ -452,17 +493,20 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Capital Budgeting',
-    text: 'A project costs ₹50,000 and generates ₹20,000 a year for 3 years. '
+    text:
+        'A project costs ₹50,000 and generates ₹20,000 a year for 3 years. '
         'The payback period is:',
     options: ['1.5 years', '2 years', '3 years', '2.5 years'],
     answerIndex: 3,
-    explanation: 'After 2 years ₹40,000 is recovered; the balance of ₹10,000 takes '
+    explanation:
+        'After 2 years ₹40,000 is recovered; the balance of ₹10,000 takes '
         'half of year 3.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Working Capital Management',
-    text: 'Raw material storage 30 days, WIP 15 days, finished goods 20 days, '
+    text:
+        'Raw material storage 30 days, WIP 15 days, finished goods 20 days, '
         'debtors 45 days and creditors 30 days. The net operating cycle is:',
     options: ['140 days', '110 days', '80 days', '65 days'],
     answerIndex: 2,
@@ -471,11 +515,13 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Working Capital Management',
-    text: 'Selling trade receivables to a specialised agency for immediate cash '
+    text:
+        'Selling trade receivables to a specialised agency for immediate cash '
         'is called:',
     options: ['Factoring', 'Leasing', 'Commercial paper', 'Bridge finance'],
     answerIndex: 0,
-    explanation: 'In factoring, the factor buys the receivables, advances cash '
+    explanation:
+        'In factoring, the factor buys the receivables, advances cash '
         'and usually manages collection.',
   ),
   Question(
@@ -489,13 +535,15 @@ const interFmQuestions = [
       'Current assets minus current liabilities',
     ],
     answerIndex: 0,
-    explanation: 'Gross working capital is investment in current assets; net working '
+    explanation:
+        'Gross working capital is investment in current assets; net working '
         'capital is current assets less current liabilities.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Working Capital Management',
-    text: 'Current assets are ₹5,00,000 and current liabilities ₹3,00,000. '
+    text:
+        'Current assets are ₹5,00,000 and current liabilities ₹3,00,000. '
         'Net working capital is:',
     options: ['₹2,00,000', '₹8,00,000', '₹3,00,000', '₹5,00,000'],
     answerIndex: 0,
@@ -504,7 +552,8 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Working Capital Management',
-    text: 'Credit terms are 2/10, net 30. Using a 365-day year, the '
+    text:
+        'Credit terms are 2/10, net 30. Using a 365-day year, the '
         'approximate annual cost of not taking the cash discount is:',
     options: ['2.00%', '18.62%', '37.24%', '24.49%'],
     answerIndex: 2,
@@ -521,7 +570,8 @@ const interFmQuestions = [
       'A short-term unsecured promissory note issued by companies',
     ],
     answerIndex: 3,
-    explanation: 'Commercial paper is a money market instrument issued at a discount '
+    explanation:
+        'Commercial paper is a money market instrument issued at a discount '
         'by creditworthy companies.',
   ),
   Question(
@@ -535,7 +585,8 @@ const interFmQuestions = [
       'Cost of equity',
     ],
     answerIndex: 1,
-    explanation: 'It applies EOQ logic to cash, balancing holding and transaction '
+    explanation:
+        'It applies EOQ logic to cash, balancing holding and transaction '
         'costs.',
   ),
   Question(
@@ -575,7 +626,8 @@ const interFmQuestions = [
       'Companies',
     ],
     answerIndex: 0,
-    explanation: 'They are short-term government securities issued at a discount.',
+    explanation:
+        'They are short-term government securities issued at a discount.',
   ),
 
   // Business data analytics
@@ -585,7 +637,8 @@ const interFmQuestions = [
     text: 'Which is NOT one of the original "3 Vs" of big data?',
     options: ['Volume', 'Velocity', 'Variety', 'Validity'],
     answerIndex: 3,
-    explanation: 'The original three Vs are Volume, Velocity and Variety. '
+    explanation:
+        'The original three Vs are Volume, Velocity and Variety. '
         'Veracity and Value were added in later models.',
   ),
   Question(
@@ -599,11 +652,13 @@ const interFmQuestions = [
   Question(
     subjectId: 'i_fm',
     chapter: 'Business Data Analytics',
-    text: 'Which chart is best for showing the trend of monthly sales over two '
+    text:
+        'Which chart is best for showing the trend of monthly sales over two '
         'years?',
     options: ['Pie chart', 'Line chart', 'Scatter plot', 'Histogram'],
     answerIndex: 1,
-    explanation: 'Line charts show change over time. Pie charts show parts of a '
+    explanation:
+        'Line charts show change over time. Pie charts show parts of a '
         'whole and scatter plots show relationships between two variables.',
   ),
   Question(
@@ -617,23 +672,32 @@ const interFmQuestions = [
       'Prescriptive analytics',
     ],
     answerIndex: 2,
-    explanation: 'Descriptive = what happened, diagnostic = why, predictive = '
+    explanation:
+        'Descriptive = what happened, diagnostic = why, predictive = '
         'what will happen, prescriptive = what should be done.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Business Data Analytics',
-    text: 'Removing duplicates, correcting errors and filling missing values '
+    text:
+        'Removing duplicates, correcting errors and filling missing values '
         'before analysis is called:',
-    options: ['Data mining', 'Data cleaning', 'Data visualisation', 'Data warehousing'],
+    options: [
+      'Data mining',
+      'Data cleaning',
+      'Data visualisation',
+      'Data warehousing',
+    ],
     answerIndex: 1,
-    explanation: 'Data cleaning (cleansing) improves data quality so that the '
+    explanation:
+        'Data cleaning (cleansing) improves data quality so that the '
         'analysis is reliable.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Business Data Analytics',
-    text: 'Data stored in rows and columns in a predefined format, such as a '
+    text:
+        'Data stored in rows and columns in a predefined format, such as a '
         'spreadsheet table, is:',
     options: [
       'Metadata',
@@ -642,7 +706,8 @@ const interFmQuestions = [
       'Structured data',
     ],
     answerIndex: 3,
-    explanation: 'Structured data follows a fixed schema; emails, images and videos '
+    explanation:
+        'Structured data follows a fixed schema; emails, images and videos '
         'are unstructured.',
   ),
   Question(
@@ -656,13 +721,15 @@ const interFmQuestions = [
       'Write programs',
     ],
     answerIndex: 2,
-    explanation: 'Dashboards bring together charts and KPIs so that users can '
+    explanation:
+        'Dashboards bring together charts and KPIs so that users can '
         'monitor performance quickly.',
   ),
   Question(
     subjectId: 'i_fm',
     chapter: 'Business Data Analytics',
-    text: 'In a spreadsheet, the function used to find the arithmetic mean '
+    text:
+        'In a spreadsheet, the function used to find the arithmetic mean '
         'is:',
     options: ['COUNT', 'AVERAGE', 'SUM', 'MEDIAN'],
     answerIndex: 1,
@@ -692,7 +759,8 @@ const interFmQuestions = [
       'What happened?',
     ],
     answerIndex: 1,
-    explanation: 'Descriptive analytics answers what happened; predictive what will '
+    explanation:
+        'Descriptive analytics answers what happened; predictive what will '
         'happen; prescriptive what to do.',
   ),
 ];

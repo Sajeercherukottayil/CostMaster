@@ -97,6 +97,46 @@ void main() {
     }
   });
 
+  test('every descriptive question is well-formed', () {
+    final bySubject = {for (final s in subjects) s.id: s};
+    for (final q in descriptiveBank) {
+      expect(
+        bySubject[q.subjectId]?.chapters,
+        contains(q.chapter),
+        reason: q.text,
+      );
+      expect(q.text.trim(), isNotEmpty);
+      expect(q.answer.trim(), isNotEmpty, reason: q.text);
+      expect(q.marks, inInclusiveRange(1, 20), reason: q.text);
+    }
+    final texts = descriptiveBank.map((q) => q.text).toList();
+    expect(texts.toSet().length, texts.length, reason: 'Duplicate question');
+  });
+
+  test('every chapter has descriptive questions', () {
+    for (final s in subjects) {
+      for (final c in s.chapters) {
+        expect(
+          descriptiveForChapter(s.id, c),
+          isNotEmpty,
+          reason: '${s.name}: $c',
+        );
+      }
+    }
+  });
+
+  test('every chapter has a problem question', () {
+    for (final s in subjects) {
+      for (final c in s.chapters) {
+        expect(
+          descriptiveForChapter(s.id, c).where((q) => q.problem),
+          isNotEmpty,
+          reason: '${s.name}: $c',
+        );
+      }
+    }
+  });
+
   test('every subject has questions', () {
     for (final s in subjects) {
       expect(questionsFor(subjectId: s.id), isNotEmpty, reason: s.name);
