@@ -167,7 +167,7 @@ const interFmProblems = [
     answer:
         '• Optimal cash = √(2 × Annual requirement × Cost per '
         'transaction ÷ Interest rate)\n'
-        '• = √(2 × 36,00,000 × 200 ÷ 0.10) = √1,44,00,00,00,000 = ₹1,20,000\n'
+        '• = √(2 × 36,00,000 × 200 ÷ 0.10) = √14,40,00,00,000 = ₹1,20,000\n'
         '• Number of conversions = 36,00,000 ÷ 1,20,000 = 30 a year\n'
         '• Conversion cost = 30 × 200 = 6,000; holding cost = 60,000 × 10% '
         '= 6,000; total ₹12,000',
