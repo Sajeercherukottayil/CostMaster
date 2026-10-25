@@ -4,7 +4,12 @@
 // student.
 const Razorpay = require('razorpay');
 
-const {planFor, isLifetime, modeFor, receiptFor} = require('../lib/payments');
+const {
+  planFor,
+  purchaseBlockedReason,
+  modeFor,
+  receiptFor,
+} = require('../lib/payments');
 const {entitlement, order, uidFrom, FieldValue} = require('../lib/firebase');
 const {cors, fail} = require('../lib/http');
 
@@ -20,11 +25,17 @@ module.exports = async (req, res) => {
   if (!plan) return fail(res, 400, 'Please choose a Premium plan.');
 
   try {
-    // A running 15-day pass may be extended or upgraded; lifetime may not.
-    const current = await entitlement(uid).get();
-    if (current.exists && isLifetime(current.data())) {
-      return fail(res, 409, 'Lifetime Premium is already active on this account.');
-    }
+    const snap = await entitlement(uid).get();
+    const data = snap.exists ? snap.data() : null;
+    const blocked = purchaseBlockedReason(
+        data && {
+          premium: data.premium,
+          expiresAt: data.expiresAt ? data.expiresAt.toDate() : null,
+        },
+        planId,
+        new Date(),
+    );
+    if (blocked) return fail(res, 409, blocked);
 
     const razorpay = new Razorpay({
       key_id: process.env.RAZORPAY_KEY_ID,

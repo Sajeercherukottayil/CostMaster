@@ -8,6 +8,7 @@ import 'package:cost_master/models/question.dart';
 import 'package:cost_master/services/auth_service.dart';
 import 'package:cost_master/services/premium_service.dart';
 import 'package:cost_master/state/app_state.dart';
+import 'package:cost_master/utils/time_format.dart';
 
 import 'fake_auth.dart';
 import 'fake_premium.dart';
@@ -308,6 +309,35 @@ void main() {
         ends.difference(DateTime.now()).inHours,
         inInclusiveRange(15 * 24 - 1, 15 * 24),
       );
+    });
+
+    testWidgets('a running pass cannot be bought again, only upgraded', (
+      tester,
+    ) async {
+      final ends = DateTime.now().add(const Duration(days: 5));
+      final (_, premium) = await openHome(
+        tester,
+        status: PremiumStatus(premium: true, expiresAt: ends),
+      );
+      await tester.tap(find.text('Profile').last);
+      await tester.pumpAndSettle();
+      await tapVisible(tester, find.text('Premium'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Active until ${formatDate(ends)}'), findsOneWidget);
+      expect(find.text('Pay ₹49'), findsNothing);
+      await tapVisible(tester, find.text('15-day pass'));
+      await tester.pumpAndSettle();
+      expect(
+        find.text('Pay ₹149'),
+        findsOneWidget,
+        reason: 'Tapping the running pass does not select it',
+      );
+
+      await tapVisible(tester, find.text('Pay ₹149'));
+      await tester.pumpAndSettle();
+      expect(premium.purchases, [PremiumPlan.lifetime]);
+      expect(premium.status.isLifetime, isTrue);
     });
 
     testWidgets('an expired pass is locked again', (tester) async {

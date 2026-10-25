@@ -26,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
         : premium.status.expiresAt == null
         ? 'Active · lifetime access to all mock tests'
         : 'Active until ${formatDate(premium.status.expiresAt!)} · tap to '
-              'extend';
+              'upgrade to lifetime';
     final papers = subjectsFor(profile).map((s) => s.paper).toSet().toList()
       ..sort();
     void edit() => Navigator.of(context).push(

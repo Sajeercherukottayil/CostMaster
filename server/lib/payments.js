@@ -34,6 +34,24 @@ function isLifetime(current) {
 }
 
 /**
+ * Why [planId] cannot be bought now, given the [current] entitlement
+ * (expiresAt as a Date or null), or null if it can. Lifetime can't be
+ * bought twice, and a 15-day pass can't be bought while one is running;
+ * upgrading a running pass to lifetime is allowed.
+ */
+function purchaseBlockedReason(current, planId, now) {
+  if (!current || current.premium !== true) return null;
+  if (!current.expiresAt) {
+    return 'Lifetime Premium is already active on this account.';
+  }
+  if (planId === 'pass15' && current.expiresAt > now) {
+    return 'Your 15-day pass is still active. You can buy another after it ' +
+      'ends, or upgrade to Lifetime now.';
+  }
+  return null;
+}
+
+/**
  * The fields of entitlements/{uid} after buying [planId], given the
  * [current] doc (expiresAt as a Date or null) and the time [now].
  * A pass bought while another is running starts when that one ends.
@@ -112,6 +130,7 @@ module.exports = {
   planFor,
   isLifetime,
   nextEntitlement,
+  purchaseBlockedReason,
   isValidPaymentSignature,
   isValidWebhookSignature,
   orderIdFromWebhook,

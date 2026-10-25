@@ -6,6 +6,7 @@ const {
   PLANS,
   planFor,
   nextEntitlement,
+  purchaseBlockedReason,
   isValidPaymentSignature,
   isValidWebhookSignature,
   orderIdFromWebhook,
@@ -113,4 +114,22 @@ test('tells live keys from test keys', () => {
   assert.strictEqual(modeFor('rzp_live_abc'), 'live');
   assert.strictEqual(modeFor('rzp_test_abc'), 'test');
   assert.strictEqual(modeFor(undefined), 'test');
+});
+
+test('blocks a second pass while one is running, but allows upgrading', () => {
+  const running = {premium: true, expiresAt: daysAfter(NOW, 4)};
+  assert.ok(purchaseBlockedReason(running, 'pass15', NOW));
+  assert.strictEqual(purchaseBlockedReason(running, 'lifetime', NOW), null);
+});
+
+test('allows a pass once the last one has ended', () => {
+  const ended = {premium: true, expiresAt: daysAfter(NOW, -1)};
+  assert.strictEqual(purchaseBlockedReason(ended, 'pass15', NOW), null);
+  assert.strictEqual(purchaseBlockedReason(undefined, 'pass15', NOW), null);
+});
+
+test('blocks any purchase on a lifetime account', () => {
+  const lifetime = {premium: true, expiresAt: null};
+  assert.ok(purchaseBlockedReason(lifetime, 'pass15', NOW));
+  assert.ok(purchaseBlockedReason(lifetime, 'lifetime', NOW));
 });

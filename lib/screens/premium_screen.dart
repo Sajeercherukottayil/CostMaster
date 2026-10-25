@@ -33,7 +33,15 @@ class PremiumScreen extends StatefulWidget {
 }
 
 class _PremiumScreenState extends State<PremiumScreen> {
-  PremiumPlan _plan = PremiumPlan.lifetime;
+  PremiumPlan _chosen = PremiumPlan.lifetime;
+
+  /// The plan the Pay button buys. While a 15-day pass is running, only the
+  /// upgrade to Lifetime can be bought (the server refuses a second pass).
+  PremiumPlan get _plan =>
+      _passRunning(PremiumScope.read(context)) ? PremiumPlan.lifetime : _chosen;
+
+  static bool _passRunning(PremiumState premium) =>
+      premium.isActive && premium.status.expiresAt != null;
   bool _busy = false;
   bool _closing = false;
   String? _error;
@@ -142,9 +150,9 @@ class _PremiumScreenState extends State<PremiumScreen> {
                     color: AppColors.successSoft,
                     padding: const EdgeInsets.all(12),
                     child: Text(
-                      'Your pass is active until ${formatDate(passEnds)}. '
-                      'Another 15-day pass adds 15 days after that; '
-                      'Lifetime replaces it.',
+                      'Your 15-day pass is active until '
+                      '${formatDate(passEnds)}. You can upgrade to Lifetime '
+                      'now, or buy another pass after it ends.',
                       style: theme.textTheme.bodyMedium,
                     ),
                   ),
@@ -154,7 +162,12 @@ class _PremiumScreenState extends State<PremiumScreen> {
                   _PlanCard(
                     plan: plan,
                     selected: plan == _plan,
-                    onTap: _busy ? null : () => setState(() => _plan = plan),
+                    activeUntil: passEnds != null && plan == PremiumPlan.pass15
+                        ? passEnds
+                        : null,
+                    onTap: _busy || (passEnds != null && plan != _plan)
+                        ? null
+                        : () => setState(() => _chosen = plan),
                   ),
                   const SizedBox(height: 10),
                 ],
@@ -286,85 +299,100 @@ class _PremiumScreenState extends State<PremiumScreen> {
 class _PlanCard extends StatelessWidget {
   final PremiumPlan plan;
   final bool selected;
+
+  /// Set while this plan is running and so cannot be bought again.
+  final DateTime? activeUntil;
   final VoidCallback? onTap;
 
-  const _PlanCard({required this.plan, required this.selected, this.onTap});
+  const _PlanCard({
+    required this.plan,
+    required this.selected,
+    this.activeUntil,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final lifetime = plan.days == null;
+    final running = activeUntil;
     return Semantics(
       selected: selected,
       button: true,
-      child: Panel(
-        onTap: onTap,
-        borderColor: selected ? AppColors.brand : null,
-        color: selected ? AppColors.accentSoft : null,
-        padding: const EdgeInsets.fromLTRB(12, 14, 16, 14),
-        child: Row(
-          children: [
-            Icon(
-              selected
-                  ? Icons.radio_button_checked_rounded
-                  : Icons.radio_button_off_rounded,
-              color: selected ? AppColors.brand : AppColors.faint,
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        plan.title,
-                        style: theme.textTheme.bodyLarge?.copyWith(
-                          fontWeight: FontWeight.w700,
+      enabled: running == null,
+      child: Opacity(
+        opacity: running == null ? 1 : 0.6,
+        child: Panel(
+          onTap: onTap,
+          borderColor: selected ? AppColors.brand : null,
+          color: selected ? AppColors.accentSoft : null,
+          padding: const EdgeInsets.fromLTRB(12, 14, 16, 14),
+          child: Row(
+            children: [
+              Icon(
+                selected
+                    ? Icons.radio_button_checked_rounded
+                    : Icons.radio_button_off_rounded,
+                color: selected ? AppColors.brand : AppColors.faint,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          plan.title,
+                          style: theme.textTheme.bodyLarge?.copyWith(
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                      ),
-                      if (lifetime) ...[
-                        const SizedBox(width: 8),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            color: AppColors.cta,
-                            borderRadius: BorderRadius.circular(99),
-                          ),
-                          child: const Text(
-                            'BEST VALUE',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
-                              fontWeight: FontWeight.w800,
+                        if (lifetime) ...[
+                          const SizedBox(width: 8),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 2,
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppColors.cta,
+                              borderRadius: BorderRadius.circular(99),
+                            ),
+                            child: const Text(
+                              'BEST VALUE',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ],
-                    ],
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    lifetime
-                        ? 'Pay once, yours for good'
-                        : 'All mock tests for ${plan.days} days',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: AppColors.muted,
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 2),
+                    Text(
+                      running != null
+                          ? 'Active until ${formatDate(running)}'
+                          : lifetime
+                          ? 'Pay once, yours for good'
+                          : 'All mock tests for ${plan.days} days',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: AppColors.muted,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Text(
-              '₹${plan.rupees}',
-              style: theme.textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w800,
+              Text(
+                '₹${plan.rupees}',
+                style: theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.w800,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

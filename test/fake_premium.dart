@@ -36,6 +36,13 @@ class FakePremiumService implements PremiumService {
   }) async {
     purchases.add(plan);
     if (failWith != null) throw PremiumException(failWith!);
+    final running = status.expiresAt;
+    if (plan.days != null &&
+        status.premium &&
+        running != null &&
+        running.isAfter(DateTime.now())) {
+      throw const PremiumException('Your 15-day pass is still active.');
+    }
     final days = plan.days;
     if (days == null || status.isLifetime) {
       status = const PremiumStatus(premium: true);
