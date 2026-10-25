@@ -50,10 +50,23 @@
       animation: spin 0.9s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
+    #loading nav { position: absolute; bottom: 24px; display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 4px 16px; padding: 0 16px; font-size: 13px; }
+    #loading nav a { color: #fff; opacity: .85; }
   </style>
 </head>
 <body>
-  <div id="loading"><b>CostMaster</b><i></i><span>Loading…</span></div>
+  <div id="loading">
+    <b>CostMaster</b><i></i><span>Loading…</span>
+    <!-- Plain links, for visitors and reviewers that do not run the app. -->
+    <nav>
+      <a href="/pricing">Pricing</a>
+      <a href="/terms">Terms &amp; Conditions</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/refund">Refund &amp; Cancellation</a>
+      <a href="/contact">Contact Us</a>
+    </nav>
+  </div>
   <script>
     window.addEventListener('flutter-first-frame', function () {
       var el = document.getElementById('loading');
