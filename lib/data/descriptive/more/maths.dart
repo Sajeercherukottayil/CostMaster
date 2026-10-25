@@ -345,7 +345,9 @@ const mathsMoreDescriptive = [
         'the sign of r.\n'
         '• If one regression coefficient is greater than 1, the other must '
         'be less than 1, since their product cannot exceed 1.\n'
-        '• The arithmetic mean of the two coefficients is at least r.\n'
+        '• In absolute value, the arithmetic mean of the two coefficients is '
+        'at least r (since the AM of two numbers is never less than their '
+        'GM).\n'
         '• They are independent of change of origin but not of scale.\n'
         '• The two regression lines intersect at the means (x̄, ȳ).',
   ),

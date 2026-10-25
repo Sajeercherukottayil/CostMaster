@@ -33,28 +33,28 @@ const interTaxMoreDescriptive = [
     chapter: 'Basics & Residential Status',
     text:
         'Compute gross total income for AY 2026-27 if the individual is '
-        '(a) ROR, (b) RNOR and (c) non-resident: salary for services in '
-        'India ₹5,00,000; interest from an Indian company ₹20,000; profit '
-        'from a London business controlled from India ₹1,00,000; rent from '
-        'a London house received in London ₹2,00,000; past untaxed foreign '
-        'income brought into India ₹50,000.',
+        '(a) ROR, (b) RNOR and (c) non-resident: taxable salary for services '
+        'in India ₹5,00,000; interest from an Indian company ₹20,000; profit '
+        'from a London business controlled from India ₹1,00,000; rent of '
+        '₹2,00,000 from a London house, received in London (no municipal '
+        'taxes); past untaxed foreign income brought into India ₹50,000.',
     marks: 6,
     problem: true,
     answer:
         'Indian income (taxable for all): salary 5,00,000 + interest '
         '20,000 = 5,20,000\n'
+        'London house property income = 2,00,000 − 30% standard deduction '
+        '= 1,40,000\n'
         '(a) ROR (global income):\n'
-        '• 5,20,000 + London business 1,00,000 + London rent 2,00,000 = '
-        '₹8,20,000\n'
+        '• 5,20,000 + London business 1,00,000 + London house 1,40,000 = '
+        '₹7,60,000\n'
         '(b) RNOR (foreign income only from a business controlled from '
         'India):\n'
         '• 5,20,000 + 1,00,000 = ₹6,20,000\n'
         '(c) Non-resident (Indian income only):\n'
         '• ₹5,20,000\n'
         'Past untaxed foreign income brought into India is not income of '
-        'this year, so it is excluded in all cases. (The London rent would '
-        'be reduced by the 30% standard deduction when computing house '
-        'property income.)',
+        'this year, so it is excluded in all cases.',
   ),
   DescriptiveQuestion(
     subjectId: 'i_tax',
@@ -546,8 +546,9 @@ const interTaxMoreDescriptive = [
     chapter: 'GST: Registration, Time & Place of Supply',
     text:
         'Find the place of supply and the tax type: (a) a Delhi consultant '
-        'advises a registered client in Mumbai; (b) a Pune institute trains '
-        'an unregistered individual whose address in Delhi is on record; '
+        'advises a registered client in Mumbai; (b) a Pune tax consultant '
+        'advises an unregistered individual whose address in Delhi is on '
+        'record; '
         '(c) a Mumbai bus company carries an unregistered passenger from '
         'Mumbai to Goa; (d) a Chennai company buys tickets for a conference '
         'in Bengaluru from a Karnataka organiser.',
@@ -556,8 +557,10 @@ const interTaxMoreDescriptive = [
     answer:
         '(a) General rule, registered recipient: place of supply is '
         'Maharashtra. Supplier in Delhi, so IGST.\n'
-        '(b) Unregistered recipient with address on record: place of supply '
-        'is Delhi. Supplier in Maharashtra, so IGST.\n'
+        '(b) General rule, unregistered recipient with address on record: '
+        'place of supply is Delhi. Supplier in Maharashtra, so IGST. (If the '
+        'service were training, section 12(5) would make the place of '
+        'supply the place where it is performed.)\n'
         '(c) Passenger transport to an unregistered person: place where the '
         'passenger embarks, Maharashtra. Supplier in Maharashtra, so CGST + '
         'SGST.\n'

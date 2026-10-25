@@ -901,18 +901,19 @@ const interFaMoreQuestions = [
     subjectId: 'i_fa',
     chapter: 'Investment Accounts',
     text:
-        'Interest received for the period before a cum-interest purchase '
-        'is credited to the:',
+        'When debentures are bought cum-interest, the interest accrued up '
+        'to the date of purchase is:',
     options: [
-      'Income column',
-      'Capital (amount) column, reducing cost',
-      'Profit and Loss Account as income',
-      'Share capital',
+      'Added to the cost of the investment',
+      'Debited to the income column, so it is excluded from cost',
+      'Credited to capital reserve',
+      'Ignored',
     ],
     answerIndex: 1,
     explanation:
-        'It recovers part of the price paid, so it reduces the cost '
-        'of the investment rather than being income.',
+        'The buyer has paid for interest earned by the seller. It is '
+        'debited to the income column and, when the full interest is '
+        'received later, only the post-purchase part remains as income.',
   ),
   Question(
     subjectId: 'i_fa',
