@@ -16,6 +16,10 @@ import 'descriptive/maths.dart';
 import 'descriptive/more/cost.dart';
 import 'descriptive/more/eco.dart';
 import 'descriptive/more/fa.dart';
+import 'descriptive/more/inter/cost.dart';
+import 'descriptive/more/inter/fa.dart';
+import 'descriptive/more/inter/law.dart';
+import 'descriptive/more/inter/tax.dart';
 import 'descriptive/more/law.dart';
 import 'descriptive/more/maths.dart';
 import 'descriptive/problems/cost.dart';
@@ -47,6 +51,10 @@ import 'questions/maths.dart';
 import 'questions/more/cost.dart';
 import 'questions/more/eco.dart';
 import 'questions/more/fa.dart';
+import 'questions/more/inter/cost.dart';
+import 'questions/more/inter/fa.dart';
+import 'questions/more/inter/law.dart';
+import 'questions/more/inter/tax.dart';
 import 'questions/more/law.dart';
 import 'questions/more/maths.dart';
 
@@ -276,9 +284,13 @@ const questionBank = [
   ...ecoQuestions,
   ...ecoMoreQuestions,
   ...interLawQuestions,
+  ...interLawMoreQuestions,
   ...interFaQuestions,
+  ...interFaMoreQuestions,
   ...interTaxQuestions,
+  ...interTaxMoreQuestions,
   ...interCostQuestions,
+  ...interCostMoreQuestions,
   ...interOmQuestions,
   ...interCaaQuestions,
   ...interFmQuestions,
@@ -304,12 +316,16 @@ const descriptiveBank = [
   ...ecoMoreDescriptive,
   ...interLawDescriptive,
   ...interLawProblems,
+  ...interLawMoreDescriptive,
   ...interFaDescriptive,
   ...interFaProblems,
+  ...interFaMoreDescriptive,
   ...interTaxDescriptive,
   ...interTaxProblems,
+  ...interTaxMoreDescriptive,
   ...interCostDescriptive,
   ...interCostProblems,
+  ...interCostMoreDescriptive,
   ...interOmDescriptive,
   ...interOmProblems,
   ...interCaaDescriptive,
