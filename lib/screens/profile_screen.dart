@@ -196,7 +196,7 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           Text('CostMaster', style: theme.textTheme.titleSmall),
                           const SizedBox(width: 8),
-                          const Tag(text: 'v1.0.0'),
+                          const Tag(text: 'v1.1.0'),
                         ],
                       ),
                       const SizedBox(height: 8),
