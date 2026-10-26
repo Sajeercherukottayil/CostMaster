@@ -88,4 +88,19 @@ async function grantPremium(orderId, paymentId, source) {
   });
 }
 
-module.exports = {entitlement, order, uidFrom, grantPremium, FieldValue};
+/**
+ * Removes [uid]'s Premium and the orders they never paid for. Paid orders
+ * stay as payment records.
+ */
+async function deleteAccountData(uid) {
+  const unpaid = await db().collection('premiumOrders')
+      .where('uid', '==', uid).where('status', '==', 'created').get();
+  const batch = db().batch();
+  batch.delete(entitlement(uid));
+  for (const doc of unpaid.docs) batch.delete(doc.ref);
+  await batch.commit();
+}
+
+module.exports = {
+  entitlement, order, uidFrom, grantPremium, deleteAccountData, FieldValue,
+};

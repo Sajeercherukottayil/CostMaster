@@ -168,6 +168,22 @@ class ProfileScreen extends StatelessWidget {
                           onConfirm: state.reset,
                         ),
                       ),
+                      const Divider(indent: 68),
+                      _Row(
+                        icon: Icons.person_remove_rounded,
+                        label: 'Delete account',
+                        value: 'Permanently delete your account and Premium',
+                        stacked: true,
+                        danger: true,
+                        onTap: () => showDialog<void>(
+                          context: context,
+                          builder: (_) => _DeleteAccountDialog(
+                            auth: auth,
+                            premium: premium.service,
+                            state: state,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -234,6 +250,118 @@ class ProfileScreen extends StatelessWidget {
       ),
     );
     if (ok == true) await onConfirm();
+  }
+}
+
+/// Asks for the password, then deletes the account, its Premium and the
+/// data saved on this device. Signing out returns the app to login.
+class _DeleteAccountDialog extends StatefulWidget {
+  final AuthService auth;
+  final PremiumService premium;
+  final AppState state;
+
+  const _DeleteAccountDialog({
+    required this.auth,
+    required this.premium,
+    required this.state,
+  });
+
+  @override
+  State<_DeleteAccountDialog> createState() => _DeleteAccountDialogState();
+}
+
+class _DeleteAccountDialogState extends State<_DeleteAccountDialog> {
+  final _password = TextEditingController();
+  bool _busy = false;
+  String? _error;
+
+  @override
+  void dispose() {
+    _password.dispose();
+    super.dispose();
+  }
+
+  Future<void> _delete() async {
+    if (_password.text.isEmpty) {
+      setState(() => _error = 'Please enter your password.');
+      return;
+    }
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    final navigator = Navigator.of(context);
+    try {
+      await widget.auth.deleteAccount(
+        password: _password.text,
+        deleteData: widget.premium.deleteAccountData,
+      );
+    } on Exception catch (e) {
+      // AuthException and PremiumException carry a message for the student.
+      if (mounted) {
+        setState(() {
+          _busy = false;
+          _error = e is AuthException || e is PremiumException
+              ? e.toString()
+              : 'Something went wrong. Please try again.';
+        });
+      }
+      return;
+    }
+    navigator.pop();
+    await widget.state.reset();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Delete your account?'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'This permanently deletes your login, your Premium and your test '
+            'history. Premium is not refunded. This cannot be undone.',
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: _password,
+            obscureText: true,
+            enabled: !_busy,
+            autofocus: true,
+            decoration: InputDecoration(
+              labelText: 'Password',
+              errorText: _error,
+              errorMaxLines: 3,
+            ),
+            onSubmitted: (_) => _delete(),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: _busy ? null : () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
+        FilledButton(
+          style: FilledButton.styleFrom(
+            backgroundColor: AppColors.danger,
+            minimumSize: const Size(64, 44),
+          ),
+          onPressed: _busy ? null : _delete,
+          child: _busy
+              ? const SizedBox.square(
+                  dimension: 18,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.white,
+                  ),
+                )
+              : const Text('Delete'),
+        ),
+      ],
+    );
   }
 }
 

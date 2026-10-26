@@ -380,6 +380,55 @@ void main() {
     });
   });
 
+  group('Delete account', () {
+    Future<(FakeAuthService, FakePremiumService, AppState)> openProfile(
+      WidgetTester tester,
+    ) async {
+      final state = await AppState.load();
+      await state.saveProfile(
+        const Profile(name: 'Ravi Kumar', course: foundation),
+      );
+      final auth = FakeAuthService(signedInAs: _student, password: 'secret1');
+      final premium = FakePremiumService(active: true);
+      await tester.pumpWidget(
+        CostMasterApp(state: state, auth: auth, premium: premium),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Profile').last);
+      await tester.pumpAndSettle();
+      await tapVisible(tester, find.text('Delete account'));
+      await tester.pumpAndSettle();
+      return (auth, premium, state);
+    }
+
+    testWidgets('a wrong password deletes nothing', (tester) async {
+      final (auth, premium, state) = await openProfile(tester);
+      await tester.enterText(find.byType(TextField).last, 'wrong1');
+      await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Incorrect email or password.'), findsOneWidget);
+      expect(auth.deletedUids, isEmpty);
+      expect(premium.dataDeleted, isFalse);
+      expect(state.profile, isNotNull);
+    });
+
+    testWidgets('the password deletes everything and returns to login', (
+      tester,
+    ) async {
+      final (auth, premium, state) = await openProfile(tester);
+      await tester.enterText(find.byType(TextField).last, 'secret1');
+      await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
+      await tester.pumpAndSettle();
+
+      expect(auth.deletedUids, ['u1']);
+      expect(premium.dataDeleted, isTrue);
+      expect(state.profile, isNull);
+      expect(state.attempts, isEmpty);
+      expect(find.widgetWithText(FilledButton, 'Log in'), findsOneWidget);
+    });
+  });
+
   test('a different account on the same device starts fresh', () async {
     final state = await AppState.load();
     await state.claimFor('u1');

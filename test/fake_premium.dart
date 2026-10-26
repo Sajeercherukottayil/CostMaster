@@ -9,6 +9,7 @@ class FakePremiumService implements PremiumService {
   PremiumStatus status;
   String? failWith;
   final List<PremiumPlan> purchases = [];
+  bool dataDeleted = false;
 
   /// [active] gives lifetime Premium; [status] sets anything else.
   FakePremiumService({
@@ -57,6 +58,13 @@ class FakePremiumService implements PremiumService {
         expiresAt: from.add(Duration(days: days)),
       );
     }
+    _controller.add(status);
+  }
+
+  @override
+  Future<void> deleteAccountData() async {
+    dataDeleted = true;
+    status = PremiumStatus.none;
     _controller.add(status);
   }
 }

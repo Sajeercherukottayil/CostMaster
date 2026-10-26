@@ -7,10 +7,16 @@ class FakeAuthService implements AuthService {
   final _controller = StreamController<AuthUser?>.broadcast();
   final _accounts = <String, ({String password, AuthUser user})>{};
   final resetEmails = <String>[];
+  final deletedUids = <String>[];
   AuthUser? _current;
 
-  /// Starts signed in as [user] when given.
-  FakeAuthService({AuthUser? signedInAs}) : _current = signedInAs;
+  /// Starts signed in as [signedInAs] when given, with [password] if set.
+  FakeAuthService({AuthUser? signedInAs, String? password})
+    : _current = signedInAs {
+    if (signedInAs != null && password != null) {
+      _accounts[signedInAs.email] = (password: password, user: signedInAs);
+    }
+  }
 
   @override
   AuthUser? get currentUser => _current;
@@ -58,4 +64,21 @@ class FakeAuthService implements AuthService {
 
   @override
   Future<void> signOut() async => _set(null);
+
+  @override
+  Future<void> deleteAccount({
+    required String password,
+    required Future<void> Function() deleteData,
+  }) async {
+    final user = _current;
+    if (user == null) throw const AuthException('Please log in again.');
+    final account = _accounts[user.email];
+    if (account != null && account.password != password) {
+      throw const AuthException('Incorrect email or password.');
+    }
+    await deleteData();
+    _accounts.remove(user.email);
+    deletedUids.add(user.uid);
+    _set(null);
+  }
 }

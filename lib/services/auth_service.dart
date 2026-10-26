@@ -42,6 +42,14 @@ abstract class AuthService {
   Future<void> sendPasswordReset(String email);
 
   Future<void> signOut();
+
+  /// Checks [password], runs [deleteData] to remove the account's records
+  /// elsewhere, then deletes the account, which signs it out. Nothing is
+  /// deleted if the password is wrong.
+  Future<void> deleteAccount({
+    required String password,
+    required Future<void> Function() deleteData,
+  });
 }
 
 class FirebaseAuthService implements AuthService {
@@ -127,6 +135,27 @@ class FirebaseAuthService implements AuthService {
 
   @override
   Future<void> signOut() => _auth.signOut();
+
+  @override
+  Future<void> deleteAccount({
+    required String password,
+    required Future<void> Function() deleteData,
+  }) async {
+    final user = _auth.currentUser;
+    if (user == null || user.email == null) {
+      throw const AuthException('Please log in again and retry.');
+    }
+    // Firebase only deletes accounts that signed in recently, so this also
+    // makes the delete itself succeed.
+    await _guard(
+      () => user.reauthenticateWithCredential(
+        EmailAuthProvider.credential(email: user.email!, password: password),
+      ),
+      signingIn: true,
+    );
+    await deleteData();
+    await _guard(user.delete);
+  }
 
   Future<void> _guard(
     Future<void> Function() action, {

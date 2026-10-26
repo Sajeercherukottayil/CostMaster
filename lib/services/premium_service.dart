@@ -83,6 +83,10 @@ abstract class PremiumService {
     required String email,
     required String name,
   });
+
+  /// Removes the signed-in account's Premium, before the account is deleted.
+  /// Throws [PremiumException] with a message for the student on failure.
+  Future<void> deleteAccountData();
 }
 
 /// Where the payment server (server/ in this repo, hosted on Vercel) runs.
@@ -130,6 +134,11 @@ class FirebasePremiumService implements PremiumService {
         '${paid.paymentId}. (${e.message})',
       );
     }
+  }
+
+  @override
+  Future<void> deleteAccountData() async {
+    await _post('delete-account', const {});
   }
 
   /// Calls the payment server as the signed-in student.
