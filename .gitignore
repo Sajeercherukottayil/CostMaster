@@ -52,3 +52,6 @@ server/node_modules/
 server/.vercel/
 server/.env
 server/.env*.local
+
+# Firebase CLI deploy cache
+.firebase/
