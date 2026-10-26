@@ -23,7 +23,9 @@
     <a href="/contact">Contact Us</a>
   </nav>
   <main>
-    <div class="hero">
+    <!-- Android sees the APK. On an iPhone or iPad the script at the end
+         swaps in the web app, which works the same in Safari. -->
+    <div class="hero" data-for="android">
       <img src="/icons/Icon-192.png" alt="" width="88" height="88">
       <h1>CostMaster for Android</h1>
       <p>Practice for CMA Foundation and Intermediate: chapter tests, mock
@@ -31,8 +33,33 @@
       answers.</p>
       <a class="button" href="https://github.com/Sajeercherukottayil/CostMaster/releases/latest/download/CostMaster.apk">Download the app</a>
       <p class="small">Version 1.1.0 · about 57 MB · Android 7 or later</p>
+      <p class="small">On an iPhone? <a href="/">Use CostMaster in Safari</a>.</p>
     </div>
 
+    <div class="hero" data-for="ios" hidden>
+      <img src="/icons/Icon-192.png" alt="" width="88" height="88">
+      <h1>CostMaster for iPhone</h1>
+      <p>Practice for CMA Foundation and Intermediate: chapter tests, mock
+      tests, full paper tests and descriptive questions with model
+      answers.</p>
+      <a class="button" href="/">Open CostMaster</a>
+      <p class="small">Works in Safari. Nothing to install from the App Store.</p>
+    </div>
+
+    <div data-for="ios" hidden>
+      <h2>Add it to your Home Screen</h2>
+      <ol>
+        <li>Open <strong>costmaster-ck.web.app</strong> in
+        <strong>Safari</strong>.</li>
+        <li>Tap the <strong>Share</strong> button (the square with an arrow
+        pointing up).</li>
+        <li>Tap <strong>Add to Home Screen</strong>, then
+        <strong>Add</strong>.</li>
+        <li>Open CostMaster from your Home Screen and create your account.</li>
+      </ol>
+    </div>
+
+    <div data-for="android">
     <h2>How to install</h2>
     <ol>
       <li>Tap <strong>Download the app</strong> and open the downloaded file
@@ -46,20 +73,21 @@
     </ol>
     <p>Already installed? Download and install again to update. Your account
     and Premium stay the same.</p>
+    </div>
 
     <h2>What's free and what's Premium</h2>
     <div class="card">
       <p><strong>Free:</strong> chapter study and chapter tests for every
       paper.</p>
       <p><strong>Premium</strong> unlocks all Mock Tests and Full Paper
-      Tests: ₹49 for a 15-day pass or ₹149 for lifetime, paid once in the app
-      by UPI or card. See <a href="/pricing">Pricing</a>.</p>
+      Tests: ₹49 for a 15-day pass or ₹149 for lifetime, paid once by UPI or
+      card. See <a href="/pricing">Pricing</a>.</p>
     </div>
 
-    <h2>No Android phone?</h2>
+    <h2>On a computer?</h2>
     <p>Use CostMaster in your browser at
     <a href="https://costmaster-ck.web.app">costmaster-ck.web.app</a>, with
-    the same account and Premium.</p>
+    the same account and Premium on every device.</p>
   </main>
   <footer>
     CostMaster is run by Cherukottayil Mohammed Sajeer, Vengara, Malappuram, Kerala 676304, India.<br>
@@ -67,5 +95,18 @@
     CostMaster is an independent study app and is not affiliated with the
     Institute of Cost Accountants of India.
   </footer>
+  <script>
+    // iPads report themselves as Macs, so touch support tells them apart.
+    (function () {
+      var ios = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+          (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+      function show(platform) {
+        document.querySelectorAll('[data-for]').forEach(function (el) {
+          el.hidden = el.getAttribute('data-for') !== platform;
+        });
+      }
+      if (ios) show('ios');
+    })();
+  </script>
 </body>
 </html>
