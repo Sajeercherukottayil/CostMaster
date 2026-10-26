@@ -2,8 +2,7 @@
 // make_reel.py, which also makes the voiceover and joins everything up.
 //
 // It drives the real app with a demo student who already has a profile:
-// free chapter practice, buying Premium, a mock test and its result, then
-// a call to download. It lives outside test/ so CI doesn't run it.
+// chapter practice, a mock test and its result, then a call to download. It lives outside test/ so CI doesn't run it.
 // ignore_for_file: invalid_use_of_visible_for_testing_member
 import 'dart:convert';
 import 'dart:io';
@@ -29,11 +28,9 @@ final _out = Directory(Platform.environment['REEL_DIR'] ?? 'build/reel');
 /// Big heading above the phone for each narrated scene, in order.
 const _headings = {
   'hook': 'CMA വിദ്യാർത്ഥികൾക്ക്',
-  'chapter': 'ചാപ്റ്റർ ടെസ്റ്റുകൾ ഫ്രീ',
-  'premium': '₹49 മുതൽ പ്രീമിയം',
+  'chapter': 'ചാപ്റ്റർ തിരിച്ച് പഠിക്കാം',
   'test': 'ടൈമറുള്ള മോക്ക് ടെസ്റ്റ്',
   'result': 'ഉടൻ റിസൾട്ട്',
-  'results': 'പ്രോഗ്രസ് ട്രാക്കിംഗ്',
   'cta': 'ഇപ്പോൾ ഡൗൺലോഡ് ചെയ്യൂ',
 };
 
@@ -149,7 +146,7 @@ Future<void> _walkthrough(WidgetTester tester, Map durations) async {
           CostMasterApp(
             state: state,
             auth: FakeAuthService(signedInAs: student),
-            premium: FakePremiumService(),
+            premium: FakePremiumService(active: true),
           ),
           TouchIndicator(r.touch),
         ],
@@ -160,7 +157,7 @@ Future<void> _walkthrough(WidgetTester tester, Map durations) async {
   await r.frame();
 
   await r.scene('hook', () async {
-    await r.hold(1.5);
+    await r.hold(1.0);
     await r.scrollTo(find.text('Your Papers'), alignment: 0.1);
   });
 
@@ -175,7 +172,7 @@ Future<void> _walkthrough(WidgetTester tester, Map durations) async {
     await r.scrollTo(find.text('Hide answer'), alignment: 0.8);
   }, tail: 0.3);
 
-  await r.scene('premium', () async {
+  await r.scene('test', () async {
     await r.tap(find.byTooltip('Back'));
     await r.play(0.6);
     await r.tap(find.byTooltip('Back'));
@@ -183,27 +180,10 @@ Future<void> _walkthrough(WidgetTester tester, Map durations) async {
     await r.scrollTo(find.text('Start Mock Test'), alignment: 0.3);
     await r.tap(find.text('Start Mock Test'));
     await r.play(0.8);
-    await r.hold(1.2);
-    await r.tap(find.text('15-day pass'));
-    await r.play(0.5);
-    await r.hold(0.8);
-    await r.tap(find.text('Lifetime'));
-    await r.play(0.5);
-  }, tail: 0.3);
-
-  await r.scene('test', () async {
-    // Paying opens the mock test setup, as it does for students.
-    await r.scrollTo(find.text('Pay ₹149'), alignment: 0.7);
-    await r.tap(find.text('Pay ₹149'));
-    await r.play(1.2);
     await r.tap(find.text('25'));
     await r.play(0.3);
     await r.tap(find.text('Start Test'));
     await r.play(1.0);
-    await r.tap(option(correctly: true));
-    await r.play(0.6);
-    await r.tap(find.text('Next'));
-    await r.play(0.8);
     await r.tap(option(correctly: true));
     await r.play(0.6);
   }, tail: 0.3);
@@ -227,24 +207,15 @@ Future<void> _walkthrough(WidgetTester tester, Map durations) async {
       ),
     );
     await r.play(1.4);
-    await r.hold(0.8);
+    await r.hold(0.4);
     await r.scrollTo(find.text('Answer Review'), alignment: 0.05);
   }, tail: 0.3);
 
-  await r.scene('results', () async {
+  await r.scene('cta', () async {
     await r.scrollTo(find.text('Back to Home'), alignment: 0.3);
     await r.tap(find.text('Back to Home'));
     await r.play(0.8);
-    await r.tap(find.text('Results').last);
-    await r.play(0.6);
-    await r.hold(0.8);
-    await r.scrollTo(find.text('By paper'), alignment: 0.15);
-  }, tail: 0.3);
-
-  await r.scene('cta', () async {
-    await r.tap(find.text('Home').last);
-    await r.play(0.6);
-  }, tail: 2.0);
+  }, tail: 1.5);
 
   r.writeManifest();
 }
