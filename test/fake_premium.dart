@@ -24,6 +24,15 @@ class FakePremiumService implements PremiumService {
   bool get canBuyHere => true;
 
   @override
+  String get paidThrough => 'Google Play';
+
+  /// What [prices] returns; empty shows the website prices.
+  Map<PremiumPlan, String> playPrices = const {};
+
+  @override
+  Future<Map<PremiumPlan, String>> prices() async => playPrices;
+
+  @override
   Stream<PremiumStatus> watch(String uid) async* {
     yield status;
     yield* _controller.stream;

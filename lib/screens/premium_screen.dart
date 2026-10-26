@@ -46,6 +46,20 @@ class _PremiumScreenState extends State<PremiumScreen> {
   bool _closing = false;
   String? _error;
 
+  /// Google Play's prices on Android; until they load, or where missing,
+  /// plans show their website price.
+  Map<PremiumPlan, String> _prices = const {};
+
+  String _priceOf(PremiumPlan plan) => _prices[plan] ?? '₹${plan.rupees}';
+
+  @override
+  void initState() {
+    super.initState();
+    PremiumScope.read(context).service.prices().then((prices) {
+      if (mounted) setState(() => _prices = prices);
+    });
+  }
+
   /// The status before the latest payment, so the screen closes once the
   /// server's grant changes it. Null until the student pays.
   PremiumStatus? _paidFrom;
@@ -161,6 +175,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                 for (final plan in PremiumPlan.values) ...[
                   _PlanCard(
                     plan: plan,
+                    price: _priceOf(plan),
                     selected: plan == _plan,
                     activeUntil: passEnds != null && plan == PremiumPlan.pass15
                         ? passEnds
@@ -254,7 +269,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                 else
                   BigActionButton(
                     icon: Icons.lock_open_rounded,
-                    label: 'Pay ₹${_plan.rupees}',
+                    label: 'Pay ${_priceOf(_plan)}',
                     caption: 'UPI, cards and net banking',
                     onPressed: _buy,
                   ),
@@ -277,7 +292,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                     ),
                     const SizedBox(width: 6),
                     Text(
-                      'Secure payment by Razorpay',
+                      'Secure payment by ${premium.service.paidThrough}',
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: AppColors.muted,
                       ),
@@ -298,6 +313,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
 /// One plan to choose, with its price.
 class _PlanCard extends StatelessWidget {
   final PremiumPlan plan;
+  final String price;
   final bool selected;
 
   /// Set while this plan is running and so cannot be bought again.
@@ -306,6 +322,7 @@ class _PlanCard extends StatelessWidget {
 
   const _PlanCard({
     required this.plan,
+    required this.price,
     required this.selected,
     this.activeUntil,
     this.onTap,
@@ -386,7 +403,7 @@ class _PlanCard extends StatelessWidget {
                 ),
               ),
               Text(
-                '₹${plan.rupees}',
+                price,
                 style: theme.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w800,
                 ),

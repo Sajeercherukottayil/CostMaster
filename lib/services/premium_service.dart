@@ -6,19 +6,36 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
-import 'package:razorpay_flutter/razorpay_flutter.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
 
 import 'web_checkout.dart';
 
 /// The ways to buy Premium, each a one-time payment that unlocks every mock
-/// test. Keep in step with PLANS in server/lib/payments.js, which is what is
-/// charged.
+/// test. Keep in step with PLANS in server/lib/payments.js, which is what the
+/// website charges; Android prices are set in the Play Console.
 enum PremiumPlan {
-  pass15(id: 'pass15', rupees: 49, days: 15, title: '15-day pass'),
-  lifetime(id: 'lifetime', rupees: 149, days: null, title: 'Lifetime');
+  pass15(
+    id: 'pass15',
+    productId: 'premium_15_days',
+    rupees: 49,
+    days: 15,
+    title: '15-day pass',
+  ),
+  lifetime(
+    id: 'lifetime',
+    productId: 'premium_lifetime',
+    rupees: 149,
+    days: null,
+    title: 'Lifetime',
+  );
 
   /// The plan id the payment server knows it by.
   final String id;
+
+  /// The product id in the Play Console.
+  final String productId;
+
+  /// The website price.
   final int rupees;
 
   /// How long it lasts, or null for lifetime.
@@ -27,6 +44,7 @@ enum PremiumPlan {
 
   const PremiumPlan({
     required this.id,
+    required this.productId,
     required this.rupees,
     required this.days,
     required this.title,
@@ -73,8 +91,15 @@ abstract class PremiumService {
   /// Emits the premium status of [uid], and again whenever it changes.
   Stream<PremiumStatus> watch(String uid);
 
-  /// False where payments are not offered, e.g. the website for now.
+  /// False where payments are not offered, e.g. Windows.
   bool get canBuyHere;
+
+  /// Who takes the payment, for "Secure payment by ...".
+  String get paidThrough;
+
+  /// The price shown for each plan, e.g. "₹49". Plans missing from the map
+  /// show their website price.
+  Future<Map<PremiumPlan, String>> prices();
 
   /// Takes the payment for [plan] and waits until the server has granted it.
   /// Throws [PremiumException] with a message for the student on failure.
@@ -92,25 +117,49 @@ abstract class PremiumService {
 /// Where the payment server (server/ in this repo, hosted on Vercel) runs.
 const premiumApiBase = 'https://costmaster-pay.vercel.app/api';
 
-/// Razorpay Checkout for the payment. The payment server creates the order
-/// and verifies it, and records premium in Firestore at entitlements/{uid}.
+/// Google Play Billing in the Android app, and Razorpay Checkout on the
+/// website. Either way the payment server checks the payment and records
+/// premium in Firestore at entitlements/{uid}.
 class FirebasePremiumService implements PremiumService {
-  /// The Android app uses razorpay_flutter; the website uses Razorpay's
-  /// checkout.js (see web_checkout.dart).
-  @override
-  bool get canBuyHere =>
-      kIsWeb || defaultTargetPlatform == TargetPlatform.android;
+  static bool get _onAndroid =>
+      !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
 
   @override
-  Stream<PremiumStatus> watch(String uid) =>
-      FirebaseFirestore.instance.doc('entitlements/$uid').snapshots().map((s) {
-        final data = s.data();
-        if (data == null) return PremiumStatus.none;
-        return PremiumStatus(
-          premium: data['premium'] == true,
-          expiresAt: (data['expiresAt'] as Timestamp?)?.toDate(),
-        );
-      });
+  bool get canBuyHere => kIsWeb || _onAndroid;
+
+  @override
+  String get paidThrough => _onAndroid ? 'Google Play' : 'Razorpay';
+
+  @override
+  Stream<PremiumStatus> watch(String uid) {
+    if (_onAndroid) _listenToPlay();
+    return FirebaseFirestore.instance.doc('entitlements/$uid').snapshots().map((
+      s,
+    ) {
+      final data = s.data();
+      if (data == null) return PremiumStatus.none;
+      return PremiumStatus(
+        premium: data['premium'] == true,
+        expiresAt: (data['expiresAt'] as Timestamp?)?.toDate(),
+      );
+    });
+  }
+
+  @override
+  Future<Map<PremiumPlan, String>> prices() async {
+    if (!_onAndroid) {
+      return {for (final plan in PremiumPlan.values) plan: '₹${plan.rupees}'};
+    }
+    try {
+      return {
+        for (final MapEntry(:key, :value) in (await _products()).entries)
+          key: value.price,
+      };
+    } on Exception catch (e) {
+      debugPrint('Play prices unavailable: $e');
+      return const {};
+    }
+  }
 
   @override
   Future<void> buy({
@@ -118,6 +167,8 @@ class FirebasePremiumService implements PremiumService {
     required String email,
     required String name,
   }) async {
+    if (_onAndroid) return _buyOnPlay(plan);
+
     final order = await _post('create-order', {'plan': plan.id});
     final paid = await _checkout(order, plan, email: email, name: name);
     try {
@@ -140,6 +191,140 @@ class FirebasePremiumService implements PremiumService {
   Future<void> deleteAccountData() async {
     await _post('delete-account', const {});
   }
+
+  // Google Play
+
+  StreamSubscription<List<PurchaseDetails>>? _purchases;
+  Map<PremiumPlan, ProductDetails>? _productCache;
+
+  /// The [buy] waiting for each product id's purchase to finish.
+  final _waiting = <String, Completer<void>>{};
+
+  /// Follows Google Play's purchases from the first [watch] on, and asks for
+  /// any not yet confirmed (e.g. a UPI payment that finished while the app
+  /// was closed), so each one reaches the server.
+  void _listenToPlay() {
+    if (_purchases != null) return;
+    final store = InAppPurchase.instance;
+    _purchases = store.purchaseStream.listen((list) {
+      for (final purchase in list) {
+        unawaited(_onPurchase(purchase));
+      }
+    }, onError: (Object e) => debugPrint('Play purchases unavailable: $e'));
+    store.restorePurchases().catchError((Object e) {
+      debugPrint('Could not check past Play purchases: $e');
+    });
+  }
+
+  Future<void> _onPurchase(PurchaseDetails purchase) async {
+    final waiting = _waiting.remove(purchase.productID);
+    switch (purchase.status) {
+      case PurchaseStatus.pending:
+        waiting?.completeError(
+          const PremiumException(
+            'Your payment is pending. Premium unlocks as soon as it '
+            'completes.',
+          ),
+        );
+      case PurchaseStatus.canceled:
+        waiting?.completeError(const PremiumException('Payment cancelled.'));
+      case PurchaseStatus.error:
+        waiting?.completeError(
+          PremiumException(
+            'Payment failed. ${purchase.error?.message ?? ''}'.trim(),
+          ),
+        );
+      case PurchaseStatus.purchased || PurchaseStatus.restored:
+        // Restored purchases the server already finished need nothing.
+        if (purchase.status == PurchaseStatus.restored &&
+            !purchase.pendingCompletePurchase) {
+          waiting?.complete();
+          return;
+        }
+        try {
+          // The server consumes or acknowledges it once Premium is granted.
+          await _post('verify-google-purchase', {
+            'productId': purchase.productID,
+            'purchaseToken': purchase.verificationData.serverVerificationData,
+          });
+          waiting?.complete();
+        } on PremiumException catch (e) {
+          waiting?.completeError(
+            PremiumException(
+              'Payment received, but we could not confirm it yet. We will '
+              'try again when you next open the app. (${e.message})',
+            ),
+          );
+        }
+    }
+  }
+
+  Future<Map<PremiumPlan, ProductDetails>> _products() async {
+    if (_productCache case final cached?) return cached;
+    final store = InAppPurchase.instance;
+    if (!await store.isAvailable()) return const {};
+    final response = await store.queryProductDetails({
+      for (final plan in PremiumPlan.values) plan.productId,
+    });
+    final found = {
+      for (final plan in PremiumPlan.values)
+        for (final details in response.productDetails)
+          if (details.id == plan.productId) plan: details,
+    };
+    if (found.length == PremiumPlan.values.length) _productCache = found;
+    return found;
+  }
+
+  Future<void> _buyOnPlay(PremiumPlan plan) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      throw const PremiumException('Please log in again and retry.');
+    }
+    final store = InAppPurchase.instance;
+    final Map<PremiumPlan, ProductDetails> products;
+    try {
+      products = await _products();
+    } on Exception {
+      throw const PremiumException('No internet connection. Please try again.');
+    }
+    final product = products[plan];
+    if (product == null) {
+      throw const PremiumException(
+        'Google Play payments are not available. Please install CostMaster '
+        'from the Play Store and try again.',
+      );
+    }
+    _listenToPlay();
+    final done = Completer<void>();
+    _waiting[product.id] = done;
+    bool started;
+    try {
+      // Both plans are bought as non-consumable so Google doesn't use up a
+      // pass before the server has granted it; the server consumes it. The
+      // uid lets the server check the purchase is this account's.
+      started = await store.buyNonConsumable(
+        purchaseParam: PurchaseParam(
+          productDetails: product,
+          applicationUserName: user.uid,
+        ),
+      );
+    } on Exception catch (e) {
+      debugPrint('Play purchase failed to start: $e');
+      started = false;
+    }
+    if (!started) {
+      _waiting.remove(product.id);
+      // E.g. an earlier purchase of this plan was never confirmed.
+      unawaited(store.restorePurchases().catchError((Object _) {}));
+      throw const PremiumException(
+        'Could not start the payment. If you already paid, Premium unlocks '
+        'in a moment.',
+      );
+    }
+    return done.future;
+  }
+
+  // Razorpay on the website, and the payment server
 
   /// Calls the payment server as the signed-in student.
   Future<Map<String, dynamic>> _post(
@@ -199,41 +384,7 @@ class FirebasePremiumService implements PremiumService {
       'prefill': {'email': email, 'name': name},
       'theme': {'color': '#1E40AF'},
     };
-    if (kIsWeb) return openWebCheckout(options);
-
-    final done = Completer<CheckoutResult>();
-    final razorpay = Razorpay();
-    razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, (PaymentSuccessResponse r) {
-      if (done.isCompleted) return;
-      done.complete((
-        orderId: r.orderId ?? '',
-        paymentId: r.paymentId ?? '',
-        signature: r.signature ?? '',
-      ));
-    });
-    razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, (PaymentFailureResponse r) {
-      if (done.isCompleted) return;
-      done.completeError(
-        PremiumException(
-          r.code == Razorpay.PAYMENT_CANCELLED
-              ? 'Payment cancelled.'
-              : r.code == Razorpay.NETWORK_ERROR
-              ? 'No internet connection. Please try again.'
-              : 'Payment failed. ${r.message ?? ''}'.trim(),
-        ),
-      );
-    });
-    razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, (ExternalWalletResponse r) {
-      if (!done.isCompleted) {
-        done.completeError(
-          const PremiumException(
-            'That wallet is not supported. Please pay by UPI or card.',
-          ),
-        );
-      }
-    });
-    razorpay.open(options);
-    return done.future.whenComplete(razorpay.clear);
+    return openWebCheckout(options);
   }
 }
 

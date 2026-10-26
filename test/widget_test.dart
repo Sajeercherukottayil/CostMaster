@@ -368,6 +368,17 @@ void main() {
       state.dispose();
     });
 
+    testWidgets('shows the store prices where there are some', (tester) async {
+      final (_, premium) = await openHome(tester);
+      premium.playPrices = {PremiumPlan.lifetime: '₹179.00'};
+      await tapVisible(tester, find.text('Start Mock Test'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Pay ₹179.00'), findsOneWidget);
+      expect(find.text('₹49'), findsOneWidget, reason: 'no store price');
+      expect(find.text('Secure payment by Google Play'), findsOneWidget);
+    });
+
     testWidgets('chapter tests stay free', (tester) async {
       await openHome(tester);
       await tapVisible(tester, find.text('Business Laws & Communication'));

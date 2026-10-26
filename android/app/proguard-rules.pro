@@ -1,13 +1,2 @@
-# Razorpay Checkout uses a WebView with JavaScript callbacks, which R8 would
-# otherwise strip or rename in release builds. Rules from Razorpay's docs.
--keepclassmembers class * {
-    @android.webkit.JavascriptInterface <methods>;
-}
--keepattributes JavascriptInterface
--keepattributes *Annotation*
--dontwarn com.razorpay.**
--keep class com.razorpay.** { *; }
--optimizations !method/inlining/*
--keepclasseswithmembers class * {
-    public void onPayment*(...);
-}
+# App-specific R8 rules for release builds. None are needed at the moment:
+# the plugins (Firebase, Google Play Billing) ship their own.

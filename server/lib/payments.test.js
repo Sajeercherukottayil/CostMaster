@@ -12,6 +12,10 @@ const {
   orderIdFromWebhook,
   modeFor,
   receiptFor,
+  planIdForProduct,
+  googlePurchaseProblem,
+  googleModeFor,
+  googleOrderId,
 } = require('./payments');
 
 const sign = (secret, text) =>
@@ -132,4 +136,36 @@ test('blocks any purchase on a lifetime account', () => {
   const lifetime = {premium: true, expiresAt: null};
   assert.ok(purchaseBlockedReason(lifetime, 'pass15', NOW));
   assert.ok(purchaseBlockedReason(lifetime, 'lifetime', NOW));
+});
+
+test('maps Play product ids to plans', () => {
+  assert.strictEqual(planIdForProduct('premium_15_days'), 'pass15');
+  assert.strictEqual(planIdForProduct('premium_lifetime'), 'lifetime');
+  assert.strictEqual(planIdForProduct('pass15'), null);
+  assert.strictEqual(planIdForProduct(undefined), null);
+});
+
+test('accepts only a completed Google purchase made by the same account', () => {
+  const paid = {purchaseState: 0, obfuscatedExternalAccountId: 'u1'};
+  assert.strictEqual(googlePurchaseProblem(paid, 'u1'), null);
+  assert.match(googlePurchaseProblem(paid, 'u2'), /another account/);
+  assert.match(googlePurchaseProblem({...paid, purchaseState: 2}, 'u1'),
+      /pending/);
+  assert.match(googlePurchaseProblem({...paid, purchaseState: 1}, 'u1'),
+      /cancelled/);
+  assert.match(googlePurchaseProblem(
+      {purchaseState: 0}, 'u1'), /another account/);
+  assert.ok(googlePurchaseProblem(null, 'u1'));
+});
+
+test('tells license-tester purchases apart from real ones', () => {
+  assert.strictEqual(googleModeFor({purchaseState: 0, purchaseType: 0}),
+      'test');
+  assert.strictEqual(googleModeFor({purchaseState: 0}), 'live');
+});
+
+test('gives each purchase token its own stable order id', () => {
+  assert.strictEqual(googleOrderId('tok'), googleOrderId('tok'));
+  assert.notStrictEqual(googleOrderId('tok'), googleOrderId('tok2'));
+  assert.match(googleOrderId('tok'), /^gp_[0-9a-f]{40}$/);
 });

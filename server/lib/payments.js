@@ -1,5 +1,5 @@
-// Pure helpers for Razorpay payments, kept apart from Firebase so they can be
-// unit tested (see payments.test.js).
+// Pure helpers for Razorpay and Google Play payments, kept apart from
+// Firebase so they can be unit tested (see payments.test.js).
 const crypto = require('crypto');
 
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -7,6 +7,8 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 /**
  * The Premium plans, each a one-time payment that unlocks every mock test.
  * Keep in step with PremiumPlan in lib/services/premium_service.dart.
+ * [product] is also the plan's product id in the Play Console, where the
+ * Android price is set; [amountPaise] is the website (Razorpay) price.
  */
 const PLANS = {
   pass15: {
@@ -125,9 +127,48 @@ function receiptFor(uid) {
   return `premium_${uid}`.slice(0, 40);
 }
 
+/** The plan id sold on Google Play as [productId], or null. */
+function planIdForProduct(productId) {
+  const id = Object.keys(PLANS).find((k) => PLANS[k].product === productId);
+  return id || null;
+}
+
+/**
+ * Why a Google Play purchase (a ProductPurchase from the Play Developer
+ * API) can't give [uid] Premium, or null if it can. The app sets the uid as
+ * the purchase's obfuscated account id, so a token can't be claimed by
+ * another account.
+ */
+function googlePurchaseProblem(purchase, uid) {
+  if (!purchase) return 'The purchase could not be found.';
+  if (purchase.purchaseState === 2) {
+    return 'Your payment is pending. Premium unlocks once it completes.';
+  }
+  if (purchase.purchaseState !== 0) return 'This purchase was cancelled.';
+  if (purchase.obfuscatedExternalAccountId !== uid) {
+    return 'This purchase belongs to another account.';
+  }
+  return null;
+}
+
+/** 'test' for Play license testers' purchases, otherwise 'live'. */
+function googleModeFor(purchase) {
+  return purchase && purchase.purchaseType === 0 ? 'test' : 'live';
+}
+
+/** The premiumOrders doc id for a Google Play purchase token. */
+function googleOrderId(purchaseToken) {
+  const hash = crypto.createHash('sha256').update(purchaseToken).digest('hex');
+  return `gp_${hash.slice(0, 40)}`;
+}
+
 module.exports = {
   PLANS,
   planFor,
+  planIdForProduct,
+  googlePurchaseProblem,
+  googleModeFor,
+  googleOrderId,
   isLifetime,
   nextEntitlement,
   purchaseBlockedReason,
