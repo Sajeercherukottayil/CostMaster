@@ -72,3 +72,17 @@ footer {
   text-align: center;
 }
 footer a { color: var(--muted); }
+.hero { text-align: center; padding: 8px 0 4px; }
+.hero img { border-radius: 20px; }
+.button {
+  display: inline-block;
+  background: #F97316;
+  color: #fff;
+  font-weight: 800;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 14px 28px;
+  margin: 8px 0 4px;
+}
+.small { color: var(--muted); font-size: 14px; }
